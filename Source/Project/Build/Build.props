@@ -24,6 +24,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/RegionOrebroLan/.NET-Localization-Extensions/</PackageProjectUrl>
+		<PackageReleaseNotes>https://github.com/RegionOrebroLan/.NET-Localization-Extensions/releases/</PackageReleaseNotes>
 		<PackageTags>json json-based json-based-localization json-localization localization path path-based path-based-localization path-localization xml xml-based xml-based-localization xml-localization</PackageTags>
 	</PropertyGroup>
 </Project>

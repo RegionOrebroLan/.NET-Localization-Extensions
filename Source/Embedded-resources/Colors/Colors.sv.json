@@ -1,0 +1,20 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "sv",
+				"Entries": {
+					"Blue": {
+						"Value": "Blå: sv, \"\\Embedded-resources\\Colors\\Colors.sv.json\""
+					},
+					"Green": {
+						"Value": "Grön: sv, \"\\Embedded-resources\\Colors\\Colors.sv.json\""
+					},
+					"Red": {
+						"Value": "Röd: sv, \"\\Embedded-resources\\Colors\\Colors.sv.json\""
+					}
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"Localization": {
+		"EmbeddedResourceAssemblies": [
+			"Animals",
+			"Colors",
+			"Numbers",
+			"Prioritized-words",
+			"Root-namespaced-resources",
+			"Words"
+		],
+		"FileResourcesDirectoryPath": null
+	}
+}

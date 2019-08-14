@@ -1,0 +1,85 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "sv",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Words",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "Adjectives",
+										"Nodes": [
+											{
+												"Node": {
+													"Name": "Some",
+													"Entries": {
+														"Big": {
+															"Value": "Stor: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+														},
+														"Small": {
+															"Value": "Liten: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+														}
+													}
+												}
+											},
+											{
+												"Node": {
+													"Name": "Other",
+													"Entries": {
+														"Old": {
+															"Value": "Gammal: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+														},
+														"Young": {
+															"Value": "Ung: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+														}
+													}
+												}
+											}
+										]
+									}
+								}
+							],
+							"Entries": {
+								"No": {
+									"Value": "Nej: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+								},
+								"Yes": {
+									"Value": "Ja: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Words.Verbs.Some",
+							"Entries": {
+								"Jump": {
+									"Value": "Hoppa: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+								},
+								"Run": {
+									"Value": "Springa: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Words/Verbs/Other",
+							"Entries": {
+								"Fly": {
+									"Value": "Flyga: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+								},
+								"Swim": {
+									"Value": "Simma: sv, \"\\Embedded-resources\\Words\\Other\\sv\\Words.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

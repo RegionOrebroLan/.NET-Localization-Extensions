@@ -1,0 +1,73 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Numbers",
+							"Entries": {
+								"One": {
+									"Value": "One: en, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								},
+								"Two": {
+									"Value": "Two: en, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								},
+								"Three": {
+									"Value": "Three: en, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"Culture": {
+				"Name": "fi",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Numbers",
+							"Entries": {
+								"One": {
+									"Value": "Yksi: fi, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								},
+								"Two": {
+									"Value": "Kaksi: fi, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								},
+								"Three": {
+									"Value": "Kolme: fi, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"Culture": {
+				"Name": "sv",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Numbers",
+							"Entries": {
+								"One": {
+									"Value": "Ett: sv, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								},
+								"Two": {
+									"Value": "Två: sv, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								},
+								"Three": {
+									"Value": "Tre: sv, \"\\Embedded-resources\\Numbers\\Numbers.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

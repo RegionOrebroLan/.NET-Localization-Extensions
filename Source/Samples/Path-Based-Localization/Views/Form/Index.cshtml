@@ -1,0 +1,21 @@
+﻿@model IFormViewModel
+@if(Model.SuccessfullyPosted)
+{
+	<div class="alert alert-success">
+		<h2>@Localizer.GetString("Confirmation")</h2>
+		<p>@Localizer.GetString("The form was posted successfully.")</p>
+	</div>
+}
+else if(!this.ViewContext.ModelState.IsValid)
+{
+	<div class="alert alert-danger">
+		<h2>@Localizer.GetString("Invalid input")</h2>
+		<ul>
+			@foreach(var error in this.ViewContext.ModelState.Values.SelectMany(value => value.Errors).Select(error => error.ErrorMessage))
+			{
+				<li>@error</li>
+			}
+		</ul>
+	</div>
+}
+<partial model="@Model.Form" name="Form.cshtml" />

@@ -1,0 +1,25 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Duplicates",
+							"Entries": {
+								"Entry": {
+									"Value": "First-entry-value"
+								},
+								"Entry": {
+									"Value": "Second-entry-value"
+								}
+							}
+						}
+					}
+
+				]
+			}
+		}
+	]
+}

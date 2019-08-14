@@ -1,0 +1,9 @@
+{
+	"Localization": {
+		"EmbeddedResourceAssemblies": [
+			"System.Private.CoreLib",
+			null,
+			"System"
+		]
+	}
+}

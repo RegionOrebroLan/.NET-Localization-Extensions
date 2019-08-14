@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
+		<DelaySign>false</DelaySign>
+		<RootNamespace>RootNamespacedResources</RootNamespace>
+		<SignAssembly>true</SignAssembly>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="2.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Examples.json" />
+		<EmbeddedResource Include="Examples.json" />
+	</ItemGroup>
+</Project>

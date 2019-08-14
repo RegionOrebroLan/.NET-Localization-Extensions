@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
+		<DelaySign>false</DelaySign>
+		<RootNamespace>Animals</RootNamespace>
+		<SignAssembly>true</SignAssembly>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Animals.en.xml" />
+		<None Remove="Animals.xml" />
+		<None Remove="Invalid.xml" />
+		<None Remove="Invalid-attribute.xml" />
+		<None Remove="Invalid-culture-attribute.xml" />
+		<None Remove="Invalid-node-attribute.xml" />
+		<EmbeddedResource Include="Animals.en.xml" />
+		<EmbeddedResource Include="Animals.xml" />
+		<EmbeddedResource Include="Invalid.xml" />
+		<EmbeddedResource Include="Invalid-attribute.xml" />
+		<EmbeddedResource Include="Invalid-culture-attribute.xml" />
+		<EmbeddedResource Include="Invalid-node-attribute.xml" />
+	</ItemGroup>
+</Project>

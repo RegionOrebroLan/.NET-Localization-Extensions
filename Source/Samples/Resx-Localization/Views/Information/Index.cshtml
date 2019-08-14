@@ -1,0 +1,151 @@
+﻿@model IInformationViewModel
+<p>@Localizer.GetString("Text")</p>
+<h2>@Localizer.GetString("Context")</h2>
+<h3>@Localizer.GetString("Route-values")</h3>
+@if(Model.RouteDictionary.Any())
+{
+	<ul>
+		@foreach(var key in Model.RouteDictionary.Keys)
+		{
+			<li>@key: <strong>@Model.RouteDictionary[key]</strong></li>
+		}
+	</ul>
+}
+else
+{
+	<p>
+		<i>@Localizer.GetString("No route-values.")</i>
+	</p>
+}
+<h3>@Localizer.GetString("Culture-cookie")</h3>
+@if(Model.Layout.CultureCookieValue != null)
+{
+	<ul>
+		<li>@Model.Layout.CultureCookieName: <strong>@Model.Layout.CultureCookieValue</strong></li>
+	</ul>
+}
+else
+{
+	<p>
+		<i>@Localizer.GetString("No culture-cookie.")</i>
+	</p>
+}
+<h2>@Localizer.GetString("Features")</h2>
+<h3>@Localizer.GetString("IRequestCultureFeature")</h3>
+<ul>
+	<li>
+		<strong>@Localizer.GetString("RequestCulture"):</strong>
+		<ul>
+			<li>@Localizer.GetString("Culture"): <strong>@Model.RequestCultureFeature.RequestCulture.Culture</strong> - @Model.RequestCultureFeature.RequestCulture.Culture.NativeName</li>
+			<li>@Localizer.GetString("UI-culture"): <strong>@Model.RequestCultureFeature.RequestCulture.UICulture</strong> - @Model.RequestCultureFeature.RequestCulture.UICulture.NativeName</li>
+		</ul>
+	</li>
+	<li>@Localizer.GetString("Provider"): <strong>@(Model.RequestCultureFeature.Provider?.GetType()?.ToString() ?? "NULL")</strong></li>
+</ul>
+<h2>@Localizer.GetString("Settings")</h2>
+<h3>@Localizer.GetString("Request-localization-options")</h3>
+<ul>
+	<li>
+		<strong>@Localizer.GetString("DefaultRequestCulture"):</strong>
+		<ul>
+			<li>@Localizer.GetString("Culture"): <strong>@Model.RequestLocalizationOptions.DefaultRequestCulture.Culture</strong></li>
+			<li>@Localizer.GetString("UI-culture"): <strong>@Model.RequestLocalizationOptions.DefaultRequestCulture.UICulture</strong></li>
+		</ul>
+	</li>
+	<li>@Localizer.GetString("FallBackToParentCultures"): <strong>@Model.RequestLocalizationOptions.FallBackToParentCultures</strong></li>
+	<li>@Localizer.GetString("FallBackToParentUICultures"): <strong>@Model.RequestLocalizationOptions.FallBackToParentUICultures</strong></li>
+	<li>
+		<strong>@Localizer.GetString("RequestCultureProviders"):</strong>
+		@if(Model.RequestLocalizationOptions.RequestCultureProviders.Any())
+		{
+			<ol>
+				@foreach(var provider in Model.RequestLocalizationOptions.RequestCultureProviders)
+				{
+					<li>
+						<strong>@provider, @provider.GetType().Assembly.GetName().Name</strong>
+					</li>
+				}
+			</ol>
+		}
+	</li>
+	<li class="button-list-item">
+		<button class="btn btn-primary" data-target="#supported-cultures-modal" data-toggle="modal" type="button">
+			@Localizer.GetString("Supported cultures")
+		</button>
+		<div aria-hidden="true" aria-labelledby="supported-cultures-modal-label" class="culture-list-modal modal fade" id="supported-cultures-modal" role="dialog" tabindex="-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="supported-cultures-modal-label">@Localizer.GetString("Supported cultures")</h5>
+						<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						@if(Model.RequestLocalizationOptions.SupportedCultures.Any())
+						{
+							<ol>
+								@foreach(var culture in Model.RequestLocalizationOptions.SupportedCultures)
+								{
+									<li>
+										<a href="?culture=@culture" title="@Localizer.GetString("As query-string.")">
+											<strong>@culture</strong>
+										</a> - @culture.NativeName</li>
+								}
+							</ol>
+						}
+						else
+						{
+							<p>
+								<i>@Localizer.GetString("No supported cultures.")</i>
+							</p>
+						}
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal" type="button">@Localizer.GetString("Close")</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="button-list-item">
+		<button class="btn btn-primary" data-target="#supported-ui-cultures-modal" data-toggle="modal" type="button">
+			@Localizer.GetString("Supported ui-cultures")
+		</button>
+		<div aria-hidden="true" aria-labelledby="supported-ui-cultures-modal-label" class="culture-list-modal modal fade" id="supported-ui-cultures-modal" role="dialog" tabindex="-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="supported-ui-cultures-modal-label">@Localizer.GetString("Supported ui-cultures")</h5>
+						<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						@if(Model.RequestLocalizationOptions.SupportedUICultures.Any())
+						{
+							<ol>
+								@foreach(var culture in Model.RequestLocalizationOptions.SupportedUICultures)
+								{
+									<li>
+										<a href="?ui-culture=@culture" title="@Localizer.GetString("As query-string.")">
+											<strong>@culture</strong>
+										</a> - @culture.NativeName</li>
+								}
+							</ol>
+						}
+						else
+						{
+							<p>
+								<i>@Localizer.GetString("No supported ui-cultures.")</i>
+							</p>
+						}
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal" type="button">@Localizer.GetString("Close")</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>

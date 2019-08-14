@@ -1,0 +1,38 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "fi",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Controllers",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "HomeController",
+										"Entries": {
+											"First-text": {
+												"Value": "Ensimmäinen teksti: fi, \"\\Integration-tests\\Resources\\Texts.fi.json\""
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"Node": {
+							"Name": "Controllers.HomeController",
+							"Entries": {
+								"Second-text": {
+									"Value": "Muu teksti: fi, \"\\Integration-tests\\Resources\\Texts.fi.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

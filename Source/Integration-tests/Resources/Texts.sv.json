@@ -1,0 +1,38 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "sv",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Controllers",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "HomeController",
+										"Entries": {
+											"First-text": {
+												"Value": "Första text: sv, \"\\Integration-tests\\Resources\\Texts.sv.json\""
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"Node": {
+							"Name": "Controllers.HomeController",
+							"Entries": {
+								"Second-text": {
+									"Value": "Andra text: sv, \"\\Integration-tests\\Resources\\Texts.sv.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

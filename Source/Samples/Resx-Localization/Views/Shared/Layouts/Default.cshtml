@@ -1,0 +1,125 @@
+﻿@using Microsoft.Extensions.Localization
+@model IViewModel
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>@Model.Localizer.GetString("Heading") · @Localizer.GetString("Title")</title>
+		<link href="/Style/bootstrap.css" rel="stylesheet" />
+		<link href="/Style/site.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				@if(Model.Layout.MainNavigation != null)
+				{
+					<a class="navbar-brand" href="@Model.Layout.MainNavigation.Url" title="@Model.Layout.MainNavigation.Tooltip">
+						<svg class="d-block mx-auto" fill="none" focusable="false" height="24" role="img" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="12" cy="12" r="10" />
+							<path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+						</svg>
+					</a>
+				}
+				<button aria-controls="navigation" aria-expanded="false" aria-label="@Localizer.GetString("Toggle navigation")" class="navbar-toggler" data-target="#navigation" data-toggle="collapse" type="button">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navigation">
+					@if(Model.Layout.MainNavigation != null && Model.Layout.MainNavigation.Children.Any())
+					{
+						<ul class="navbar-nav mr-auto">
+							@foreach(var item in Model.Layout.MainNavigation.Children)
+							{
+								<li class="nav-item@(item.Active ? " active" : string.Empty)">
+									<a class="nav-link" href="@item.Url" title="@item.Tooltip">@item.Text</a>
+								</li>
+							}
+						</ul>
+					}
+					<ul class="navbar-nav">
+						@if(Model.Layout.CultureNavigation != null && Model.Layout.CultureNavigation.Children.Any())
+						{
+							<li class="nav-item dropdown@(Model.Layout.CultureNavigation.Active ? " active" : string.Empty)">
+								<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="culture-selector" title="@Model.Layout.CultureNavigation.Tooltip">@Model.Layout.CultureNavigation.Text</a>
+								<div class="dropdown-menu" aria-labelledby="culture-selector">
+									@foreach(var item in Model.Layout.CultureNavigation.Children)
+									{
+										<a class="dropdown-item@(item.Active ? " active" : string.Empty)" href="@item.Url" title="@item.Tooltip">@item.Text</a>
+									}
+								</div>
+							</li>
+						}
+						@if(Model.Layout.CultureNavigation != null && Model.Layout.UiCultureNavigation.Children.Any())
+						{
+							<li class="nav-item dropdown@(Model.Layout.UiCultureNavigation.Active ? " active" : string.Empty)">
+								<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="ui-culture-selector" title="@Model.Layout.UiCultureNavigation.Tooltip">@Model.Layout.UiCultureNavigation.Text</a>
+								<div class="dropdown-menu" aria-labelledby="ui-culture-selector">
+									@foreach(var item in Model.Layout.UiCultureNavigation.Children)
+									{
+										<a class="dropdown-item@(item.Active ? " active" : string.Empty)" href="@item.Url" title="@item.Tooltip">@item.Text</a>
+									}
+								</div>
+							</li>
+						}
+					</ul>
+					<form asp-action="SaveCookie">
+						<input name="Culture" type="hidden" value="@Model.Layout.Culture" />
+						<input name="ReturnUrl" type="hidden" value="@(Context.Request.Path + Context.Request.QueryString)" />
+						<input name="UiCulture" type="hidden" value="@Model.Layout.UiCulture" />
+						<button class="btn btn-primary" title="@Localizer.GetString("Save culture-cookie.")" type="submit">@Localizer.GetString("Save")</button>
+					</form>
+					@if(Model.Layout.CultureCookieValue != null)
+					{
+						<form asp-action="DeleteCookie">
+							<input name="ReturnUrl" type="hidden" value="@(Context.Request.Path + Context.Request.QueryString)" />
+							<button class="btn btn-warning" title="@Localizer.GetString("Delete culture-cookie.")" type="submit">@Localizer.GetString("Delete")</button>
+						</form>
+					}
+				</div>
+			</nav>
+		</header>
+		<main class="container" role="main">
+			<section class="jumbotron">
+				<div class="row">
+					<div class="col-md-8">
+						<h1>@Model.Localizer.GetString("Heading")</h1>
+						@RenderBody()
+					</div>
+					<div class="col-md-4 text-break">
+						<div class="bg-light-blue certificate-information p-3 rounded-lg">
+							<h1>@Localizer.GetString("Certificate")</h1>
+							@if(Model.Layout.Certificate != null)
+							{
+								<dl>
+									<dt>@Localizer.GetString("Thumbprint"):</dt>
+									<dd>@Model.Layout.Certificate.Thumbprint</dd>
+									<dt>@Localizer.GetString("Subject"):</dt>
+									<dd>@Model.Layout.Certificate.Subject</dd>
+									<dt>@Localizer.GetString("Issuer"):</dt>
+									<dd>@Model.Layout.Certificate.Issuer</dd>
+									<dt>@Localizer.GetString("Serial-number"):</dt>
+									<dd>@Model.Layout.Certificate.SerialNumber</dd>
+									<dt>@Localizer.GetString("Friendly-name"):</dt>
+									<dd>@Model.Layout.Certificate.FriendlyName</dd>
+								</dl>
+							}
+							else
+							{
+								<p>
+									<i>@Localizer.GetString("No connected certificate.").</i>
+								</p>
+							}
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<hr />
+			<p class="text-center">Region Örebro län · @Localizer.GetString("Title")</p>
+		</footer>
+		<script src="/Scripts/jquery.js"></script>
+		<script src="/Scripts/popper.js"></script>
+		<script src="/Scripts/bootstrap.js"></script>
+	</body>
+</html>

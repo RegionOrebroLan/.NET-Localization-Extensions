@@ -1,0 +1,17 @@
+﻿@model IHomeViewModel
+<p>@Localizer.GetString("Description")</p>
+<h2>@Localizer.GetString("Cultures")</h2>
+<ul>
+	<li>@Localizer.GetString("Culture"): <strong>@Model.Layout.Culture.Name</strong></li>
+	<li>@Localizer.GetString("UI-culture"): <strong>@Model.Layout.UiCulture.Name</strong></li>
+</ul>
+<h2>@Localizer.GetString("Date-time example")</h2>
+<ul>
+	<li>DateTime.Now.ToLongDateString(): <strong>@Model.Now.ToLongDateString()</strong></li>
+	<li>DateTime.Now.ToLongTimeString(): <strong>@Model.Now.ToLongTimeString()</strong></li>
+</ul>
+<h2>@Localizer.GetString("Currency example")</h2>
+<ul>
+	<li>CurrentCulture.NumberFormat.CurrencySymbol: <strong>@Model.Layout.Culture.NumberFormat.CurrencySymbol</strong></li>
+	<li>CurrentUICulture.NumberFormat.CurrencySymbol: <strong>@Model.Layout.UiCulture.NumberFormat.CurrencySymbol</strong></li>
+</ul>

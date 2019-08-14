@@ -1,0 +1,55 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Examples",
+							"Entries": {
+								"First-example": {
+									"Value": "First example: en, \"\\Embedded-resources\\Root-namespaced-resources\\Examples.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"Culture": {
+				"Name": "fi",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Examples",
+							"Entries": {
+								"First-example": {
+									"Value": "Ensimmäinen esimerkki: fi, \"\\Embedded-resources\\Root-namespaced-resources\\Examples.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"Culture": {
+				"Name": "sv",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Examples",
+							"Entries": {
+								"First-example": {
+									"Value": "Första exemplet: sv, \"\\Embedded-resources\\Root-namespaced-resources\\Examples.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

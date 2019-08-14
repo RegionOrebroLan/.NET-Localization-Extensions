@@ -1,0 +1,20 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "",
+				"Entries": {
+					"Blue": {
+						"Value": "Blue: invariant-culture, \"\\Embedded-resources\\Colors\\Colors.json\""
+					},
+					"Green": {
+						"Value": "Green: invariant-culture, \"\\Embedded-resources\\Colors\\Colors.json\""
+					},
+					"Red": {
+						"Value": "Red: invariant-culture, \"\\Embedded-resources\\Colors\\Colors.json\""
+					}
+				}
+			}
+		}
+	]
+}

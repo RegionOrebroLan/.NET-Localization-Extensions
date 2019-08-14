@@ -1,0 +1,8 @@
+{
+	"Localization": {
+		"EmbeddedResourceAssemblies": [
+			"Numbers",
+			"Prioritized-words"
+		]
+	}
+}

@@ -1,0 +1,1 @@
+# Sample web-application with path-based localization

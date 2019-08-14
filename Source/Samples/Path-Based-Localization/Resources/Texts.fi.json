@@ -1,0 +1,74 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "fi",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Controllers",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "HomeController",
+										"Entries": {
+											"First-text": {
+												"Value": "Ensimmäinen teksti: fi, \"\\Web-application\\Resources\\Texts.fi.json\""
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"Node": {
+							"Name": "Controllers.HomeController",
+							"Entries": {
+								"Second-text": {
+									"Value": "Muu teksti: fi, \"\\Web-application\\Resources\\Texts.fi.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Models",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "Forms",
+										"Nodes": [
+											{
+												"Node": {
+													"Name": "Form",
+													"Entries": {
+														"\"{0}\" is required.": {
+															"Value": "\"{0}\" on pakollinen."
+														},
+														"\"{0}\" must be at least {1} and at most {2}.": {
+															"Value": "\"{0}\" on oltava vähintään {1} ja korkeintaan {2}."
+														},
+														"\"{0}\" must be at least {2} and at most {1} characters long.": {
+															"Value": "\"{0}\" on vähintään {2} ja enintään {1} merkkiä pitkä."
+														},
+														"Age": {
+															"Value": "Ikä"
+														},
+														"Name": {
+															"Value": "Nimi"
+														}
+													}
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
+}

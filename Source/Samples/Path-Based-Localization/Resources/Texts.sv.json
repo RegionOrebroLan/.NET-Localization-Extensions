@@ -1,0 +1,74 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "sv",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Controllers",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "HomeController",
+										"Entries": {
+											"First-text": {
+												"Value": "Första text: sv, \"\\Web-application\\Resources\\Texts.sv.json\""
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"Node": {
+							"Name": "Controllers.HomeController",
+							"Entries": {
+								"Second-text": {
+									"Value": "Andra text: sv, \"\\Web-application\\Resources\\Texts.sv.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Models",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "Forms",
+										"Nodes": [
+											{
+												"Node": {
+													"Name": "Form",
+													"Entries": {
+														"\"{0}\" is required.": {
+															"Value": "\"{0}\" är obligatoriskt."
+														},
+														"\"{0}\" must be at least {1} and at most {2}.": {
+															"Value": "\"{0}\" måste vara minst {1} och högst {2}."
+														},
+														"\"{0}\" must be at least {2} and at most {1} characters long.": {
+															"Value": "\"{0}\" måste vara minst {2} och högst {1} tecken lång."
+														},
+														"Age": {
+															"Value": "Ålder"
+														},
+														"Name": {
+															"Value": "Namn"
+														}
+													}
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "fi",
+				"Entries": {
+					"Blue": {
+						"Value": "Sininen: fi, \"\\Embedded-resources\\Colors\\Colors.fi.json\""
+					},
+					"Green": {
+						"Value": "Vihreä: fi, \"\\Embedded-resources\\Colors\\Colors.fi.json\""
+					},
+					"Red": {
+						"Value": "Punainen: fi, \"\\Embedded-resources\\Colors\\Colors.fi.json\""
+					}
+				}
+			}
+		}
+	]
+}

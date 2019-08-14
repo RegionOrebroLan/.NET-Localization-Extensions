@@ -1,0 +1,94 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Priority": 1000,
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Common",
+							"Entries": {
+								"No": {
+									"Value": "No"
+								},
+								"Yes": {
+									"Value": "Yes"
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Controllers",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "HomeController",
+										"Nodes": [],
+										"Entries": {
+											"No": {
+												"Value": "No"
+											},
+											"Yes": {
+												"Lookup": "Common.Yes"
+											}
+										}
+									}
+								}
+							],
+							"Entries": {
+								"First": {
+									"Value": "First-value"
+								},
+								"Second": {
+									"Value": "Second-value"
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"Culture": {
+				"Name": "sv",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Common",
+							"Nodes": [],
+							"Entries": {
+								"No": {
+									"Lookup": "Controllers.HomeController.No"
+								},
+								"Test": {
+									"Value": "å Å ä Ä ö Ö"
+								},
+								"Yes": {
+									"Value": "Ja"
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Controllers.HomeController",
+							"Entries": {
+								"No": {
+									"Value": "Nej"
+								},
+								"Test": {
+									"Value": "å Å ä Ä ö Ö"
+								},
+								"Yes": {
+									"Value": "Ja"
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

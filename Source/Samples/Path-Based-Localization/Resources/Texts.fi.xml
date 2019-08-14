@@ -1,0 +1,165 @@
+<cultures>
+	<culture name="fi">
+		<common>
+			<certificate>Todistus</certificate>
+			<culture>Kulttuuri</culture>
+			<form>Muoto</form>
+			<home>Koti</home>
+			<information>Tiedot</information>
+			<localization>Lokalisointi</localization>
+			<ui-culture>UI-kulttuuri</ui-culture>
+		</common>
+		<company>
+			<webApplication>
+				<views>
+					<certificate>
+						<index>
+							<text>Tämä sivu neuvottelee varmenteista.</text>
+						</index>
+					</certificate>
+					<form>
+						<form>
+							<send>Lähettää</send>
+						</form>
+						<index>
+							<confirmation>Vahvistus</confirmation>
+							<invalid-input name="Invalid input">Virheellinen syöte</invalid-input>
+							<the-form-was-posted-successfully name="The form was posted successfully.">Lomake lähetettiin onnistuneesti.</the-form-was-posted-successfully>
+						</index>
+					</form>
+					<home>
+						<index>
+							<culture lookup="common.culture" />
+							<cultures>Sivulle valitut kulttuurit</cultures>
+							<currency-example name="Currency example">Esimerkki valuutasta</currency-example>
+							<date-time-example name="Date-time example">Päivämäärä/aika-esimerkki</date-time-example>
+							<description>Tämä on esimerkki web-sovelluksesta, joka on rakennettu ASP.NET Core -markkinoinnin ja lokalisoinnin kanssa polkupohjaisella lokalisoinnilla (json/xml).</description>
+							<ui-culture lookup="common.ui-culture" />
+						</index>
+					</home>
+					<information>
+						<index>
+							<as-query-string name="As query-string.">Kyselymerkkijonona.</as-query-string>
+							<close>kiinni</close>
+							<context>konteksti</context>
+							<culture lookup="common.culture" />
+							<culture-cookie>Kulttuuri-eväste</culture-cookie>
+							<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
+							<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
+							<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
+							<features>ominaisuudet</features>
+							<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
+							<no-culture-cookie name="No culture-cookie.">Ei kulttuurievästeitä.</no-culture-cookie>
+							<no-route-values name="No route-values.">Ei reitti-arvoja.</no-route-values>
+							<no-supported-cultures name="No supported cultures.">Ei tuettuja kulttuureja.</no-supported-cultures>
+							<no-supported-ui-cultures name="No supported ui-cultures.">Ei tuettuja ui-kulttuureja.</no-supported-ui-cultures>
+							<provider>toimittaja</provider>
+							<requestCulture>Request-kulttuuri</requestCulture>
+							<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
+							<request-localization-options>Request-localization-options</request-localization-options>
+							<route-values>Reitti-arvot</route-values>
+							<settings>asetukset</settings>
+							<supported-cultures name="Supported cultures">Tuetut kulttuurit</supported-cultures>
+							<supported-ui-cultures name="Supported ui-cultures">Tuetut ui-kulttuurit</supported-ui-cultures>
+							<text>Tällä sivulla on järjestelmätietoja.</text>
+							<ui-culture lookup="common.ui-culture" />
+						</index>
+					</information>
+					<localization>
+						<index>
+							<culture lookup="common.culture" />
+							<cultures lookup="company.webApplication.views.home.index.cultures" />
+							<information lookup="common.information" />
+							<localized-strings name="Localized strings">Paikalliset merkkijonot</localized-strings>
+							<localizers>Konfiguroidut lokalisoijat</localizers>
+							<names>Määritetyt avaimet/nimet</names>
+							<no-localized-strings name="No localized strings.">Ei paikallisia merkkijonoja.</no-localized-strings>
+							<no-localizers name="No localizers.">Ei määritettyjä lokalisoijia.</no-localizers>
+							<no-names name="No names.">Ei määritettyjä nimiä.</no-names>
+							<text>Täällä voit nähdä/testata paikallisia merkkijonoja.</text>
+							<ui-culture lookup="common.ui-culture" />
+							<view-localizer>Tämän näkymän lokalisoija</view-localizer>
+							<view-localizer-description>Tämän näkymän lokalisoija on injektoitu IViewLocalizer.</view-localizer-description>
+						</index>
+					</localization>
+					<shared>
+						<layouts>
+							<default>
+								<certificate lookup="common.certificate" />
+								<delete>Poistaa</delete>
+								<delete-culture-cookie name="Delete culture-cookie.">Poista kulttuurieväste.</delete-culture-cookie>
+								<friendly-name>Ystävällinen nimi</friendly-name>
+								<issuer>liikkeeseenlaskijan</issuer>
+								<no-connected-certificate name="No connected certificate.">Ei kytkettyä varmennetta.</no-connected-certificate>
+								<save>Tallentaa</save>
+								<save-culture-cookie name="Save culture-cookie.">Säästä kulttuuri-eväste.</save-culture-cookie>
+								<serial-number>Sarjanumero</serial-number>
+								<subject>aihe</subject>
+								<thumbprint>sormenjälki</thumbprint>
+								<title>Globalisoitu ja lokalisoitu web-sovellus</title>
+								<toggle-navigation name="Toggle navigation">Vaihda navigointi</toggle-navigation>
+							</default>
+						</layouts>
+					</shared>
+				</views>
+			</webApplication>
+		</company>
+		<models>
+			<viewModels>
+				<certificateViewModel>
+					<heading>Certificate-sivun</heading>
+				</certificateViewModel>
+				<formViewModel>
+					<heading>Form-sivun</heading>
+				</formViewModel>
+				<homeViewModel>
+					<heading>Aloitussivu</heading>
+				</homeViewModel>
+				<informationViewModel>
+					<heading>Information-sivu</heading>
+				</informationViewModel>
+				<localizationViewModel>
+					<heading>Localizer-sivun</heading>
+					<select-a-localizer name="Select a localizer">Valitse lokalisoija</select-a-localizer>
+				</localizationViewModel>
+				<shared>
+					<layout>
+						<a-cookie name="a cookie">keksi</a-cookie>
+						<clear name="- Clear -">- Asia selvä -</clear>
+						<certificate lookup="common.certificate" />
+						<clear-the-url-selected-culture name="Clear the url-selected culture.">Poista URL-valittu kulttuuri.</clear-the-url-selected-culture>
+						<cookie>pikkuleipä</cookie>
+						<culture-from-0-1 name="Culture from {0}: {1}">Kulttuuri {0}: {1}</culture-from-0-1>
+						<default-setting>Oletusasetus</default-setting>
+						<form lookup="common.form" />
+						<header>ylätunniste</header>
+						<home lookup="common.home" />
+						<information lookup="common.information" />
+						<localization lookup="common.localization" />
+						<navigate-to-0 name="Navigate to {0}.">Siirry kohtaan {0}.</navigate-to-0>
+						<or-the-default-settings name="or the default settings">tai oletusasetukset</or-the-default-settings>
+						<query-string>query string</query-string>
+						<select-a-culture name="Select a culture.">Valitse kulttuuri.</select-a-culture>
+						<select-a-ui-culture name="Select a ui-culture.">Valitse ui-kulttuuri.</select-a-ui-culture>
+						<select-culture-0 name="Select culture {0}.">Valitse kulttuuri {0}.</select-culture-0>
+						<the-certificate-page name="the certificate-page">sertifikaattisivu</the-certificate-page>
+						<the-culture-route-key-of name="the culture-route-key of">kulttuurireitti-avain</the-culture-route-key-of>
+						<the-current-culture-is-determined-by-0 name="The current culture is determined by {0}.">Nykyisen kulttuurin määrää {0}.</the-current-culture-is-determined-by-0>
+						<the-current-ui-culture-is-determined-by-0 name="The current ui-culture is determined by {0}.">Nykyinen ui-kulttuuri määritetään {0}.</the-current-ui-culture-is-determined-by-0>
+						<the-default-settings name="the default settings">oletusasetukset</the-default-settings>
+						<the-form-page name="the form-page">lomake-sivu</the-form-page>
+						<the-home-page name="the home-page">kotisivulle</the-home-page>
+						<the-information-page name="the information-page">tietosivu</the-information-page>
+						<the-localization-page name="the localization-page">lokalisointisivu</the-localization-page>
+						<the-query-string name="the query-string">kyselymerkkijono</the-query-string>
+						<the-request-header name="the request-header (browser-settings)">pyyntöotsikko (selaimen asetukset)</the-request-header>
+						<the-ui-culture-route-key-of name="the ui-culture-route-key of">ui-kulttuuri-reitti-avain</the-ui-culture-route-key-of>
+						<the-url name="the url">URL</the-url>
+						<ui-culture-from-0-1 name="UI-culture from {0}: {1}">Käyttöliittymän kulttuuri {0}: {1}</ui-culture-from-0-1>
+						<url>url</url>
+					</layout>
+				</shared>
+			</viewModels>
+		</models>
+	</culture>
+</cultures>

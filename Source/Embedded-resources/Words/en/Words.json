@@ -1,0 +1,85 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Words",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "Adjectives",
+										"Nodes": [
+											{
+												"Node": {
+													"Name": "Some",
+													"Entries": {
+														"Big": {
+															"Value": "Big: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+														},
+														"Small": {
+															"Value": "Small: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+														}
+													}
+												}
+											},
+											{
+												"Node": {
+													"Name": "Other",
+													"Entries": {
+														"Old": {
+															"Value": "Old: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+														},
+														"Young": {
+															"Value": "Young: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+														}
+													}
+												}
+											}
+										]
+									}
+								}
+							],
+							"Entries": {
+								"No": {
+									"Value": "No: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+								},
+								"Yes": {
+									"Value": "Yes: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Words.Verbs.Some",
+							"Entries": {
+								"Jump": {
+									"Value": "Jump: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+								},
+								"Run": {
+									"Value": "Run: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Words/Verbs/Other",
+							"Entries": {
+								"Fly": {
+									"Value": "Fly: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+								},
+								"Swim": {
+									"Value": "Swim: en, \"\\Embedded-resources\\Words\\en\\Words.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,6 @@
+﻿@model Form
+@using(Html.BeginForm())
+{
+	@Html.EditorFor(model => model)
+	<button type="submit">@Localizer.GetString("Send")</button>
+}

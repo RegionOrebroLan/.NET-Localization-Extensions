@@ -1,0 +1,18 @@
+<cultures>
+	<culture name="sv-LL">
+		<views>
+			<home>
+				<index>
+					<description>Exempel på en webb-applikation med språkstöd (lättläst).</description>
+				</index>
+			</home>
+			<shared>
+				<layouts>
+					<default>
+						<title>Webb-applikation med språkstöd (lättläst)</title>
+					</default>
+				</layouts>
+			</shared>
+		</views>
+	</culture>
+</cultures>

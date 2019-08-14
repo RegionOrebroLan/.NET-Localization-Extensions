@@ -1,0 +1,58 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Priority": 100,
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Words\\Adjectives\\Other",
+							"Entries": {
+								"Old": {
+									"Value": "Old (prioritized): en, \"\\Embedded-resources\\Prioritized-words\\Prioritized-words.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"Culture": {
+				"Name": "fi",
+				"Priority": 100,
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Words\\Adjectives\\Some",
+							"Entries": {
+								"Big": {
+									"Value": "Iso (etusijalle): fi, \"\\Embedded-resources\\Prioritized-words\\Prioritized-words.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"Culture": {
+				"Name": "sv",
+				"Priority": 100,
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Words\\Adjectives\\Other",
+							"Entries": {
+								"Young": {
+									"Value": "Ung (prioriterad): sv, \"\\Embedded-resources\\Prioritized-words\\Prioritized-words.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

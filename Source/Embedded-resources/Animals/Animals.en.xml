@@ -1,0 +1,17 @@
+<cultures>
+	<culture name="en">
+		<cat>Cat</cat>
+		<dog>Dog</dog>
+		<the>
+			<big>
+				<five>
+					<buffalo>Buffalo</buffalo>
+					<elephant>Elephant</elephant>
+					<leopard>Leopard</leopard>
+					<lion>Lion</lion>
+					<rhinoceros>Rhinoceros</rhinoceros>
+				</five>
+			</big>
+		</the>
+	</culture>
+</cultures>

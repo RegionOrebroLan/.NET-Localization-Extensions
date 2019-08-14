@@ -1,0 +1,165 @@
+<cultures>
+	<culture name="de">
+		<common>
+			<certificate>Zertifikat</certificate>
+			<culture>Kultur</culture>
+			<form>Bilden</form>
+			<home>Zuhause</home>
+			<information>Information</information>
+			<localization>Lokalisierung</localization>
+			<ui-culture>UI-Kultur</ui-culture>
+		</common>
+		<company>
+			<webApplication>
+				<views>
+					<certificate>
+						<index>
+							<text>Diese Seite handelt Zertifikate aus.</text>
+						</index>
+					</certificate>
+					<form>
+						<form>
+							<send>Senden</send>
+						</form>
+						<index>
+							<confirmation>Bestätigung</confirmation>
+							<invalid-input name="Invalid input">Ungültige Eingabe</invalid-input>
+							<the-form-was-posted-successfully name="The form was posted successfully.">Das Formular wurde erfolgreich gepostet.</the-form-was-posted-successfully>
+						</index>
+					</form>
+					<home>
+						<index>
+							<culture lookup="common.culture" />
+							<cultures>Ausgewählte Kulturen für die Seite</cultures>
+							<currency-example name="Currency example">Währungsbeispiel</currency-example>
+							<date-time-example name="Date-time example">Beispiel für Datum/Uhrzeit</date-time-example>
+							<description>Dies ist ein Beispiel für eine Webanwendung, die mit ASP.NET Core-Globalisierung und -Lokalisierung mit pfadbasierter Lokalisierung (json/xml) erstellt wurde.</description>
+							<ui-culture lookup="common.ui-culture" />
+						</index>
+					</home>
+					<information>
+						<index>
+							<as-query-string name="As query-string.">Als Abfragezeichenfolge.</as-query-string>
+							<close>Schließen</close>
+							<context>Kontext</context>
+							<culture lookup="common.culture" />
+							<culture-cookie>Kultur-Keks</culture-cookie>
+							<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
+							<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
+							<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
+							<features>Eigenschaften</features>
+							<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
+							<no-culture-cookie name="No culture-cookie.">Kein Kultur-Cookie.</no-culture-cookie>
+							<no-route-values name="No route-values.">Keine Routenwerte.</no-route-values>
+							<no-supported-cultures name="No supported cultures.">Keine unterstützten Kulturen.</no-supported-cultures>
+							<no-supported-ui-cultures name="No supported ui-cultures.">Keine unterstützten UI-Kulturen.</no-supported-ui-cultures>
+							<provider>Anbieter</provider>
+							<requestCulture>Anforderungskultur</requestCulture>
+							<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
+							<request-localization-options>Request-localization-options</request-localization-options>
+							<route-values>Routenwerte</route-values>
+							<settings>die Einstellungen</settings>
+							<supported-cultures name="Supported cultures">Unterstützte Kulturen</supported-cultures>
+							<supported-ui-cultures name="Supported ui-cultures">Unterstützte UI-Kulturen</supported-ui-cultures>
+							<text>Diese Seite enthält Systeminformationen.</text>
+							<ui-culture lookup="common.ui-culture" />
+						</index>
+					</information>
+					<localization>
+						<index>
+							<culture lookup="common.culture" />
+							<cultures lookup="company.webApplication.views.home.index.cultures" />
+							<information lookup="common.information" />
+							<localized-strings name="Localized strings">Lokalisierte Zeichenfolgen</localized-strings>
+							<localizers>Konfigurierte Lokalisierer</localizers>
+							<names>Konfigurierte Tasten/Namen</names>
+							<no-localized-strings name="No localized strings.">Keine lokalisierten Zeichenfolgen.</no-localized-strings>
+							<no-localizers name="No localizers.">Keine konfigurierten Lokalisierer.</no-localizers>
+							<no-names name="No names.">Keine konfigurierten Namen.</no-names>
+							<text>Hier können Sie lokalisierte Zeichenfolgen anzeigen/testen.</text>
+							<ui-culture lookup="common.ui-culture" />
+							<view-localizer>Lokalisierer für diese Ansicht</view-localizer>
+							<view-localizer-description>Der Lokalisierer für diese Ansicht ist ein injizierter IViewLocalizer.</view-localizer-description>
+						</index>
+					</localization>
+					<shared>
+						<layouts>
+							<default>
+								<certificate lookup="common.certificate" />
+								<delete>Löschen</delete>
+								<delete-culture-cookie name="Delete culture-cookie.">Kultur-Cookie löschen.</delete-culture-cookie>
+								<friendly-name>Anzeigename</friendly-name>
+								<issuer>Emittent</issuer>
+								<no-connected-certificate name="No connected certificate.">Kein verbundenes Zertifikat.</no-connected-certificate>
+								<save>sparen</save>
+								<save-culture-cookie name="Save culture-cookie.">Kultur-Cookie speichern.</save-culture-cookie>
+								<serial-number>Ordnungsnummer</serial-number>
+								<subject>Gegenstand</subject>
+								<thumbprint>Daumenabdruck</thumbprint>
+								<title>Globalisierte und lokalisierte Webanwendung</title>
+								<toggle-navigation name="Toggle navigation">Navigation umschalten</toggle-navigation>
+							</default>
+						</layouts>
+					</shared>
+				</views>
+			</webApplication>
+		</company>
+		<models>
+			<viewModels>
+				<certificateViewModel>
+					<heading>Zertifikatseite</heading>
+				</certificateViewModel>
+				<formViewModel>
+					<heading>Formularseite</heading>
+				</formViewModel>
+				<homeViewModel>
+					<heading>Startseite</heading>
+				</homeViewModel>
+				<informationViewModel>
+					<heading>Informationsseite</heading>
+				</informationViewModel>
+				<localizationViewModel>
+					<heading>Localizer-Seite</heading>
+					<select-a-localizer name="Select a localizer">Wählen Sie einen Lokalisierer</select-a-localizer>
+				</localizationViewModel>
+				<shared>
+					<layout>
+						<a-cookie name="a cookie">ein Keks</a-cookie>
+						<clear name="- Clear -">- Klar -</clear>
+						<certificate lookup="common.certificate" />
+						<clear-the-url-selected-culture name="Clear the url-selected culture.">Löschen Sie die von der URL ausgewählte Kultur.</clear-the-url-selected-culture>
+						<cookie>Plätzchen</cookie>
+						<culture-from-0-1 name="Culture from {0}: {1}">Kultur von {0}: {1}</culture-from-0-1>
+						<default-setting>Voreinstellung</default-setting>
+						<form lookup="common.form" />
+						<header>Header</header>
+						<home lookup="common.home" />
+						<information lookup="common.information" />
+						<localization lookup="common.localization" />
+						<navigate-to-0 name="Navigate to {0}.">Navigieren Sie zu {0}.</navigate-to-0>
+						<or-the-default-settings name="or the default settings">oder die Standardeinstellungen</or-the-default-settings>
+						<query-string>Abfragezeichenfolge</query-string>
+						<select-a-culture name="Select a culture.">Wählen Sie eine Kultur aus.</select-a-culture>
+						<select-a-ui-culture name="Select a ui-culture.">Wähle eine UI-Kultur.</select-a-ui-culture>
+						<select-culture-0 name="Select culture {0}.">Wählen Sie die Kultur {0} aus.</select-culture-0>
+						<the-certificate-page name="the certificate-page">die Zertifikatseite</the-certificate-page>
+						<the-culture-route-key-of name="the culture-route-key of">der kultur-weg-schlüssel von</the-culture-route-key-of>
+						<the-current-culture-is-determined-by-0 name="The current culture is determined by {0}.">Die aktuelle Kultur wird durch {0} bestimmt.</the-current-culture-is-determined-by-0>
+						<the-current-ui-culture-is-determined-by-0 name="The current ui-culture is determined by {0}.">Die aktuelle UI-Kultur wird durch {0} bestimmt.</the-current-ui-culture-is-determined-by-0>
+						<the-default-settings name="the default settings">die Standardeinstellungen</the-default-settings>
+						<the-form-page name="the form-page">die Formularseite</the-form-page>
+						<the-home-page name="the home-page">die Homepage</the-home-page>
+						<the-information-page name="the information-page">die Informationsseite</the-information-page>
+						<the-localization-page name="the localization-page">die Lokalisierungsseite</the-localization-page>
+						<the-query-string name="the query-string">die Abfragezeichenfolge</the-query-string>
+						<the-request-header name="the request-header (browser-settings)">der Anfrage-Header (Browser-Einstellungen)</the-request-header>
+						<the-ui-culture-route-key-of name="the ui-culture-route-key of">der ui-culture-route-schlüssel von</the-ui-culture-route-key-of>
+						<the-url name="the url">die url</the-url>
+						<ui-culture-from-0-1 name="UI-culture from {0}: {1}">UI-Kultur von {0}: {1}</ui-culture-from-0-1>
+						<url>url</url>
+					</layout>
+				</shared>
+			</viewModels>
+		</models>
+	</culture>
+</cultures>

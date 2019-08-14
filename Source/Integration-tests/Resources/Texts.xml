@@ -1,0 +1,100 @@
+<!-- Comment -->
+
+<!-- Comment -->
+<cultures xmlns:prefix="http://some-site.com">
+	<!-- Comment -->
+	<prefix:culture prefix:name="">
+		<prefix:empty />
+		<prefix:multipleValues>
+
+			<!-- Comment -->
+
+			<!-- Comment -->
+
+			Test-value
+
+			<!-- Comment -->
+
+			<!-- Comment -->
+
+			Test-value
+
+			<!-- Comment -->
+
+			<!-- Comment -->
+
+		</prefix:multipleValues>
+		<prefix:controLLers>
+			<prefix:homeController>
+				<prefix:fifthText prefix:name="Fifth-text">Viides teksti: fi, "\Integration-tests\Resources\Texts.xml"</prefix:fifthText>
+				<prefix:sixthText prefix:lookup="lookups.node" prefix:name="Sixth-text"></prefix:sixthText>
+			</prefix:homeController>
+		</prefix:controLLers>
+		<prefix:lookups>
+			<prefix:node>Kuudes teksti: fi, lookup="lookups.node", "\Integration-tests\Resources\Texts.xml"</prefix:node>
+		</prefix:lookups>
+	</prefix:culture>
+	<culture name="en">
+		<anEmptyEntry name="An-empty-entry"></anEmptyEntry>
+		<anotherEmptyEntry name="Another-empty-entry" />
+		<controllers>
+			<homeController>
+				<fifthText name="Fifth-text">Fifth text: en, "\Integration-tests\Resources\Texts.xml"</fifthText>
+				<sixthText name="Sixth-text">Sixth text: en, "\Integration-tests\Resources\Texts.xml"</sixthText>
+			</homeController>
+		</controllers>
+	</culture>
+	<culture name="fi">
+		<controLLers>
+			<homeController>
+				<fifthText name="Fifth-text">Viides teksti: fi, "\Integration-tests\Resources\Texts.xml"</fifthText>
+				<sixthText lookup="lookups.node" name="Sixth-text"></sixthText>
+			</homeController>
+		</controLLers>
+		<lookups>
+			<node>Kuudes teksti: fi, lookup="lookups.node", "\Integration-tests\Resources\Texts.xml"</node>
+		</lookups>
+	</culture>
+	<culture name="sv">
+		<controllers>
+			<homeController>
+				<fifthText name="Fifth-text">Femte text: sv, "\Integration-tests\Resources\Texts.xml"</fifthText>
+				<sixthText name="Sixth-text">Sjätte text: sv, "\Integration-tests\Resources\Texts.xml"</sixthText>
+			</homeController>
+		</controllers>
+		<Very>
+			<deep>
+				<test>
+					<first>
+						<Second>
+							<third>
+								<fourth>
+									<fifth>
+										<sixth>
+											<seventh>
+												<eighth>
+													<ninth>
+														<tenth>
+															<Text>Väldigt djupt test-värde: sv, "\Integration-tests\Resources\Texts.xml"</Text>
+														</tenth>
+													</ninth>
+												</eighth>
+											</seventh>
+										</sixth>
+									</fifth>
+								</fourth>
+							</third>
+						</Second>
+						<!-- Comment -->
+					</first>
+				</test>
+			</deep>
+		</Very>
+	</culture>
+	<!-- Comment -->
+</cultures>
+<!-- Comment -->
+
+<!-- Comment -->
+
+		

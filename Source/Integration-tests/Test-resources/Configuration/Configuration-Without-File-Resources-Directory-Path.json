@@ -1,0 +1,15 @@
+{
+	"Localization": {
+		"AlphabeticalSorting": false,
+		"EmbeddedResourceAssemblies": [
+			"Animals",
+			"Colors",
+			"Numbers",
+			"Prioritized-words",
+			"Root-namespaced-resources",
+			"Words"
+		],
+		"IncludeParentCultures": true,
+		"ThrowErrors": true
+	}
+}

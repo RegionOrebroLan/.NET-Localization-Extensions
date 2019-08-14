@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
+		<DelaySign>false</DelaySign>
+		<RootNamespace>Colors</RootNamespace>
+		<SignAssembly>true</SignAssembly>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Colors.en.json" />
+		<None Remove="Colors.en.txt" />
+		<None Remove="Colors.fi.json" />
+		<None Remove="Colors.fi.txt" />
+		<None Remove="Colors.json" />
+		<None Remove="Colors.txt" />
+		<None Remove="Colors.sv.json" />
+		<None Remove="Colors.sv.txt" />
+		<EmbeddedResource Include="Colors.en.json" />
+		<EmbeddedResource Include="Colors.en.txt" />
+		<EmbeddedResource Include="Colors.fi.json" />
+		<EmbeddedResource Include="Colors.fi.txt" />
+		<EmbeddedResource Include="Colors.json" />
+		<EmbeddedResource Include="Colors.txt" />
+		<EmbeddedResource Include="Colors.sv.json" />
+		<EmbeddedResource Include="Colors.sv.txt" />
+	</ItemGroup>
+</Project>

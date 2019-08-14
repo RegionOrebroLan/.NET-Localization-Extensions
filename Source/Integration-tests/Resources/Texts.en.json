@@ -1,0 +1,132 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Controllers",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "HomeController",
+										"Entries": {
+											"First-text": {
+												"Value": "First text: en, \"\\Integration-tests\\Resources\\Texts.en.json\""
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"Node": {
+							"Name": "TestHost.Controllers.HomeController",
+							"Entries": {
+								"Second-text": {
+									"Value": "Second text: en, \"\\Integration-tests\\Resources\\Texts.en.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "Very",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "Deep",
+										"Nodes": [
+											{
+												"Node": {
+													"Name": "Test",
+													"Nodes": [
+														{
+															"Node": {
+																"Name": "First",
+																"Nodes": [
+																	{
+																		"Node": {
+																			"Name": "Second",
+																			"Nodes": [
+																				{
+																					"Node": {
+																						"Name": "Third",
+																						"Nodes": [
+																							{
+																								"Node": {
+																									"Name": "Fourth",
+																									"Nodes": [
+																										{
+																											"Node": {
+																												"Name": "Fifth",
+																												"Nodes": [
+																													{
+																														"Node": {
+																															"Name": "Sixth",
+																															"Nodes": [
+																																{
+																																	"Node": {
+																																		"Name": "Seventh",
+																																		"Nodes": [
+																																			{
+																																				"Node": {
+																																					"Name": "Eighth",
+																																					"Nodes": [
+																																						{
+																																							"Node": {
+																																								"Name": "Ninth",
+																																								"Nodes": [
+																																									{
+																																										"Node": {
+																																											"Name": "Tenth",
+																																											"Entries": {
+																																												"Text": {
+																																													"Value": "Very deep test-value: en, \"\\Integration-tests\\Resources\\Texts.en.json\""
+																																												}
+																																											}
+																																										}
+																																									}
+																																								]
+																																							}
+																																						}
+																																					]
+																																				}
+																																			}
+																																		]
+																																	}
+																																}
+																															]
+																														}
+																													}
+																												]
+																											}
+																										}
+																									]
+																								}
+																							}
+																						]
+																					}
+																				}
+																			]
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
+}

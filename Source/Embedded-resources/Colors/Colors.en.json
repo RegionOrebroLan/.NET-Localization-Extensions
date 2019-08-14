@@ -1,0 +1,20 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "en",
+				"Entries": {
+					"Blue": {
+						"Value": "Blue: en, \"\\Embedded-resources\\Colors\\Colors.en.json\""
+					},
+					"Green": {
+						"Value": "Green: en, \"\\Embedded-resources\\Colors\\Colors.en.json\""
+					},
+					"Red": {
+						"Value": "Red: en, \"\\Embedded-resources\\Colors\\Colors.en.json\""
+					}
+				}
+			}
+		}
+	]
+}

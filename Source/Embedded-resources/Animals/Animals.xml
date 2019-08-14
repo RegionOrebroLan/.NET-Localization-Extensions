@@ -1,0 +1,37 @@
+<cultures>
+	<!-- Comment -->
+	<culture name="fi" priority="100">
+		<cat>Kissa</cat>
+		<dog>Koira</dog>
+		<the>
+			<big>
+				<!-- Comment -->
+				<five>
+					<buffalo>Puhveli</buffalo>
+					<elephant>Norsu</elephant>
+					<leopard>Leopardi</leopard>
+					<lion>Leijona</lion>
+					<rhinoceros>Sarvikuono</rhinoceros>
+				</five>
+			</big>
+		</the>
+	</culture>
+	<culture name="sv">
+		<cat>Katt</cat>
+		<dog>Hund</dog>
+		<the>
+			<big>
+				<five>
+					<buffalo><!-- Comment -->Buffel<!-- Comment --></buffalo>
+					<elephant>Elefant</elephant>
+					<!-- Comment -->
+					<leopard>Leopard</leopard>
+					<lion><![CDATA[Lejon]]></lion>
+					<rhinoceros>Noshörning</rhinoceros>
+				</five>
+				<!-- Comment -->
+			</big>
+		</the>
+	</culture>
+	<!-- Comment -->
+</cultures>

@@ -1,0 +1,7 @@
+<cultures>
+	<culture name="en">
+		<format-examples>
+			<five-arguments>"{0}", {1}, "{2}", {3}, "{4}"</five-arguments>
+		</format-examples>
+	</culture>
+</cultures>

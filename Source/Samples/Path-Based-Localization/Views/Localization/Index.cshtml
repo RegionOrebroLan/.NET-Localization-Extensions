@@ -1,0 +1,180 @@
+﻿@model ILocalizationViewModel
+@{ var viewLocalizerInformation = Model.GetHtmlLocalizerInformation(Localizer); }
+<p>@Localizer.GetString("Text")</p>
+<h2>@Localizer.GetString("Cultures")</h2>
+<ul>
+	<li>@Localizer.GetString("Culture"): <strong>@Model.Layout.Culture.Name</strong></li>
+	<li>@Localizer.GetString("UI-culture"): <strong>@Model.Layout.UiCulture.Name</strong></li>
+</ul>
+<h2>@Localizer["View-localizer"]</h2>
+<p>@Localizer["View-localizer-description"]</p>
+<div class="pl-4">
+	<h3>@Localizer["Information"]</h3>
+	@if(viewLocalizerInformation.Any())
+	{
+		<dl class="text-break">
+			@foreach(var (key, value) in viewLocalizerInformation)
+			{
+				<dt>@key:</dt>
+				<dd>@value </dd>
+			}
+		</dl>
+	}
+	else
+	{
+		<p>
+			<i>@Localizer["No information."]</i>
+		</p>
+	}
+	<h3>@Localizer["Localized strings"]</h3>
+	@if(Localizer.GetAllStrings().Any())
+	{
+		var index = 0;
+		<ul>
+			@foreach(var item in Localizer.GetAllStrings(false))
+			{
+				<li>
+					<a aria-expanded="false" data-toggle="collapse" href="#localized-string-@index-information">
+						<strong>@item.Name</strong>
+					</a>:
+					<strong>
+						<i class="@(item.ResourceNotFound ? "text-danger" : "text-success")">@item</i>
+					</strong>
+					<ul class="collapse" id="localized-string-@index-information">
+						<li><strong>ResourceNotFound</strong>: @item.ResourceNotFound</li>
+						<li><strong>SearchedLocation</strong>: @item.SearchedLocation</li>
+					</ul>
+				</li>
+				index++;
+			}
+		</ul>
+	}
+	else
+	{
+		<p>
+			<i>@Localizer["No localized strings."]</i>
+		</p>
+	}
+</div>
+
+<h2>@Localizer["Names"]</h2>
+@if(Model.Names.Any())
+{
+	var index = 0;
+	<ul>
+		@foreach(var item in Model.Names)
+		{
+			var localizedString = Localizer[item.Key];
+			<li>
+				<a aria-expanded="false" data-toggle="collapse" href="#name-@index-information">
+					<strong>@item.Key</strong>
+				</a>@(string.IsNullOrEmpty(item.Value) ? string.Empty : " (" + item.Value + ")"):
+				<strong>
+					<i class="@(localizedString.IsResourceNotFound ? "text-danger" : "text-success")">@localizedString</i>
+				</strong>
+				<ul class="collapse" id="name-@index-information">
+					<li><strong>ResourceNotFound</strong>: @localizedString.IsResourceNotFound</li>
+				</ul>
+			</li>
+			index++;
+		}
+	</ul>
+}
+else
+{
+	<p>
+		<i>@Localizer["No names."]</i>
+	</p>
+}
+<h2>@Localizer["Localizers"]</h2>
+@if(Model.Localizers != null && Model.Localizers.Children.Any())
+{
+	<ul class="navbar-nav">
+		<li class="nav-item dropdown">
+			<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="localizer-selector" title="@Model.Localizers.Tooltip">@Model.Localizers.Text</a>
+			<div class="dropdown-menu" aria-labelledby="localizer-selector">
+				@foreach(var item in Model.Localizers.Children)
+				{
+					<a class="dropdown-item@(item.Active ? " active" : string.Empty)" href="@item.Url" title="@item.Tooltip">@item.Text</a>
+				}
+			</div>
+		</li>
+	</ul>
+}
+else
+{
+	<p>
+		<i>@Localizer["No localizers."]</i>
+	</p>
+}
+@if(Model.SelectedLocalizerException != null)
+{
+	<div class="alert alert-danger text-break">
+		<h2>Exception</h2>
+		<p>
+			<strong>@Model.SelectedLocalizerException.Message</strong>
+		</p>
+		@if(Model.SelectedLocalizerException.InnerException != null)
+		{
+			<p>
+				<i>@Model.SelectedLocalizerException.InnerException</i>
+			</p>
+		}
+	</div>
+}
+@if(Model.SelectedLocalizer != null)
+{
+	<div class="pl-4">
+		@{ var stringLocalizerInformation = Model.GetStringLocalizerInformation(Model.SelectedLocalizer); }
+
+		<h3>@Localizer["Information"]</h3>
+		@if(stringLocalizerInformation.Any())
+		{
+			<dl class="text-break">
+				@foreach(var (key, value) in stringLocalizerInformation)
+				{
+					<dt>@key:</dt>
+					<dd>@value </dd>
+				}
+			</dl>
+		}
+		else
+		{
+			<p>
+				<i>@Localizer["No information."]</i>
+			</p>
+		}
+
+		@{ var localizedStrings = Model.SelectedLocalizer.GetAllStrings(false).ToArray(); }
+
+		@if(localizedStrings.Any())
+		{
+			<h3>@Localizer["Localized strings"]</h3>
+			var index = 0;
+			<ul>
+				@foreach(var item in localizedStrings)
+				{
+					<li>
+						<a aria-expanded="false" data-toggle="collapse" href="#selected-localized-string-@index-information">
+							<strong>@item.Name</strong>
+						</a>:
+						<strong>
+							<i class="@(item.ResourceNotFound ? "text-danger" : "text-success")">@item</i>
+						</strong>
+						<ul class="collapse" id="selected-localized-string-@index-information">
+							<li><strong>ResourceNotFound</strong>: @item.ResourceNotFound</li>
+							<li><strong>SearchedLocation</strong>: @item.SearchedLocation</li>
+						</ul>
+					</li>
+					index++;
+				}
+			</ul>
+		}
+		else
+		{
+			<p>
+				<i>@Localizer["No localized strings."]</i>
+			</p>
+		}
+	</div>
+}

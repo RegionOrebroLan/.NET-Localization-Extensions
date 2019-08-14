@@ -1,0 +1,14 @@
+{
+	"Localization": {
+		"AlphabeticalSorting": true,
+		"EmbeddedResourceAssemblies": [
+			"Animals",
+			"Colors",
+			"Numbers",
+			"Prioritized-words",
+			"Root-namespaced-resources",
+			"Words"
+		],
+		"FileResourcesDirectoryPath": "{RESOURCES-PATH}"
+	}
+}

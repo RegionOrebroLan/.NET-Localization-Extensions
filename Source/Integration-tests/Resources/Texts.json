@@ -1,0 +1,38 @@
+{
+	"Cultures": [
+		{
+			"Culture": {
+				"Name": "",
+				"Nodes": [
+					{
+						"Node": {
+							"Name": "Controllers",
+							"Nodes": [
+								{
+									"Node": {
+										"Name": "HomeController",
+										"Entries": {
+											"Third-text": {
+												"Value": "Third text: invariant-culture, \"\\Integration-tests\\Resources\\Texts.json\""
+											}
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"Node": {
+							"Name": "TestHost.Controllers.HomeController",
+							"Entries": {
+								"Fourth-text": {
+									"Value": "Fourth text: invariant-culture, \"\\Integration-tests\\Resources\\Texts.json\""
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

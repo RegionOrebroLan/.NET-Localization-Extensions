@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
+		<DelaySign>false</DelaySign>
+		<RootNamespace>Words</RootNamespace>
+		<SignAssembly>true</SignAssembly>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Other\fi\Words.json" />
+		<None Remove="Other\sv\Words.json" />
+		<None Remove="en\Words.json" />
+		<EmbeddedResource Include="Other\fi\Words.json" />
+		<EmbeddedResource Include="Other\sv\Words.json" />
+		<EmbeddedResource Include="en\Words.json" />
+	</ItemGroup>
+</Project>

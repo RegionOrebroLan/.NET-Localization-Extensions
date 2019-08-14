@@ -1,0 +1,11 @@
+<cultures>
+	<culture name="en">
+		<the>
+			<big invalid="Invalid">
+				<five>
+					<invalid>Invalid</invalid>
+				</five>
+			</big>
+		</the>
+	</culture>
+</cultures>

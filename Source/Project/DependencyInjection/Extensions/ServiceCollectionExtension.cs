@@ -51,8 +51,10 @@ namespace RegionOrebroLan.Localization.DependencyInjection.Extensions
 			services.TryAddSingleton<ILocalizationSettings, LocalizationSettings>();
 			services.TryAddSingleton<ILocalizedStringFactory, LocalizedStringFactory>();
 			services.TryAddSingleton<IRootNamespaceResolver, RootNamespaceResolver>();
-			services.TryAddSingleton<IStringLocalizerFactory, StringLocalizerFactory>();
-			services.TryAddSingleton(serviceProvider => serviceProvider.GetService<IStringLocalizerFactory>().Create(null, null));
+
+			// The following two have to be registered even if they already exist. Otherwise ResourceManagerStringLocalizerFactory/ResourceManagerStringLocalizer may be used.
+			services.AddSingleton<IStringLocalizerFactory, StringLocalizerFactory>();
+			services.AddSingleton(serviceProvider => serviceProvider.GetService<IStringLocalizerFactory>().Create(null, null));
 
 			services.AddLocalization();
 

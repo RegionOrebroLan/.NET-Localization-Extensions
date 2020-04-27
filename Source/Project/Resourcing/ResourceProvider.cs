@@ -7,8 +7,8 @@ using System.IO.Abstractions;
 using System.Linq;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using RegionOrebroLan.Localization.Logging.Extensions;
 using RegionOrebroLan.Localization.Resourcing.Extensions;
+using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {

@@ -7,10 +7,10 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 using RegionOrebroLan.Localization.Collections.Extensions;
 using RegionOrebroLan.Localization.Extensions;
-using RegionOrebroLan.Localization.Logging.Extensions;
 using RegionOrebroLan.Localization.Reflection;
 using RegionOrebroLan.Localization.Resourcing;
 using RegionOrebroLan.Localization.Serialization;
+using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization
 {

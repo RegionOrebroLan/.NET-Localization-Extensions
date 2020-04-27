@@ -8,9 +8,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RegionOrebroLan.Localization.Collections.ObjectModel;
 using RegionOrebroLan.Localization.Configuration;
-using RegionOrebroLan.Localization.Logging.Extensions;
 using RegionOrebroLan.Localization.Reflection;
 using RegionOrebroLan.Localization.Validation;
+using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization
 {

@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="Build\Build.props" />
 	<PropertyGroup>
+		<AssemblyName>RegionOrebroLan.Localization.IntegrationTests</AssemblyName>
+		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
+		<CodeAnalysisRuleSet>CodeAnalysis\Rules.ruleset</CodeAnalysisRuleSet>
 		<DelaySign>false</DelaySign>
 		<IsPackable>false</IsPackable>
 		<RootNamespace>$(AssemblyName)</RootNamespace>
@@ -44,5 +46,4 @@
 		<EmbeddedResource Remove="Test-resources\Root\**" />
 		<None Remove="Test-resources\Root\**" />
 	</ItemGroup>
-	<Import Project="Build\Build.targets" />
 </Project>

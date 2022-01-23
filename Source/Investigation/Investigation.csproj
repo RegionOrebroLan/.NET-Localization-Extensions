@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="Build\Build.props" />
 	<PropertyGroup>
+		<AssemblyName>RegionOrebroLan.Investigation</AssemblyName>
+		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
+		<CodeAnalysisRuleSet>CodeAnalysis\Rules.ruleset</CodeAnalysisRuleSet>
 		<DelaySign>false</DelaySign>
 		<RootNamespace>$(AssemblyName)</RootNamespace>
 		<SignAssembly>true</SignAssembly>
@@ -22,5 +24,4 @@
 			<Link>CodeAnalysis\Solution-suppressions.cs</Link>
 		</Compile>
 	</ItemGroup>
-	<Import Project="Build\Build.targets" />
 </Project>

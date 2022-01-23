@@ -90,7 +90,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests.Configuration
 		}
 
 		[ClassInitialize]
-		[CLSCompliant(false)]
 		public static void Initialize(TestContext testContext)
 		{
 			if(testContext == null)

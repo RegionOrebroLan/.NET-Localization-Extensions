@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,7 +11,6 @@ using RegionOrebroLan.Investigation.Extensions;
 
 namespace RegionOrebroLan.Investigation.Localization
 {
-	[CLSCompliant(false)]
 	public class InvestigatableResourceManagerStringLocalizer : ResourceManagerStringLocalizer
 	{
 		#region Constructors

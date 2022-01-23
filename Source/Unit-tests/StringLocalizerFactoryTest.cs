@@ -7,7 +7,6 @@
 //namespace RegionOrebroLan.Localization.UnitTests
 //{
 //	[TestClass]
-//	[CLSCompliant(false)]
 //	public class StringLocalizerFactoryTest
 //	{
 //		[TestMethod]

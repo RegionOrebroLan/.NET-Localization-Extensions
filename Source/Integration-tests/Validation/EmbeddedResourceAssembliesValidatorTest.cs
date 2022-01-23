@@ -27,7 +27,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests.Validation
 		#region Methods
 
 		[ClassInitialize]
-		[CLSCompliant(false)]
 		public static void Initialize(TestContext testContext)
 		{
 			if(testContext == null)

@@ -13,7 +13,6 @@ namespace RegionOrebroLan.Investigation.Localization
 	/// <summary>
 	/// https://github.com/aspnet/Localization/blob/master/src/Microsoft.Extensions.Localization/ResourceManagerStringLocalizerFactory.cs
 	/// </summary>
-	[CLSCompliant(false)]
 	public class GitHubSourceCopyOfResourceManagerStringLocalizerFactory : IStringLocalizerFactory
 	{
 		#region Fields

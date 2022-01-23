@@ -63,10 +63,8 @@ namespace RegionOrebroLan.Localization.IntegrationTests.Resourcing
 		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ?? (_assemblyHelper = new AssemblyHelper(this.RootNamespaceResolver));
 		protected internal virtual IFileSystem FileSystem => _fileSystem;
 
-		[CLSCompliant(false)]
 		protected internal virtual IHostingEnvironment HostingEnvironment => _hostingEnvironment;
 
-		[CLSCompliant(false)]
 		protected internal virtual ILoggerFactory LoggerFactory => _loggerFactory;
 
 		protected internal virtual IRootNamespaceResolver RootNamespaceResolver => _rootNamespaceResolver;

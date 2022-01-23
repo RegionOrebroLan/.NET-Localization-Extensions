@@ -21,23 +21,19 @@ namespace RegionOrebroLan.Localization.IntegrationTests.Prerequisites
 
 		#region Properties
 
-		[CLSCompliant(false)]
 		protected internal virtual LocalizationOptions LocalizationOptions => _localizationOptions;
 
-		[CLSCompliant(false)]
 		protected internal virtual ILoggerFactory LoggerFactory => _loggerFactory;
 
 		#endregion
 
 		#region Methods
 
-		[CLSCompliant(false)]
 		protected internal virtual InvestigatableResourceManagerStringLocalizerFactory CreateInvestigatableResourceManagerStringLocalizerFactory(string resourcePath)
 		{
 			return this.CreateInvestigatableResourceManagerStringLocalizerFactory(new LocalizationOptions {ResourcesPath = resourcePath});
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual InvestigatableResourceManagerStringLocalizerFactory CreateInvestigatableResourceManagerStringLocalizerFactory(LocalizationOptions localizationOptions)
 		{
 			return new InvestigatableResourceManagerStringLocalizerFactory(Options.Create(localizationOptions), this.LoggerFactory);

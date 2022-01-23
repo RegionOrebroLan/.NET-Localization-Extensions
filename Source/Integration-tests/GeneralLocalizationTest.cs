@@ -784,7 +784,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 21, stringLocalizer);
 		}
 
-		[CLSCompliant(false)]
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
 		protected internal virtual void StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(CultureInfo culture, bool includeParentCultures, int numberOfItems, IStringLocalizer stringLocalizer)
 		{

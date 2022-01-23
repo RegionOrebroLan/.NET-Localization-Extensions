@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace RegionOrebroLan.Investigation.Localization
 {
-	[CLSCompliant(false)]
 	public class InvestigatableResourceManagerWithCultureStringLocalizer : InvestigatableResourceManagerStringLocalizer
 	{
 		#region Constructors

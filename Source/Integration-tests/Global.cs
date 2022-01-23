@@ -31,7 +31,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 
 		#region Properties
 
-		[CLSCompliant(false)]
 		public static IHostingEnvironment HostingEnvironment
 		{
 			get
@@ -55,7 +54,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 			}
 		}
 
-		[CLSCompliant(false)]
 		public static ILoggerFactory LoggerFactory
 		{
 			get
@@ -88,7 +86,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 				Directory.Delete(testRootDirectoryPath, true);
 		}
 
-		[CLSCompliant(false)]
 		public static ServiceCollection CreateDefaultServices()
 		{
 			var services = new ServiceCollection();
@@ -120,7 +117,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 		}
 
 		[AssemblyInitialize]
-		[CLSCompliant(false)]
 		[SuppressMessage("Usage", "CA1801:Review unused parameters")]
 		public static void Initialize(TestContext testContext)
 		{

@@ -60,7 +60,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 			return this.BuildServiceProvider(Enumerable.Empty<string>(), emptyFileResourcesDirectory);
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual IServiceProvider BuildServiceProvider(IServiceCollection services)
 		{
 			if(services == null)
@@ -69,7 +68,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 			return services.BuildServiceProvider();
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual IServiceProvider BuildServiceProvider(Action<IConfiguration, IServiceCollection> additionalServicesConfiguration, string configurationFileName)
 		{
 			return this.BuildServiceProvider(additionalServicesConfiguration, configurationFileName, false);
@@ -101,7 +99,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests
 			return this.BuildServiceProvider(services);
 		}
 
-		[CLSCompliant(false)]
 		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual IServiceProvider BuildServiceProvider(Action<IConfiguration, IServiceCollection> additionalServicesConfiguration, string configurationFileName, bool emptyFileResourcesDirectory)
 		{

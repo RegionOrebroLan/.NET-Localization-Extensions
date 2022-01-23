@@ -87,7 +87,6 @@ namespace RegionOrebroLan.Localization.IntegrationTests.Prerequisites
 			Assert.AreEqual(string.Empty, onChangeOptionsName);
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual IEnumerable<IOptionsChangeTokenSource<TOptions>> GetSources<TOptions>(IOptionsMonitor<TOptions> optionsMonitor) where TOptions : class, new()
 		{
 			var sourcesField = typeof(OptionsMonitor<TOptions>).GetField("_sources", BindingFlags.Instance | BindingFlags.NonPublic);

@@ -65,13 +65,11 @@ namespace RegionOrebroLan.Localization.UnitTests.Prerequisites
 			}
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual T CreateResourceManagerStringLocalizerFactory<T>(string resourcePath) where T : ResourceManagerStringLocalizerFactory
 		{
 			return this.CreateResourceManagerStringLocalizerFactoryMock<T>(resourcePath).Object;
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual T CreateResourceManagerStringLocalizerFactory<T>(string resourcePath, string rootNamespace) where T : ResourceManagerStringLocalizerFactory
 		{
 			var stringLocalizerFactoryMock = this.CreateResourceManagerStringLocalizerFactoryMock<T>(resourcePath);
@@ -81,7 +79,6 @@ namespace RegionOrebroLan.Localization.UnitTests.Prerequisites
 			return stringLocalizerFactoryMock.Object;
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual Mock<T> CreateResourceManagerStringLocalizerFactoryMock<T>(string resourcePath) where T : ResourceManagerStringLocalizerFactory
 		{
 			var localizationOptionsMock = new Mock<IOptions<LocalizationOptions>>();

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public interface IInformationViewModel : IViewModel
 	{

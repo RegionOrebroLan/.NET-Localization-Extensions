@@ -13,7 +13,7 @@
 										"Name": "HomeController",
 										"Entries": {
 											"First-text": {
-												"Value": "First text: en, \"\\Web-application\\Resources\\Texts.en.json\""
+												"Value": "First text: en, \"\\Application\\Resources\\Texts.en.json\""
 											}
 										}
 									}
@@ -23,10 +23,10 @@
 					},
 					{
 						"Node": {
-							"Name": "Company.WebApplication.Controllers.HomeController",
+							"Name": "Application.Controllers.HomeController",
 							"Entries": {
 								"Second-text": {
-									"Value": "Second text: en, \"\\Web-application\\Resources\\Texts.en.json\""
+									"Value": "Second text: en, \"\\Application\\Resources\\Texts.en.json\""
 								}
 							}
 						}

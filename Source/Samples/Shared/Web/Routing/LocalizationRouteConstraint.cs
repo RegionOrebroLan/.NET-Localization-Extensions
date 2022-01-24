@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Options;
 
-namespace RegionOrebroLan.Web.Routing
+namespace Shared.Web.Routing
 {
 	public abstract class LocalizationRouteConstraint : IRouteConstraint
 	{

@@ -6,12 +6,12 @@
 		<p>@Localizer.GetString("The form was posted successfully.")</p>
 	</div>
 }
-else if(!this.ViewContext.ModelState.IsValid)
+else if(!ViewContext.ModelState.IsValid)
 {
 	<div class="alert alert-danger">
 		<h2>@Localizer.GetString("Invalid input")</h2>
 		<ul>
-			@foreach(var error in this.ViewContext.ModelState.Values.SelectMany(value => value.Errors).Select(error => error.ErrorMessage))
+			@foreach(var error in ViewContext.ModelState.Values.SelectMany(value => value.Errors).Select(error => error.ErrorMessage))
 			{
 				<li>@error</li>
 			}

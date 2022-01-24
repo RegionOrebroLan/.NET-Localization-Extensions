@@ -1,4 +1,4 @@
-﻿namespace RegionOrebroLan.Web.Routing
+namespace Shared.Web.Routing
 {
 	public static class RouteKeys
 	{

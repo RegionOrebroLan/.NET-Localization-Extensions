@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using Company.WebApplication.Models.Navigation;
+using Application.Models.Navigation;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public interface ILocalizationViewModel : IViewModel
 	{

@@ -1,21 +1,21 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using Company.WebApplication.DependencyInjection.Extensions;
-using Company.WebApplication.Localization.Extensions;
+using Application.DependencyInjection.Extensions;
+using Application.Localization.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RegionOrebroLan.DependencyInjection.Extensions;
-using RegionOrebroLan.Globalization;
-using RegionOrebroLan.Globalization.Configuration;
 using RegionOrebroLan.Localization.DependencyInjection.Extensions;
-using RegionOrebroLan.Web.Mvc.Configuration;
-using RegionOrebroLan.Web.Mvc.Filters;
-using RegionOrebroLan.Web.Routing;
+using Shared.DependencyInjection.Extensions;
+using Shared.Globalization;
+using Shared.Globalization.Configuration;
+using Shared.Web.Mvc.Configuration;
+using Shared.Web.Mvc.Filters;
+using Shared.Web.Routing;
 
-namespace Company.WebApplication
+namespace Application
 {
 	public class Startup
 	{
@@ -46,8 +46,8 @@ namespace Company.WebApplication
 			applicationBuilder.UseRequestLocalization();
 			applicationBuilder.UseMvc(routeBuilder =>
 			{
-				var certificateControllerParameter = new {controller = "Certificate"};
-				var notCertificateControllerConstraints = new {controller = "((?!Certificate).)*"}; // Another expression could be: "Form|Home|Information|Localization"
+				var certificateControllerParameter = new { controller = "Certificate" };
+				var notCertificateControllerConstraints = new { controller = "((?!Certificate).)*" }; // Another expression could be: "Form|Home|Information|Localization"
 
 				routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
 

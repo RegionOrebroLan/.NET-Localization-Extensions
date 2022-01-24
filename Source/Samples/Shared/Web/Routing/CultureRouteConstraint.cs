@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Options;
 
-namespace RegionOrebroLan.Web.Routing
+namespace Shared.Web.Routing
 {
 	public class CultureRouteConstraint : LocalizationRouteConstraint
 	{

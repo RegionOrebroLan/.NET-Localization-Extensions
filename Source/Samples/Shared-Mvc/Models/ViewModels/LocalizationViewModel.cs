@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Web;
-using Company.WebApplication.Configuration;
-using Company.WebApplication.Models.Navigation;
+using Application.Configuration;
+using Application.Models.Navigation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc.Localization;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using RegionOrebroLan.Localization;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public class LocalizationViewModel : ViewModel, ILocalizationViewModel
 	{
@@ -168,10 +168,10 @@ namespace Company.WebApplication.Models.ViewModels
 
 			var information = new SortedDictionary<string, object>
 			{
-				{"Type", htmlLocalizer.GetType()}
+				{ "Type", htmlLocalizer.GetType() }
 			};
 
-			var internalStringLocaliser = (IStringLocalizer) this.GetInternalStringLocalizer(htmlLocalizer);
+			var internalStringLocaliser = (IStringLocalizer)this.GetInternalStringLocalizer(htmlLocalizer);
 
 			// ReSharper disable InvertIf
 			if(internalStringLocaliser != null)
@@ -206,7 +206,7 @@ namespace Company.WebApplication.Models.ViewModels
 
 			var information = new SortedDictionary<string, object>
 			{
-				{"Type", stringLocalizer.GetType()}
+				{ "Type", stringLocalizer.GetType() }
 			};
 
 			// ReSharper disable ConvertIfStatementToSwitchStatement

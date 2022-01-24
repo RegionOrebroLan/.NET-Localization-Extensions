@@ -1,12 +1,12 @@
-﻿using System;
-using Company.WebApplication.Localization.Extensions;
-using Company.WebApplication.Models.ViewModels.Shared;
+using System;
+using Application.Localization.Extensions;
+using Application.Models.ViewModels.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public abstract class ViewModel : IViewModel
 	{

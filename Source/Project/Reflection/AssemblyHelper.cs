@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -45,7 +45,26 @@ namespace RegionOrebroLan.Localization.Reflection
 					foreach(var assemblyName in this.GetRuntimeAssemblyNames())
 					{
 						if(!assemblies.Any(assembly => string.Equals(assembly.GetName().Name, assemblyName.Name, StringComparison.OrdinalIgnoreCase)))
-							assemblies.Add(Assembly.Load(assemblyName));
+						{
+							Assembly assembly;
+
+							try
+							{
+								assembly = Assembly.Load(assemblyName);
+							}
+							catch(BadImageFormatException badImageFormatException)
+							{
+								// We write to the console because we have no logger in this class. Guess that is better than nothing. And it will be hard to get a logger in because AssemblyInterfaceTypeConverter instantiates this class in a static variable.
+								Console.WriteLine($"Skipping the assembly \"{assemblyName}\". {nameof(BadImageFormatException)} thrown when loading assembly \"{assemblyName}\". {badImageFormatException}");
+
+								continue;
+							}
+
+							if(assembly == null)
+								throw new InvalidOperationException($"The assembly \"{assemblyName}\" was loaded but is null.");
+
+							assemblies.Add(assembly);
+						}
 					}
 
 					_runtimeAssemblies = assemblies.Select(this.Wrap).ToArray();

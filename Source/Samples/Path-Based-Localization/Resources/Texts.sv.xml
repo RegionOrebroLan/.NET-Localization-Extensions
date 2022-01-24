@@ -9,101 +9,99 @@
 			<localization>Lokalisering</localization>
 			<ui-culture>UI-kultur</ui-culture>
 		</common>
-		<company>
-			<webApplication>
-				<views>
-					<certificate>
-						<index>
-							<text>Denna sida förhandlar om certifikat.</text>
-						</index>
-					</certificate>
+		<application>
+			<views>
+				<certificate>
+					<index>
+						<text>Denna sida förhandlar om certifikat.</text>
+					</index>
+				</certificate>
+				<form>
 					<form>
-						<form>
-							<send>Skicka</send>
-						</form>
-						<index>
-							<confirmation>Bekräftelse</confirmation>
-							<invalid-input name="Invalid input">Felaktig inmatning</invalid-input>
-							<the-form-was-posted-successfully name="The form was posted successfully.">Formuläret har postats.</the-form-was-posted-successfully>
-						</index>
+						<send>Skicka</send>
 					</form>
-					<home>
-						<index>
-							<culture lookup="common.culture" />
-							<cultures>Sidans valda kulturer</cultures>
-							<currency-example name="Currency example">Valuta exempel</currency-example>
-							<date-time-example name="Date-time example">Datum/tid exempel</date-time-example>
-							<description>Det här är ett exempel på en webb-applikation byggd med ASP.NET Core globalisering och lokalisering med sökvägs-baserad lokalisering (json/xml).</description>
-							<ui-culture lookup="common.ui-culture" />
-						</index>
-					</home>
-					<information>
-						<index>
-							<as-query-string name="As query-string.">Som query-sträng.</as-query-string>
-							<close>Stäng</close>
-							<context>Kontext</context>
-							<culture lookup="common.culture" />
-							<culture-cookie>Kultur-kaka</culture-cookie>
-							<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
-							<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
-							<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
-							<features>Funktioner</features>
-							<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
-							<no-culture-cookie name="No culture-cookie.">Kultur-kaka saknas.</no-culture-cookie>
-							<no-route-values name="No route-values.">Route-värden saknas.</no-route-values>
-							<no-supported-cultures name="No supported cultures.">Kulturer som stöds saknas.</no-supported-cultures>
-							<no-supported-ui-cultures name="No supported ui-cultures.">UI-kulturer som stöds saknas.</no-supported-ui-cultures>
-							<provider>Tillhandahållare</provider>
-							<requestCulture>Request-kultur</requestCulture>
-							<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
-							<request-localization-options>Request-localization-options</request-localization-options>
-							<route-values>Route-värden</route-values>
-							<settings>Inställningar</settings>
-							<supported-cultures name="Supported cultures">Kulturer som stöds</supported-cultures>
-							<supported-ui-cultures name="Supported ui-cultures">UI-kulturer som stöds</supported-ui-cultures>
-							<text>Den här sidan visar system-information.</text>
-							<ui-culture lookup="common.ui-culture" />
-						</index>
-					</information>
-					<localization>
-						<index>
-							<culture lookup="common.culture" />
-							<cultures lookup="company.webApplication.views.home.index.cultures" />
-							<information lookup="common.information" />
-							<localized-strings name="Localized strings">Lokaliserade strängar</localized-strings>
-							<localizers>Konfigurerade lokaliserare</localizers>
-							<names>Konfigurerade nycklar/namn</names>
-							<no-localized-strings name="No localized strings.">Lokaliserade strängar saknas.</no-localized-strings>
-							<no-localizers name="No localizers.">Konfigurerade lokaliserare saknas.</no-localizers>
-							<no-names name="No names.">Konfigurerade nycklar/namn saknas.</no-names>
-							<text>Här kan du se/testa lokaliserade strängar.</text>
-							<ui-culture lookup="common.ui-culture" />
-							<view-localizer>Lokaliserare för denna vy</view-localizer>
-							<view-localizer-description>Lokaliseraren för denna vy är en injicerad IViewLocalizer.</view-localizer-description>
-						</index>
-					</localization>
-					<shared>
-						<layouts>
-							<default>
-								<certificate lookup="common.certificate" />
-								<delete>Ta bort</delete>
-								<delete-culture-cookie name="Delete culture-cookie.">Ta bort kultur-kaka.</delete-culture-cookie>
-								<friendly-name>Visningsnamn</friendly-name>
-								<issuer>Utfärdare</issuer>
-								<no-connected-certificate name="No connected certificate.">Anslutet certifikat saknas.</no-connected-certificate>
-								<save>Spara</save>
-								<save-culture-cookie name="Save culture-cookie.">Spara kultur-kaka.</save-culture-cookie>
-								<serial-number>Serienummer</serial-number>
-								<subject>Ämne</subject>
-								<thumbprint>Tumavtryck</thumbprint>
-								<title>Globaliserad och lokaliserad webb-applikation</title>
-								<toggle-navigation name="Toggle navigation">Växla navigering</toggle-navigation>
-							</default>
-						</layouts>
-					</shared>
-				</views>
-			</webApplication>
-		</company>
+					<index>
+						<confirmation>Bekräftelse</confirmation>
+						<invalid-input name="Invalid input">Felaktig inmatning</invalid-input>
+						<the-form-was-posted-successfully name="The form was posted successfully.">Formuläret har postats.</the-form-was-posted-successfully>
+					</index>
+				</form>
+				<home>
+					<index>
+						<culture lookup="common.culture" />
+						<cultures>Sidans valda kulturer</cultures>
+						<currency-example name="Currency example">Valuta exempel</currency-example>
+						<date-time-example name="Date-time example">Datum/tid exempel</date-time-example>
+						<description>Det här är ett exempel på en webb-applikation byggd med ASP.NET Core globalisering och lokalisering med sökvägs-baserad lokalisering (json/xml).</description>
+						<ui-culture lookup="common.ui-culture" />
+					</index>
+				</home>
+				<information>
+					<index>
+						<as-query-string name="As query-string.">Som query-sträng.</as-query-string>
+						<close>Stäng</close>
+						<context>Kontext</context>
+						<culture lookup="common.culture" />
+						<culture-cookie>Kultur-kaka</culture-cookie>
+						<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
+						<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
+						<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
+						<features>Funktioner</features>
+						<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
+						<no-culture-cookie name="No culture-cookie.">Kultur-kaka saknas.</no-culture-cookie>
+						<no-route-values name="No route-values.">Route-värden saknas.</no-route-values>
+						<no-supported-cultures name="No supported cultures.">Kulturer som stöds saknas.</no-supported-cultures>
+						<no-supported-ui-cultures name="No supported ui-cultures.">UI-kulturer som stöds saknas.</no-supported-ui-cultures>
+						<provider>Tillhandahållare</provider>
+						<requestCulture>Request-kultur</requestCulture>
+						<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
+						<request-localization-options>Request-localization-options</request-localization-options>
+						<route-values>Route-värden</route-values>
+						<settings>Inställningar</settings>
+						<supported-cultures name="Supported cultures">Kulturer som stöds</supported-cultures>
+						<supported-ui-cultures name="Supported ui-cultures">UI-kulturer som stöds</supported-ui-cultures>
+						<text>Den här sidan visar system-information.</text>
+						<ui-culture lookup="common.ui-culture" />
+					</index>
+				</information>
+				<localization>
+					<index>
+						<culture lookup="common.culture" />
+						<cultures lookup="company.webApplication.views.home.index.cultures" />
+						<information lookup="common.information" />
+						<localized-strings name="Localized strings">Lokaliserade strängar</localized-strings>
+						<localizers>Konfigurerade lokaliserare</localizers>
+						<names>Konfigurerade nycklar/namn</names>
+						<no-localized-strings name="No localized strings.">Lokaliserade strängar saknas.</no-localized-strings>
+						<no-localizers name="No localizers.">Konfigurerade lokaliserare saknas.</no-localizers>
+						<no-names name="No names.">Konfigurerade nycklar/namn saknas.</no-names>
+						<text>Här kan du se/testa lokaliserade strängar.</text>
+						<ui-culture lookup="common.ui-culture" />
+						<view-localizer>Lokaliserare för denna vy</view-localizer>
+						<view-localizer-description>Lokaliseraren för denna vy är en injicerad IViewLocalizer.</view-localizer-description>
+					</index>
+				</localization>
+				<shared>
+					<layouts>
+						<default>
+							<certificate lookup="common.certificate" />
+							<delete>Ta bort</delete>
+							<delete-culture-cookie name="Delete culture-cookie.">Ta bort kultur-kaka.</delete-culture-cookie>
+							<friendly-name>Visningsnamn</friendly-name>
+							<issuer>Utfärdare</issuer>
+							<no-connected-certificate name="No connected certificate.">Anslutet certifikat saknas.</no-connected-certificate>
+							<save>Spara</save>
+							<save-culture-cookie name="Save culture-cookie.">Spara kultur-kaka.</save-culture-cookie>
+							<serial-number>Serienummer</serial-number>
+							<subject>Ämne</subject>
+							<thumbprint>Tumavtryck</thumbprint>
+							<title>Globaliserad och lokaliserad webb-applikation</title>
+							<toggle-navigation name="Toggle navigation">Växla navigering</toggle-navigation>
+						</default>
+					</layouts>
+				</shared>
+			</views>
+		</application>
 		<models>
 			<viewModels>
 				<certificateViewModel>

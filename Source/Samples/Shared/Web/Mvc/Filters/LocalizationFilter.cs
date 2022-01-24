@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Options;
-using RegionOrebroLan.Web.Routing;
+using Shared.Web.Routing;
 
-namespace RegionOrebroLan.Web.Mvc.Filters
+namespace Shared.Web.Mvc.Filters
 {
 	public class LocalizationFilter : IResourceFilter
 	{

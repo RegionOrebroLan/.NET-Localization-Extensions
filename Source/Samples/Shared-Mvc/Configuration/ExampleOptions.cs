@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace Company.WebApplication.Configuration
+namespace Application.Configuration
 {
 	public class ExampleOptions
 	{

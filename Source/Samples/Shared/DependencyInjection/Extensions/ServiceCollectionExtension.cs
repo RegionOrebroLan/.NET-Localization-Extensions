@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RegionOrebroLan.Globalization;
+using Shared.Globalization;
 
-namespace RegionOrebroLan.DependencyInjection.Extensions
+namespace Shared.DependencyInjection.Extensions
 {
 	public static class ServiceCollectionExtension
 	{
@@ -45,7 +45,7 @@ namespace RegionOrebroLan.DependencyInjection.Extensions
 				{
 					var type = Type.GetType(item, true, true);
 
-					options.RequestCultureProviders.Add((IRequestCultureProvider) Activator.CreateInstance(type));
+					options.RequestCultureProviders.Add((IRequestCultureProvider)Activator.CreateInstance(type));
 				}
 
 				options.SupportedCultures = requestLocalizationSection.GetSection("SupportedCultures").Get<IEnumerable<string>>().Select(item => cultureFactory.Create(item, true)).ToList();

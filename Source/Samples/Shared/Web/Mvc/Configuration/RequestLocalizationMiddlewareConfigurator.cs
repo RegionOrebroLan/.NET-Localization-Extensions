@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 
-namespace RegionOrebroLan.Web.Mvc.Configuration
+namespace Shared.Web.Mvc.Configuration
 {
 	public class RequestLocalizationMiddlewareConfigurator
 	{

@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using Company.WebApplication.Models.Forms;
-using Company.WebApplication.Models.ViewModels;
+using System.Threading.Tasks;
+using Application.Models.Forms;
+using Application.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Company.WebApplication.Controllers
+namespace Application.Controllers
 {
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 	public class FormController : SiteController<FormViewModel>

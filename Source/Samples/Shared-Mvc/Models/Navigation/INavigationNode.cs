@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace Company.WebApplication.Models.Navigation
+namespace Application.Models.Navigation
 {
 	public interface INavigationNode
 	{

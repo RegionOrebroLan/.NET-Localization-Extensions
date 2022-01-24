@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
-namespace Company.WebApplication.Models.Forms
+namespace Application.Models.Forms
 {
 	public class Form
 	{

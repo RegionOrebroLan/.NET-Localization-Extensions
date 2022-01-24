@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Threading.Tasks;
-using Company.WebApplication.Models.ViewModels;
+using Application.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Company.WebApplication.Controllers
+namespace Application.Controllers
 {
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 	public abstract class SiteController<TViewModel> : Controller where TViewModel : IViewModel
@@ -46,7 +46,7 @@ namespace Company.WebApplication.Controllers
 			this.HttpContext.Response.Cookies.Append(
 				CookieRequestCultureProvider.DefaultCookieName,
 				CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture, uiCulture)),
-				new CookieOptions {MaxAge = TimeSpan.FromDays(365)}
+				new CookieOptions { MaxAge = TimeSpan.FromDays(365) }
 			);
 
 			return await this.Redirect(returnUrl).ConfigureAwait(false);

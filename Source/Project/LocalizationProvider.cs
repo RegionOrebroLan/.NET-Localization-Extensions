@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -125,7 +125,7 @@ namespace RegionOrebroLan.Localization
 
 		protected internal virtual object ResourceContentLock { get; } = new object();
 		protected internal virtual IResourceProvider ResourceProvider { get; }
-		protected internal virtual IEnumerable<IResource> Resources => ((IEnumerable<IResource>) this.ResourceProvider.EmbeddedResources).Concat(this.ResourceProvider.FileResources);
+		protected internal virtual IEnumerable<IResource> Resources => ((IEnumerable<IResource>)this.ResourceProvider.EmbeddedResources).Concat(this.ResourceProvider.FileResources);
 		protected internal virtual ILocalizationSettings Settings { get; }
 
 		#endregion
@@ -470,6 +470,7 @@ namespace RegionOrebroLan.Localization
 		}
 
 		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
+		[SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code", Justification = "<Pending>")]
 		protected internal virtual void UpdateResourceContent(string path)
 		{
 			if(path == null)

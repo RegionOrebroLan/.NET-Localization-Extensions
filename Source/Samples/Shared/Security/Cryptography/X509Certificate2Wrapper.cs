@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Security.Cryptography.X509Certificates;
 
-namespace RegionOrebroLan.Security.Cryptography
+namespace Shared.Security.Cryptography
 {
 	public class X509Certificate2Wrapper : ICertificate
 	{

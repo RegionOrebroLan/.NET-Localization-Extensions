@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29201.188
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{11402557-CA24-4A83-BE7F-E88F242BAA07}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{E2B140BE-56E4-4D82-A011-E1D64F936198}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{23F3891E-15FE-46B2-B061-35108EDC06D6}"
 	ProjectSection(SolutionItems) = preProject
-		.Global\CodeAnalysis\All-Rules-As-Error.ruleset = .Global\CodeAnalysis\All-Rules-As-Error.ruleset
-		.Global\CodeAnalysis\Solution-dictionary.xml = .Global\CodeAnalysis\Solution-dictionary.xml
-		.Global\CodeAnalysis\Solution-suppressions.cs = .Global\CodeAnalysis\Solution-suppressions.cs
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Version.props = Directory.Version.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{E3F474E2-0E85-47CD-A2DB-55852CEDB670}"
@@ -17,14 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		..\ReadMe.md = ..\ReadMe.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{2BE230D5-928C-46F6-95B5-CEF06CE0D0BE}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet.config = NuGet.config
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{E69917BB-D44E-418E-AE1E-8C62EE842E58}"
 	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
 		..\.gitignore = ..\.gitignore
+		..\License = ..\License
+		..\NuGet.config = ..\NuGet.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{169D8A5D-6205-40F4-86B6-054AF7BEE7B3}"
@@ -33,7 +31,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Signing", "Signing", "{169D
 		.Global\Signing\StrongName.Development.snk = .Global\Signing\StrongName.Development.snk
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Project\Project.csproj", "{D9A714B9-5387-4FB3-AF50-858F95205971}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}"
+	ProjectSection(SolutionItems) = preProject
+		Samples\.editorconfig = Samples\.editorconfig
+		Samples\Application.Build.targets = Samples\Application.Build.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Path-Based-Localization", "Path-Based-Localization", "{E4CB2DC1-986E-4A41-977A-6128F6D30B2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Samples\Path-Based-Localization\Application.csproj", "{A37DB939-F559-47C5-A6A1-F5FC11C32645}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resx-Localization", "Resx-Localization", "{0468DB9C-8C01-480F-9EB2-461E42E22048}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Samples\Resx-Localization\Application.csproj", "{DFB892FF-11C6-4681-8E48-DBDC4C6109AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{058D1017-FBA3-4900-BDD9-C42BE17A02A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Samples\Shared\Project.csproj", "{6A5E60BD-BFDF-411E-8018-93824B9CC2EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared-Mvc", "Shared-Mvc", "{F97C7C32-C5D7-47B5-91FC-0AEBA25D8DA3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Samples\Shared-Mvc\Project.csproj", "{989C2B72-C858-4F9C-A109-4837909DB73F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Embedded-resources", "Embedded-resources", "{0DCA16CC-F6FB-477F-B4BB-9F49EF8E591E}"
 EndProject
@@ -49,36 +67,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Root-namespaced-resources",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Words", "Embedded-resources\Words\Words.csproj", "{10BC1FA0-9168-4B0F-994E-E93DEB964CA4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration-tests", "Integration-tests\Integration-tests.csproj", "{18DBC2D1-E4D9-462B-8AAA-B17732FEAD74}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Investigation", "Investigation\Investigation.csproj", "{8FDC9C4E-537C-4979-BCED-DFE3297942D4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Project\Project.csproj", "{D9A714B9-5387-4FB3-AF50-858F95205971}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{C3C44BAC-046A-4CE4-8BEF-87CCB5D3F60C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{447F520E-DBC8-456F-AFFF-CE586DADA5C4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AE07CB56-C839-4539-99B8-8B27FA606A0F}"
 	ProjectSection(SolutionItems) = preProject
-		Samples\.Global\Build\Build.targets = Samples\.Global\Build\Build.targets
+		Tests\.editorconfig = Tests\.editorconfig
+		Tests\Directory.Build.props = Tests\Directory.Build.props
+		Tests\Directory.Build.targets = Tests\Directory.Build.targets
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Path-Based-Localization", "Path-Based-Localization", "{E4CB2DC1-986E-4A41-977A-6128F6D30B2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration-tests", "Tests\Integration-tests\Integration-tests.csproj", "{421C0F25-1E8E-4176-92DC-70D16DB83779}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Samples\Path-Based-Localization\Application.csproj", "{A37DB939-F559-47C5-A6A1-F5FC11C32645}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resx-Localization", "Resx-Localization", "{0468DB9C-8C01-480F-9EB2-461E42E22048}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Samples\Resx-Localization\Application.csproj", "{DFB892FF-11C6-4681-8E48-DBDC4C6109AA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{058D1017-FBA3-4900-BDD9-C42BE17A02A8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project", "Samples\Shared\Project.csproj", "{6A5E60BD-BFDF-411E-8018-93824B9CC2EE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared-Mvc", "Shared-Mvc", "{F97C7C32-C5D7-47B5-91FC-0AEBA25D8DA3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Samples\Shared-Mvc\Project.csproj", "{989C2B72-C858-4F9C-A109-4837909DB73F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unit-tests", "Unit-tests\Unit-tests.csproj", "{6DA230E3-2387-4792-82E4-2B685B263921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unit-tests", "Tests\Unit-tests\Unit-tests.csproj", "{25DC91B0-BCFB-48A5-BECC-DA463A303CB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -114,18 +116,10 @@ Global
 		{10BC1FA0-9168-4B0F-994E-E93DEB964CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10BC1FA0-9168-4B0F-994E-E93DEB964CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10BC1FA0-9168-4B0F-994E-E93DEB964CA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18DBC2D1-E4D9-462B-8AAA-B17732FEAD74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18DBC2D1-E4D9-462B-8AAA-B17732FEAD74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18DBC2D1-E4D9-462B-8AAA-B17732FEAD74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18DBC2D1-E4D9-462B-8AAA-B17732FEAD74}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FDC9C4E-537C-4979-BCED-DFE3297942D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8FDC9C4E-537C-4979-BCED-DFE3297942D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FDC9C4E-537C-4979-BCED-DFE3297942D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FDC9C4E-537C-4979-BCED-DFE3297942D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DA230E3-2387-4792-82E4-2B685B263921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DA230E3-2387-4792-82E4-2B685B263921}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DA230E3-2387-4792-82E4-2B685B263921}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DA230E3-2387-4792-82E4-2B685B263921}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A37DB939-F559-47C5-A6A1-F5FC11C32645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A37DB939-F559-47C5-A6A1-F5FC11C32645}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A37DB939-F559-47C5-A6A1-F5FC11C32645}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -142,14 +136,20 @@ Global
 		{989C2B72-C858-4F9C-A109-4837909DB73F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{989C2B72-C858-4F9C-A109-4837909DB73F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{989C2B72-C858-4F9C-A109-4837909DB73F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25DC91B0-BCFB-48A5-BECC-DA463A303CB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25DC91B0-BCFB-48A5-BECC-DA463A303CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25DC91B0-BCFB-48A5-BECC-DA463A303CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25DC91B0-BCFB-48A5-BECC-DA463A303CB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{421C0F25-1E8E-4176-92DC-70D16DB83779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{421C0F25-1E8E-4176-92DC-70D16DB83779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{421C0F25-1E8E-4176-92DC-70D16DB83779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{421C0F25-1E8E-4176-92DC-70D16DB83779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E2B140BE-56E4-4D82-A011-E1D64F936198} = {11402557-CA24-4A83-BE7F-E88F242BAA07}
 		{E3F474E2-0E85-47CD-A2DB-55852CEDB670} = {11402557-CA24-4A83-BE7F-E88F242BAA07}
-		{2BE230D5-928C-46F6-95B5-CEF06CE0D0BE} = {11402557-CA24-4A83-BE7F-E88F242BAA07}
 		{E69917BB-D44E-418E-AE1E-8C62EE842E58} = {11402557-CA24-4A83-BE7F-E88F242BAA07}
 		{169D8A5D-6205-40F4-86B6-054AF7BEE7B3} = {11402557-CA24-4A83-BE7F-E88F242BAA07}
 		{4DA471C2-3192-4B02-9EFA-55FDA4889F35} = {0DCA16CC-F6FB-477F-B4BB-9F49EF8E591E}
@@ -159,15 +159,16 @@ Global
 		{1D11B66E-D91A-47D9-BA29-93FFC05AE510} = {0DCA16CC-F6FB-477F-B4BB-9F49EF8E591E}
 		{10BC1FA0-9168-4B0F-994E-E93DEB964CA4} = {0DCA16CC-F6FB-477F-B4BB-9F49EF8E591E}
 		{E4CB2DC1-986E-4A41-977A-6128F6D30B2C} = {50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}
-		{0468DB9C-8C01-480F-9EB2-461E42E22048} = {50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}
 		{A37DB939-F559-47C5-A6A1-F5FC11C32645} = {E4CB2DC1-986E-4A41-977A-6128F6D30B2C}
+		{0468DB9C-8C01-480F-9EB2-461E42E22048} = {50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}
 		{DFB892FF-11C6-4681-8E48-DBDC4C6109AA} = {0468DB9C-8C01-480F-9EB2-461E42E22048}
 		{058D1017-FBA3-4900-BDD9-C42BE17A02A8} = {50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}
-		{F97C7C32-C5D7-47B5-91FC-0AEBA25D8DA3} = {50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}
 		{6A5E60BD-BFDF-411E-8018-93824B9CC2EE} = {058D1017-FBA3-4900-BDD9-C42BE17A02A8}
+		{F97C7C32-C5D7-47B5-91FC-0AEBA25D8DA3} = {50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}
 		{989C2B72-C858-4F9C-A109-4837909DB73F} = {F97C7C32-C5D7-47B5-91FC-0AEBA25D8DA3}
-		{C3C44BAC-046A-4CE4-8BEF-87CCB5D3F60C} = {50D1FAF2-DE9A-4E00-A97D-11027C9D2B8B}
-		{447F520E-DBC8-456F-AFFF-CE586DADA5C4} = {C3C44BAC-046A-4CE4-8BEF-87CCB5D3F60C}
+		{23F3891E-15FE-46B2-B061-35108EDC06D6} = {11402557-CA24-4A83-BE7F-E88F242BAA07}
+		{25DC91B0-BCFB-48A5-BECC-DA463A303CB2} = {AE07CB56-C839-4539-99B8-8B27FA606A0F}
+		{421C0F25-1E8E-4176-92DC-70D16DB83779} = {AE07CB56-C839-4539-99B8-8B27FA606A0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D7A5EBB-83F7-4E96-9BFA-4FC6B4C3856E}

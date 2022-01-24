@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Globalization;
 
-namespace RegionOrebroLan.Globalization
+namespace Shared.Globalization
 {
 	public class CustomCulture : CultureInfo
 	{

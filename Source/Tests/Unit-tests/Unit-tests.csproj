@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>UnitTests</AssemblyName>
+		<RootNamespace>$(AssemblyName)</RootNamespace>
+		<!--<TargetFrameworks>net462;net5.0;net6.0;netcoreapp3.1</TargetFrameworks>-->
+		<!--<TargetFrameworks>net5.0;net6.0;netcoreapp3.1</TargetFrameworks>-->
+		<TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Investigation\Investigation.csproj" />
+	</ItemGroup>
+</Project>

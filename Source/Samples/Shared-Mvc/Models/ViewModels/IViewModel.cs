@@ -1,7 +1,7 @@
-﻿using Company.WebApplication.Models.ViewModels.Shared;
+using Application.Models.ViewModels.Shared;
 using Microsoft.Extensions.Localization;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public interface IViewModel
 	{

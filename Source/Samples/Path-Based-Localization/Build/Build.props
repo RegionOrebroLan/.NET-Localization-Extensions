@@ -1,6 +1,0 @@
-<Project>
-	<PropertyGroup>
-		<AssemblyName>Company.WebApplication</AssemblyName>
-		<CodeAnalysisRuleSet>CodeAnalysis\Rules.ruleset</CodeAnalysisRuleSet>
-	</PropertyGroup>
-</Project>

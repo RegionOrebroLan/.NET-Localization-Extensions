@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
-using RegionOrebroLan.Globalization.Configuration;
+using Shared.Globalization.Configuration;
 
-namespace RegionOrebroLan.Globalization
+namespace Shared.Globalization
 {
 	public class CultureFactory : ICultureFactory
 	{

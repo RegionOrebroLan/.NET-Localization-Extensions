@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Resources;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 
-namespace RegionOrebroLan.Investigation.Localization
+namespace Investigation.Localization
 {
 	public class InvestigatableResourceManagerWithCultureStringLocalizer : InvestigatableResourceManagerStringLocalizer
 	{

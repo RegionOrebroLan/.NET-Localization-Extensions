@@ -1,8 +1,8 @@
-﻿using System.Globalization;
-using Company.WebApplication.Models.Navigation;
-using RegionOrebroLan.Security.Cryptography;
+using System.Globalization;
+using Application.Models.Navigation;
+using Shared.Security.Cryptography;
 
-namespace Company.WebApplication.Models.ViewModels.Shared
+namespace Application.Models.ViewModels.Shared
 {
 	public interface ILayout
 	{

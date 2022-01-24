@@ -13,7 +13,7 @@
 										"Name": "HomeController",
 										"Entries": {
 											"First-text": {
-												"Value": "Första text: sv, \"\\Web-application\\Resources\\Texts.sv.json\""
+												"Value": "Första text: sv, \"\\Application\\Resources\\Texts.sv.json\""
 											}
 										}
 									}
@@ -26,7 +26,7 @@
 							"Name": "Controllers.HomeController",
 							"Entries": {
 								"Second-text": {
-									"Value": "Andra text: sv, \"\\Web-application\\Resources\\Texts.sv.json\""
+									"Value": "Andra text: sv, \"\\Application\\Resources\\Texts.sv.json\""
 								}
 							}
 						}

@@ -1,6 +1,6 @@
-﻿using Company.WebApplication.Models.ViewModels;
+using Application.Models.ViewModels;
 
-namespace Company.WebApplication.Controllers
+namespace Application.Controllers
 {
 	public class InformationController : SiteController<InformationViewModel>
 	{

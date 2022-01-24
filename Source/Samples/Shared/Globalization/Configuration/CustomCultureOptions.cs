@@ -1,4 +1,4 @@
-﻿namespace RegionOrebroLan.Globalization.Configuration
+namespace Shared.Globalization.Configuration
 {
 	public class CustomCultureOptions
 	{

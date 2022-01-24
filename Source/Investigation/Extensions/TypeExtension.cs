@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Reflection;
 
-namespace RegionOrebroLan.Investigation.Extensions
+namespace Investigation.Extensions
 {
 	public static class TypeExtension
 	{
@@ -13,7 +13,7 @@ namespace RegionOrebroLan.Investigation.Extensions
 				throw new ArgumentNullException(nameof(type));
 
 			// ReSharper disable PossibleNullReferenceException
-			return (T) type.GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic).GetValue(instance);
+			return (T)type.GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic).GetValue(instance);
 			// ReSharper restore PossibleNullReferenceException
 		}
 

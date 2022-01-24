@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public interface IHomeViewModel : IViewModel
 	{

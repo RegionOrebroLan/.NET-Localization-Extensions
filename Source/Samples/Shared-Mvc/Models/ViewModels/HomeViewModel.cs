@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Microsoft.AspNetCore.Http;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public class HomeViewModel : ViewModel, IHomeViewModel
 	{

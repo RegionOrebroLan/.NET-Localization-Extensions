@@ -9,101 +9,99 @@
 			<localization>Localization</localization>
 			<ui-culture>UI-culture</ui-culture>
 		</common>
-		<company>
-			<webApplication>
-				<views>
-					<certificate>
-						<index>
-							<text>This page negotiates certificates.</text>
-						</index>
-					</certificate>
+		<application>
+			<views>
+				<certificate>
+					<index>
+						<text>This page negotiates certificates.</text>
+					</index>
+				</certificate>
+				<form>
 					<form>
-						<form>
-							<send>Send</send>
-						</form>
-						<index>
-							<confirmation>Confirmation</confirmation>
-							<invalid-input name="Invalid input">Invalid input</invalid-input>
-							<the-form-was-posted-successfully name="The form was posted successfully.">The form was posted successfully.</the-form-was-posted-successfully>
-						</index>
+						<send>Send</send>
 					</form>
-					<home>
-						<index>
-							<culture lookup="common.culture" />
-							<cultures>Selected cultures for the page</cultures>
-							<currency-example name="Currency example">Currency example</currency-example>
-							<date-time-example name="Date-time example">Date/time example</date-time-example>
-							<description>This is an example of a web-application built with ASP.NET Core globalization and localization with path-based localization (json/xml).</description>
-							<ui-culture lookup="common.ui-culture" />
-						</index>
-					</home>
-					<information>
-						<index>
-							<as-query-string name="As query-string.">As query-string.</as-query-string>
-							<close>Close</close>
-							<context>Context</context>
-							<culture lookup="common.culture" />
-							<culture-cookie>Culture-cookie</culture-cookie>
-							<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
-							<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
-							<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
-							<features>Features</features>
-							<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
-							<no-culture-cookie name="No culture-cookie.">No culture-cookie.</no-culture-cookie>
-							<no-route-values name="No route-values.">No route-values.</no-route-values>
-							<no-supported-cultures name="No supported cultures.">No supported cultures.</no-supported-cultures>
-							<no-supported-ui-cultures name="No supported ui-cultures.">No supported ui-cultures.</no-supported-ui-cultures>
-							<provider>Provider</provider>
-							<requestCulture>Request-culture</requestCulture>
-							<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
-							<request-localization-options>Request-localization-options</request-localization-options>
-							<route-values>Route-values</route-values>
-							<settings>Settings</settings>
-							<supported-cultures name="Supported cultures">Supported cultures</supported-cultures>
-							<supported-ui-cultures name="Supported ui-cultures">Supported ui-cultures</supported-ui-cultures>
-							<text>This page presents system-information.</text>
-							<ui-culture lookup="common.ui-culture" />
-						</index>
-					</information>
-					<localization>
-						<index>
-							<culture lookup="common.culture" />
-							<cultures lookup="company.webApplication.views.home.index.cultures" />
-							<information lookup="common.information" />
-							<localized-strings name="Localized strings">Localized strings</localized-strings>
-							<localizers>Configured localizers</localizers>
-							<names>Configured keys/names</names>
-							<no-localized-strings name="No localized strings.">No localized strings.</no-localized-strings>
-							<no-localizers name="No localizers.">No configured localizers.</no-localizers>
-							<no-names name="No names.">No configured names.</no-names>
-							<text>Here you can see/test localized strings.</text>
-							<ui-culture lookup="common.ui-culture" />
-							<view-localizer>Localizer for this view</view-localizer>
-							<view-localizer-description>The localizer for this view is an injected IViewLocalizer.</view-localizer-description>
-						</index>
-					</localization>
-					<shared>
-						<layouts>
-							<default>
-								<certificate lookup="common.certificate" />
-								<delete>Delete</delete>
-								<delete-culture-cookie name="Delete culture-cookie.">Delete culture-cookie.</delete-culture-cookie>
-								<friendly-name>Friendly-name</friendly-name>
-								<issuer>Issuer</issuer>
-								<no-connected-certificate name="No connected certificate.">No connected certificate.</no-connected-certificate>
-								<save>Save</save>
-								<save-culture-cookie name="Save culture-cookie.">Save culture-cookie.</save-culture-cookie>
-								<serial-number>Serial-number</serial-number>
-								<subject>Subject</subject>
-								<thumbprint>Thumbprint</thumbprint>
-								<title>Globalized and localized web-application</title>
-								<toggle-navigation name="Toggle navigation">Toggle navigation</toggle-navigation>
-							</default>
-						</layouts>
-					</shared>
-				</views>
-			</webApplication>
-		</company>
+					<index>
+						<confirmation>Confirmation</confirmation>
+						<invalid-input name="Invalid input">Invalid input</invalid-input>
+						<the-form-was-posted-successfully name="The form was posted successfully.">The form was posted successfully.</the-form-was-posted-successfully>
+					</index>
+				</form>
+				<home>
+					<index>
+						<culture lookup="common.culture" />
+						<cultures>Selected cultures for the page</cultures>
+						<currency-example name="Currency example">Currency example</currency-example>
+						<date-time-example name="Date-time example">Date/time example</date-time-example>
+						<description>This is an example of a web-application built with ASP.NET Core globalization and localization with path-based localization (json/xml).</description>
+						<ui-culture lookup="common.ui-culture" />
+					</index>
+				</home>
+				<information>
+					<index>
+						<as-query-string name="As query-string.">As query-string.</as-query-string>
+						<close>Close</close>
+						<context>Context</context>
+						<culture lookup="common.culture" />
+						<culture-cookie>Culture-cookie</culture-cookie>
+						<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
+						<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
+						<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
+						<features>Features</features>
+						<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
+						<no-culture-cookie name="No culture-cookie.">No culture-cookie.</no-culture-cookie>
+						<no-route-values name="No route-values.">No route-values.</no-route-values>
+						<no-supported-cultures name="No supported cultures.">No supported cultures.</no-supported-cultures>
+						<no-supported-ui-cultures name="No supported ui-cultures.">No supported ui-cultures.</no-supported-ui-cultures>
+						<provider>Provider</provider>
+						<requestCulture>Request-culture</requestCulture>
+						<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
+						<request-localization-options>Request-localization-options</request-localization-options>
+						<route-values>Route-values</route-values>
+						<settings>Settings</settings>
+						<supported-cultures name="Supported cultures">Supported cultures</supported-cultures>
+						<supported-ui-cultures name="Supported ui-cultures">Supported ui-cultures</supported-ui-cultures>
+						<text>This page presents system-information.</text>
+						<ui-culture lookup="common.ui-culture" />
+					</index>
+				</information>
+				<localization>
+					<index>
+						<culture lookup="common.culture" />
+						<cultures lookup="company.webApplication.views.home.index.cultures" />
+						<information lookup="common.information" />
+						<localized-strings name="Localized strings">Localized strings</localized-strings>
+						<localizers>Configured localizers</localizers>
+						<names>Configured keys/names</names>
+						<no-localized-strings name="No localized strings.">No localized strings.</no-localized-strings>
+						<no-localizers name="No localizers.">No configured localizers.</no-localizers>
+						<no-names name="No names.">No configured names.</no-names>
+						<text>Here you can see/test localized strings.</text>
+						<ui-culture lookup="common.ui-culture" />
+						<view-localizer>Localizer for this view</view-localizer>
+						<view-localizer-description>The localizer for this view is an injected IViewLocalizer.</view-localizer-description>
+					</index>
+				</localization>
+				<shared>
+					<layouts>
+						<default>
+							<certificate lookup="common.certificate" />
+							<delete>Delete</delete>
+							<delete-culture-cookie name="Delete culture-cookie.">Delete culture-cookie.</delete-culture-cookie>
+							<friendly-name>Friendly-name</friendly-name>
+							<issuer>Issuer</issuer>
+							<no-connected-certificate name="No connected certificate.">No connected certificate.</no-connected-certificate>
+							<save>Save</save>
+							<save-culture-cookie name="Save culture-cookie.">Save culture-cookie.</save-culture-cookie>
+							<serial-number>Serial-number</serial-number>
+							<subject>Subject</subject>
+							<thumbprint>Thumbprint</thumbprint>
+							<title>Globalized and localized web-application</title>
+							<toggle-navigation name="Toggle navigation">Toggle navigation</toggle-navigation>
+						</default>
+					</layouts>
+				</shared>
+			</views>
+		</application>
 		<models>
 			<viewModels>
 				<certificateViewModel>

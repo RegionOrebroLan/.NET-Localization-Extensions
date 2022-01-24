@@ -1,4 +1,4 @@
-﻿namespace RegionOrebroLan.Security.Cryptography
+namespace Shared.Security.Cryptography
 {
 	public interface ICertificate
 	{

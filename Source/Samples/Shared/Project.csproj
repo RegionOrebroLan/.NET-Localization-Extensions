@@ -1,8 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="Build\Build.props" />
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<AssemblyName>RegionOrebroLan</AssemblyName>
-		<CodeAnalysisRuleSet>CodeAnalysis\Rules.ruleset</CodeAnalysisRuleSet>
+		<AssemblyName>Shared</AssemblyName>
 		<RootNamespace>$(AssemblyName)</RootNamespace>
 		<TargetFramework>netstandard2.0</TargetFramework>
 	</PropertyGroup>
@@ -10,19 +8,5 @@
 		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Localization" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
-			<PrivateAssets>all</PrivateAssets>
-		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-		<None Remove="CodeAnalysis\Dictionary.xml" />
-		<AdditionalFiles Include="CodeAnalysis\Dictionary.xml" />
-		<AdditionalFiles Include="$(SolutionDir).Global\CodeAnalysis\Solution-dictionary.xml">
-			<Link>CodeAnalysis\Solution-dictionary.xml</Link>
-		</AdditionalFiles>
-		<Compile Include="$(SolutionDir).Global\CodeAnalysis\Solution-suppressions.cs">
-			<Link>CodeAnalysis\Solution-suppressions.cs</Link>
-		</Compile>
-	</ItemGroup>
-	<Import Project="Build\Build.targets" />
 </Project>

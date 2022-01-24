@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
-using Company.WebApplication.Localization.Extensions;
-using Company.WebApplication.Models.Navigation;
+using Application.Localization.Extensions;
+using Application.Models.Navigation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
@@ -14,10 +14,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RegionOrebroLan.Security.Cryptography;
-using RegionOrebroLan.Web.Routing;
+using Shared.Security.Cryptography;
+using Shared.Web.Routing;
 
-namespace Company.WebApplication.Models.ViewModels.Shared
+namespace Application.Models.ViewModels.Shared
 {
 	// ReSharper disable InvertIf
 	[SuppressMessage("Microsoft.Naming", "CA1724:TypeNamesShouldNotMatchNamespaces")]
@@ -33,7 +33,7 @@ namespace Company.WebApplication.Models.ViewModels.Shared
 		private Lazy<string> _cultureSegment;
 		private const string _homeController = "Home";
 		private INavigationNode _mainNavigation;
-		private static readonly IEnumerable<string> _navigationControllers = new[] {"Localization", "Information", "Form", _certificateController};
+		private static readonly IEnumerable<string> _navigationControllers = new[] { "Localization", "Information", "Form", _certificateController };
 		private IEnumerable<string> _pathSegments;
 		private IEnumerable<string> _pathSegmentsWithoutController;
 		private IEnumerable<string> _pathSegmentsWithoutControllerAndCultureAndUiCulture;
@@ -71,7 +71,7 @@ namespace Company.WebApplication.Models.ViewModels.Shared
 			get
 			{
 				if(this._certificate == null)
-					this._certificate = new Lazy<ICertificate>(() => (X509Certificate2Wrapper) this.HttpContext.Connection.ClientCertificate);
+					this._certificate = new Lazy<ICertificate>(() => (X509Certificate2Wrapper)this.HttpContext.Connection.ClientCertificate);
 
 				return this._certificate.Value;
 			}
@@ -172,7 +172,7 @@ namespace Company.WebApplication.Models.ViewModels.Shared
 			}
 		}
 
-		protected internal virtual IEnumerable<string> PathSegments => this._pathSegments ?? (this._pathSegments = this.HttpContext.Request.Path.Value.Split(new[] {_pathSeparator}, StringSplitOptions.RemoveEmptyEntries));
+		protected internal virtual IEnumerable<string> PathSegments => this._pathSegments ?? (this._pathSegments = this.HttpContext.Request.Path.Value.Split(new[] { _pathSeparator }, StringSplitOptions.RemoveEmptyEntries));
 
 		protected internal virtual IEnumerable<string> PathSegmentsWithoutController
 		{

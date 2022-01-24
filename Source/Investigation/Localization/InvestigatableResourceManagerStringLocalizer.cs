@@ -1,15 +1,15 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using Investigation.Extensions;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Localization.Internal;
 using Microsoft.Extensions.Logging;
-using RegionOrebroLan.Investigation.Extensions;
 
-namespace RegionOrebroLan.Investigation.Localization
+namespace Investigation.Localization
 {
 	public class InvestigatableResourceManagerStringLocalizer : ResourceManagerStringLocalizer
 	{

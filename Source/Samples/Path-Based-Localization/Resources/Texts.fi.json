@@ -13,7 +13,7 @@
 										"Name": "HomeController",
 										"Entries": {
 											"First-text": {
-												"Value": "Ensimmäinen teksti: fi, \"\\Web-application\\Resources\\Texts.fi.json\""
+												"Value": "Ensimmäinen teksti: fi, \"\\Application\\Resources\\Texts.fi.json\""
 											}
 										}
 									}
@@ -26,7 +26,7 @@
 							"Name": "Controllers.HomeController",
 							"Entries": {
 								"Second-text": {
-									"Value": "Muu teksti: fi, \"\\Web-application\\Resources\\Texts.fi.json\""
+									"Value": "Muu teksti: fi, \"\\Application\\Resources\\Texts.fi.json\""
 								}
 							}
 						}

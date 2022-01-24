@@ -9,101 +9,99 @@
 			<localization>Lokalisointi</localization>
 			<ui-culture>UI-kulttuuri</ui-culture>
 		</common>
-		<company>
-			<webApplication>
-				<views>
-					<certificate>
-						<index>
-							<text>Tämä sivu neuvottelee varmenteista.</text>
-						</index>
-					</certificate>
+		<application>
+			<views>
+				<certificate>
+					<index>
+						<text>Tämä sivu neuvottelee varmenteista.</text>
+					</index>
+				</certificate>
+				<form>
 					<form>
-						<form>
-							<send>Lähettää</send>
-						</form>
-						<index>
-							<confirmation>Vahvistus</confirmation>
-							<invalid-input name="Invalid input">Virheellinen syöte</invalid-input>
-							<the-form-was-posted-successfully name="The form was posted successfully.">Lomake lähetettiin onnistuneesti.</the-form-was-posted-successfully>
-						</index>
+						<send>Lähettää</send>
 					</form>
-					<home>
-						<index>
-							<culture lookup="common.culture" />
-							<cultures>Sivulle valitut kulttuurit</cultures>
-							<currency-example name="Currency example">Esimerkki valuutasta</currency-example>
-							<date-time-example name="Date-time example">Päivämäärä/aika-esimerkki</date-time-example>
-							<description>Tämä on esimerkki web-sovelluksesta, joka on rakennettu ASP.NET Core -markkinoinnin ja lokalisoinnin kanssa polkupohjaisella lokalisoinnilla (json/xml).</description>
-							<ui-culture lookup="common.ui-culture" />
-						</index>
-					</home>
-					<information>
-						<index>
-							<as-query-string name="As query-string.">Kyselymerkkijonona.</as-query-string>
-							<close>kiinni</close>
-							<context>konteksti</context>
-							<culture lookup="common.culture" />
-							<culture-cookie>Kulttuuri-eväste</culture-cookie>
-							<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
-							<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
-							<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
-							<features>ominaisuudet</features>
-							<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
-							<no-culture-cookie name="No culture-cookie.">Ei kulttuurievästeitä.</no-culture-cookie>
-							<no-route-values name="No route-values.">Ei reitti-arvoja.</no-route-values>
-							<no-supported-cultures name="No supported cultures.">Ei tuettuja kulttuureja.</no-supported-cultures>
-							<no-supported-ui-cultures name="No supported ui-cultures.">Ei tuettuja ui-kulttuureja.</no-supported-ui-cultures>
-							<provider>toimittaja</provider>
-							<requestCulture>Request-kulttuuri</requestCulture>
-							<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
-							<request-localization-options>Request-localization-options</request-localization-options>
-							<route-values>Reitti-arvot</route-values>
-							<settings>asetukset</settings>
-							<supported-cultures name="Supported cultures">Tuetut kulttuurit</supported-cultures>
-							<supported-ui-cultures name="Supported ui-cultures">Tuetut ui-kulttuurit</supported-ui-cultures>
-							<text>Tällä sivulla on järjestelmätietoja.</text>
-							<ui-culture lookup="common.ui-culture" />
-						</index>
-					</information>
-					<localization>
-						<index>
-							<culture lookup="common.culture" />
-							<cultures lookup="company.webApplication.views.home.index.cultures" />
-							<information lookup="common.information" />
-							<localized-strings name="Localized strings">Paikalliset merkkijonot</localized-strings>
-							<localizers>Konfiguroidut lokalisoijat</localizers>
-							<names>Määritetyt avaimet/nimet</names>
-							<no-localized-strings name="No localized strings.">Ei paikallisia merkkijonoja.</no-localized-strings>
-							<no-localizers name="No localizers.">Ei määritettyjä lokalisoijia.</no-localizers>
-							<no-names name="No names.">Ei määritettyjä nimiä.</no-names>
-							<text>Täällä voit nähdä/testata paikallisia merkkijonoja.</text>
-							<ui-culture lookup="common.ui-culture" />
-							<view-localizer>Tämän näkymän lokalisoija</view-localizer>
-							<view-localizer-description>Tämän näkymän lokalisoija on injektoitu IViewLocalizer.</view-localizer-description>
-						</index>
-					</localization>
-					<shared>
-						<layouts>
-							<default>
-								<certificate lookup="common.certificate" />
-								<delete>Poistaa</delete>
-								<delete-culture-cookie name="Delete culture-cookie.">Poista kulttuurieväste.</delete-culture-cookie>
-								<friendly-name>Ystävällinen nimi</friendly-name>
-								<issuer>liikkeeseenlaskijan</issuer>
-								<no-connected-certificate name="No connected certificate.">Ei kytkettyä varmennetta.</no-connected-certificate>
-								<save>Tallentaa</save>
-								<save-culture-cookie name="Save culture-cookie.">Säästä kulttuuri-eväste.</save-culture-cookie>
-								<serial-number>Sarjanumero</serial-number>
-								<subject>aihe</subject>
-								<thumbprint>sormenjälki</thumbprint>
-								<title>Globalisoitu ja lokalisoitu web-sovellus</title>
-								<toggle-navigation name="Toggle navigation">Vaihda navigointi</toggle-navigation>
-							</default>
-						</layouts>
-					</shared>
-				</views>
-			</webApplication>
-		</company>
+					<index>
+						<confirmation>Vahvistus</confirmation>
+						<invalid-input name="Invalid input">Virheellinen syöte</invalid-input>
+						<the-form-was-posted-successfully name="The form was posted successfully.">Lomake lähetettiin onnistuneesti.</the-form-was-posted-successfully>
+					</index>
+				</form>
+				<home>
+					<index>
+						<culture lookup="common.culture" />
+						<cultures>Sivulle valitut kulttuurit</cultures>
+						<currency-example name="Currency example">Esimerkki valuutasta</currency-example>
+						<date-time-example name="Date-time example">Päivämäärä/aika-esimerkki</date-time-example>
+						<description>Tämä on esimerkki web-sovelluksesta, joka on rakennettu ASP.NET Core -markkinoinnin ja lokalisoinnin kanssa polkupohjaisella lokalisoinnilla (json/xml).</description>
+						<ui-culture lookup="common.ui-culture" />
+					</index>
+				</home>
+				<information>
+					<index>
+						<as-query-string name="As query-string.">Kyselymerkkijonona.</as-query-string>
+						<close>kiinni</close>
+						<context>konteksti</context>
+						<culture lookup="common.culture" />
+						<culture-cookie>Kulttuuri-eväste</culture-cookie>
+						<defaultRequestCulture>DefaultRequestCulture</defaultRequestCulture>
+						<fallBackToParentCultures>FallBackToParentCultures</fallBackToParentCultures>
+						<fallBackToParentUICultures>FallBackToParentUICultures</fallBackToParentUICultures>
+						<features>ominaisuudet</features>
+						<iRequestCultureFeature>IRequestCultureFeature</iRequestCultureFeature>
+						<no-culture-cookie name="No culture-cookie.">Ei kulttuurievästeitä.</no-culture-cookie>
+						<no-route-values name="No route-values.">Ei reitti-arvoja.</no-route-values>
+						<no-supported-cultures name="No supported cultures.">Ei tuettuja kulttuureja.</no-supported-cultures>
+						<no-supported-ui-cultures name="No supported ui-cultures.">Ei tuettuja ui-kulttuureja.</no-supported-ui-cultures>
+						<provider>toimittaja</provider>
+						<requestCulture>Request-kulttuuri</requestCulture>
+						<requestCultureProviders>RequestCultureProviders</requestCultureProviders>
+						<request-localization-options>Request-localization-options</request-localization-options>
+						<route-values>Reitti-arvot</route-values>
+						<settings>asetukset</settings>
+						<supported-cultures name="Supported cultures">Tuetut kulttuurit</supported-cultures>
+						<supported-ui-cultures name="Supported ui-cultures">Tuetut ui-kulttuurit</supported-ui-cultures>
+						<text>Tällä sivulla on järjestelmätietoja.</text>
+						<ui-culture lookup="common.ui-culture" />
+					</index>
+				</information>
+				<localization>
+					<index>
+						<culture lookup="common.culture" />
+						<cultures lookup="company.webApplication.views.home.index.cultures" />
+						<information lookup="common.information" />
+						<localized-strings name="Localized strings">Paikalliset merkkijonot</localized-strings>
+						<localizers>Konfiguroidut lokalisoijat</localizers>
+						<names>Määritetyt avaimet/nimet</names>
+						<no-localized-strings name="No localized strings.">Ei paikallisia merkkijonoja.</no-localized-strings>
+						<no-localizers name="No localizers.">Ei määritettyjä lokalisoijia.</no-localizers>
+						<no-names name="No names.">Ei määritettyjä nimiä.</no-names>
+						<text>Täällä voit nähdä/testata paikallisia merkkijonoja.</text>
+						<ui-culture lookup="common.ui-culture" />
+						<view-localizer>Tämän näkymän lokalisoija</view-localizer>
+						<view-localizer-description>Tämän näkymän lokalisoija on injektoitu IViewLocalizer.</view-localizer-description>
+					</index>
+				</localization>
+				<shared>
+					<layouts>
+						<default>
+							<certificate lookup="common.certificate" />
+							<delete>Poistaa</delete>
+							<delete-culture-cookie name="Delete culture-cookie.">Poista kulttuurieväste.</delete-culture-cookie>
+							<friendly-name>Ystävällinen nimi</friendly-name>
+							<issuer>liikkeeseenlaskijan</issuer>
+							<no-connected-certificate name="No connected certificate.">Ei kytkettyä varmennetta.</no-connected-certificate>
+							<save>Tallentaa</save>
+							<save-culture-cookie name="Save culture-cookie.">Säästä kulttuuri-eväste.</save-culture-cookie>
+							<serial-number>Sarjanumero</serial-number>
+							<subject>aihe</subject>
+							<thumbprint>sormenjälki</thumbprint>
+							<title>Globalisoitu ja lokalisoitu web-sovellus</title>
+							<toggle-navigation name="Toggle navigation">Vaihda navigointi</toggle-navigation>
+						</default>
+					</layouts>
+				</shared>
+			</views>
+		</application>
 		<models>
 			<viewModels>
 				<certificateViewModel>

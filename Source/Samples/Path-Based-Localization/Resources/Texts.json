@@ -13,7 +13,7 @@
 										"Name": "HomeController",
 										"Entries": {
 											"Third-text": {
-												"Value": "Third text: invariant-culture, \"\\Web-application\\Resources\\Texts.json\""
+												"Value": "Third text: invariant-culture, \"\\Application\\Resources\\Texts.json\""
 											}
 										}
 									}
@@ -23,10 +23,10 @@
 					},
 					{
 						"Node": {
-							"Name": "Company.WebApplication.Controllers.HomeController",
+							"Name": "Application.Controllers.HomeController",
 							"Entries": {
 								"Fourth-text": {
-									"Value": "Fourth text: invariant-culture, \"\\Web-application\\Resources\\Texts.json\""
+									"Value": "Fourth text: invariant-culture, \"\\Application\\Resources\\Texts.json\""
 								}
 							}
 						}

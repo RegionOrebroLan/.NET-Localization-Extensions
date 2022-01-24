@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup Label="Initial">
 		<Company>Region Örebro län</Company>
 		<Copyright>Copyright (c) 2019 $(Company)</Copyright>
@@ -9,12 +9,9 @@
 		<AssemblyName>RegionOrebroLan.Localization</AssemblyName>
 		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.snk</AssemblyOriginatorKeyFile>
 		<AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
-		<CodeAnalysisRuleSet>CodeAnalysis\Rules.ruleset</CodeAnalysisRuleSet>
-		<DelaySign>false</DelaySign>
 		<Description>Localization additions and extensions for .NET.</Description>
 		<FileVersion>$(VersionPrefix).0</FileVersion>
 		<RootNamespace>$(AssemblyName)</RootNamespace>
-		<SignAssembly>true</SignAssembly>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Version>$(VersionPrefix)</Version>
 		<Version Condition="$(VersionPrereleaseName) != ''">$(Version)-$(VersionPrereleaseName)</Version>
@@ -28,9 +25,6 @@
 		<PackageTags>json json-based json-based-localization json-localization localization path path-based path-based-localization path-localization xml xml-based xml-based-localization xml-localization</PackageTags>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
-			<PrivateAssets>all</PrivateAssets>
-		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="2.2.0" />
@@ -38,16 +32,6 @@
 		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
 		<PackageReference Include="RegionOrebroLan.Logging" Version="0.0.1-alpha" />
 		<PackageReference Include="System.IO.Abstractions" Version="6.0.19" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Remove="CodeAnalysis\Dictionary.xml" />
-		<AdditionalFiles Include="CodeAnalysis\Dictionary.xml" />
-		<AdditionalFiles Include="$(SolutionDir).Global\CodeAnalysis\Solution-dictionary.xml">
-			<Link>CodeAnalysis\Solution-dictionary.xml</Link>
-		</AdditionalFiles>
-		<Compile Include="$(SolutionDir).Global\CodeAnalysis\Solution-suppressions.cs">
-			<Link>CodeAnalysis\Solution-suppressions.cs</Link>
-		</Compile>
 	</ItemGroup>
 	<Target Name="HandleAssemblyOriginatorKeyFile" BeforeTargets="BeforeBuild" Condition="$(SignAssembly) AND !Exists('$(AssemblyOriginatorKeyFile)')">
 		<PropertyGroup>

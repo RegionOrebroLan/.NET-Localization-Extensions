@@ -1,7 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
-namespace RegionOrebroLan.Globalization
+namespace Shared.Globalization
 {
 	public interface ICultureFactory
 	{

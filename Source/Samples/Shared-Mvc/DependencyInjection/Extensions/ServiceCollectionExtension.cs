@@ -1,9 +1,9 @@
-﻿using System;
-using Company.WebApplication.Configuration;
+using System;
+using Application.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Company.WebApplication.DependencyInjection.Extensions
+namespace Application.DependencyInjection.Extensions
 {
 	public static class ServiceCollectionExtension
 	{

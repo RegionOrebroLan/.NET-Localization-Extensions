@@ -1,3 +1,0 @@
-<Project>
-	<Import Project="..\..\.Global\Build\Build.targets" />
-</Project>

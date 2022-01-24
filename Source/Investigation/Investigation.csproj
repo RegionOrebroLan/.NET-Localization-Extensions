@@ -1,27 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<AssemblyName>RegionOrebroLan.Investigation</AssemblyName>
-		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
-		<CodeAnalysisRuleSet>CodeAnalysis\Rules.ruleset</CodeAnalysisRuleSet>
-		<DelaySign>false</DelaySign>
-		<RootNamespace>$(AssemblyName)</RootNamespace>
-		<SignAssembly>true</SignAssembly>
 		<TargetFramework>netstandard2.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
-			<PrivateAssets>all</PrivateAssets>
-		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="2.2.0" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Remove="CodeAnalysis\Dictionary.xml" />
-		<AdditionalFiles Include="CodeAnalysis\Dictionary.xml" />
-		<AdditionalFiles Include="$(SolutionDir).Global\CodeAnalysis\Solution-dictionary.xml">
-			<Link>CodeAnalysis\Solution-dictionary.xml</Link>
-		</AdditionalFiles>
-		<Compile Include="$(SolutionDir).Global\CodeAnalysis\Solution-suppressions.cs">
-			<Link>CodeAnalysis\Solution-suppressions.cs</Link>
-		</Compile>
 	</ItemGroup>
 </Project>

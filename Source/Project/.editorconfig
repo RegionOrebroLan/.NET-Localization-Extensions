@@ -1,0 +1,14 @@
+[*.cs]
+# Suppress
+dotnet_diagnostic.CA2109.severity = none
+
+
+# Temporary - we should control it later
+dotnet_diagnostic.CA1002.severity = none
+dotnet_diagnostic.CA1021.severity = none
+dotnet_diagnostic.CA1070.severity = none
+dotnet_diagnostic.IDE0004.severity = none
+dotnet_diagnostic.IDE0054.severity = none
+dotnet_diagnostic.IDE0078.severity = none
+dotnet_diagnostic.IDE0079.severity = none
+dotnet_diagnostic.IDE0090.severity = none

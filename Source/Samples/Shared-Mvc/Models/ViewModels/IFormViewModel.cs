@@ -1,6 +1,6 @@
-﻿using Company.WebApplication.Models.Forms;
+using Application.Models.Forms;
 
-namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public interface IFormViewModel : IViewModel
 	{

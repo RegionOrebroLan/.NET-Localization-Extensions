@@ -1,4 +1,4 @@
-﻿namespace Company.WebApplication.Models.ViewModels
+namespace Application.Models.ViewModels
 {
 	public interface ICertificateViewModel : IViewModel { }
 }

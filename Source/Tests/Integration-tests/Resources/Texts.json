@@ -23,10 +23,30 @@
 					},
 					{
 						"Node": {
+							"Name": "ReSharperTestRunner.Controllers.HomeController",
+							"Entries": {
+								"Fourth-text": {
+									"Lookup": "TestHost.Controllers.HomeController.Fourth-text"
+								}
+							}
+						}
+					},
+					{
+						"Node": {
 							"Name": "TestHost.Controllers.HomeController",
 							"Entries": {
 								"Fourth-text": {
 									"Value": "Fourth text: invariant-culture, \"\\Integration-tests\\Resources\\Texts.json\""
+								}
+							}
+						}
+					},
+					{
+						"Node": {
+							"Name": "TestHost.x86.Controllers.HomeController",
+							"Entries": {
+								"Fourth-text": {
+									"Lookup": "TestHost.Controllers.HomeController.Fourth-text"
 								}
 							}
 						}

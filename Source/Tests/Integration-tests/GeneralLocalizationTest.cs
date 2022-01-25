@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using IntegrationTests.Helpers;
 using Microsoft.Extensions.DependencyInjection;
@@ -91,7 +92,7 @@ namespace IntegrationTests
 			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetService<ITestContext>();
 
-			Assert.AreEqual(32, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
+			Assert.AreEqual(34, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
 
 			var configurationContent = File.ReadAllText(testContext.ConfigurationFilePath);
 			var configuredFileResourcesDirectoryRelativePathValue = testContext.ConfiguredFileResourcesDirectoryRelativePath.Replace(@"\", @"\\", StringComparison.Ordinal);
@@ -117,7 +118,7 @@ namespace IntegrationTests
 
 			Thread.Sleep(300);
 
-			Assert.AreEqual(8, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
+			Assert.AreEqual(10, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
 		}
 
 		[TestMethod]
@@ -179,7 +180,7 @@ namespace IntegrationTests
 
 			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en-US"));
 
-			Assert.AreEqual(20, stringLocalizer.GetAllStrings().Count());
+			Assert.AreEqual(24, stringLocalizer.GetAllStrings().Count());
 		}
 
 		[TestMethod]
@@ -189,7 +190,7 @@ namespace IntegrationTests
 
 			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en-US"));
 
-			Assert.AreEqual(20, stringLocalizer.GetAllStrings().Count());
+			Assert.AreEqual(24, stringLocalizer.GetAllStrings().Count());
 		}
 
 		[TestMethod]
@@ -402,7 +403,7 @@ namespace IntegrationTests
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
 			Assert.IsFalse(localizationSettings.RuntimeConfigurationExceptions.Any());
-			Assert.AreEqual(8, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
+			Assert.AreEqual(10, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
 
 			var fileResourcesDirectoryPath = localizationSettings.FileResourcesDirectory.FullName;
 			var newFileResourcesDirectoryRelativePath = Guid.NewGuid().ToString();
@@ -447,7 +448,7 @@ namespace IntegrationTests
 			Assert.IsTrue(runtimeConfigurationInnerException is DirectoryNotFoundException);
 			Assert.AreEqual(expectedExceptionMessage, runtimeConfigurationInnerException.Message);
 
-			Assert.AreEqual(8, stringLocalizer.GetAllStrings(false).Count());
+			Assert.AreEqual(10, stringLocalizer.GetAllStrings(false).Count());
 		}
 
 		[TestMethod]
@@ -472,7 +473,7 @@ namespace IntegrationTests
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
 
 			var allLocalizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
-			Assert.AreEqual(8, allLocalizedStrings.Length);
+			Assert.AreEqual(10, allLocalizedStrings.Length);
 			Assert.AreEqual("An-empty-entry", allLocalizedStrings.First().Name);
 
 			// Step-2
@@ -489,7 +490,7 @@ namespace IntegrationTests
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
 
 			allLocalizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
-			Assert.AreEqual(32, allLocalizedStrings.Length);
+			Assert.AreEqual(34, allLocalizedStrings.Length);
 			Assert.AreEqual("Examples.First-example", allLocalizedStrings.First().Name);
 
 			// Step-3
@@ -506,7 +507,7 @@ namespace IntegrationTests
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
 
 			allLocalizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
-			Assert.AreEqual(32, allLocalizedStrings.Length);
+			Assert.AreEqual(34, allLocalizedStrings.Length);
 			Assert.AreEqual("An-empty-entry", allLocalizedStrings.First().Name);
 
 			// Step-4
@@ -524,7 +525,7 @@ namespace IntegrationTests
 			Assert.AreEqual(hostingEnvironment.ContentRootPath, localizationSettings.FileResourcesDirectory.FullName);
 
 			allLocalizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
-			Assert.AreEqual(39, allLocalizedStrings.Length);
+			Assert.AreEqual(41, allLocalizedStrings.Length);
 			Assert.AreEqual("An-empty-entry", allLocalizedStrings.First().Name);
 
 			// Step-5
@@ -661,7 +662,7 @@ namespace IntegrationTests
 			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
 			var localizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
 
-			Assert.AreEqual(3, localizedStrings.Length);
+			Assert.AreEqual(5, localizedStrings.Length);
 
 			var localizedString = localizedStrings[0];
 			Assert.AreEqual("Controllers.HomeController.First-text", localizedString.Name);
@@ -672,11 +673,11 @@ namespace IntegrationTests
 			Assert.IsTrue(localizedString.SearchedLocation.Contains("Value: null", StringComparison.OrdinalIgnoreCase));
 
 			localizedString = localizedStrings[1];
-			Assert.AreEqual("TestHost.Controllers.HomeController.Second-text", localizedString.Name);
+			Assert.AreEqual("ReSharperTestRunner.Controllers.HomeController.Second-text", localizedString.Name);
 			Assert.AreEqual("Second text: en, \"\\Integration-tests\\Resources\\Texts.en.json\"", localizedString.Value);
 			Assert.IsFalse(localizedString.ResourceNotFound);
 
-			localizedString = localizedStrings[2];
+			localizedString = localizedStrings[4];
 			Assert.AreEqual("Very.Deep.Test.First.Second.Third.Fourth.Fifth.Sixth.Seventh.Eighth.Ninth.Tenth.Text", localizedString.Name);
 			Assert.AreEqual("Very deep test-value: en, \"\\Integration-tests\\Resources\\Texts.en.json\"", localizedString.Value);
 			Assert.IsFalse(localizedString.ResourceNotFound);
@@ -711,7 +712,7 @@ namespace IntegrationTests
 			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
 			var localizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
 
-			Assert.AreEqual(3, localizedStrings.Length);
+			Assert.AreEqual(5, localizedStrings.Length);
 
 			var localizedString = localizedStrings[0];
 			Assert.AreEqual("Controllers.HomeController.First-text", localizedString.Name);
@@ -722,11 +723,11 @@ namespace IntegrationTests
 			Assert.IsTrue(localizedString.SearchedLocation.Contains("Value: \"First text: en, \"\\Integration-tests\\Resources\\Texts.en.json\"\"", StringComparison.OrdinalIgnoreCase));
 
 			localizedString = localizedStrings[1];
-			Assert.AreEqual("TestHost.Controllers.HomeController.Second-text", localizedString.Name);
+			Assert.AreEqual("ReSharperTestRunner.Controllers.HomeController.Second-text", localizedString.Name);
 			Assert.AreEqual("Second text: en, \"\\Integration-tests\\Resources\\Texts.en.json\"", localizedString.Value);
 			Assert.IsFalse(localizedString.ResourceNotFound);
 
-			localizedString = localizedStrings[2];
+			localizedString = localizedStrings[4];
 			Assert.AreEqual("Very.Deep.Test.First.Second.Third.Fourth.Fifth.Sixth.Seventh.Eighth.Ninth.Tenth.Text", localizedString.Name);
 			Assert.AreEqual("Very deep test-value: en, \"\\Integration-tests\\Resources\\Texts.en.json\"", localizedString.Value);
 			Assert.IsFalse(localizedString.ResourceNotFound);
@@ -769,20 +770,20 @@ namespace IntegrationTests
 			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>();
 
 			var culture = CultureInfo.InvariantCulture;
-			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, false, 5, stringLocalizer);
-			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 5, stringLocalizer);
+			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, false, 7, stringLocalizer);
+			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 7, stringLocalizer);
 
 			culture = CultureInfo.GetCultureInfo("en");
-			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, false, 20, stringLocalizer);
-			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 22, stringLocalizer);
+			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, false, 22, stringLocalizer);
+			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 26, stringLocalizer);
 
 			culture = CultureInfo.GetCultureInfo("fi");
 			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, false, 19, stringLocalizer);
-			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 21, stringLocalizer);
+			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 23, stringLocalizer);
 
 			culture = CultureInfo.GetCultureInfo("sv");
 			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, false, 19, stringLocalizer);
-			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 21, stringLocalizer);
+			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 23, stringLocalizer);
 		}
 
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
@@ -808,6 +809,13 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json");
 			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+
+			// Just to keep track of this test. So we, in the future, can fix this test with any other possible assembly running the tests.
+			var concreteStringLocalizer = (StringLocalizer)stringLocalizer;
+			var entryAssembly = Assembly.GetEntryAssembly();
+			Assert.AreEqual(entryAssembly?.FullName, concreteStringLocalizer.Assembly.FullName);
+			var possibleAssemblies = new HashSet<string>(new[] { "ReSharperTestRunner", "TestHost", "TestHost.x86" }, StringComparer.OrdinalIgnoreCase);
+			Assert.IsTrue(possibleAssemblies.Contains(concreteStringLocalizer.Assembly.Name), $"The entry-assembly is {entryAssembly?.GetName().Name} and is not contained in the list: {string.Join(", ", possibleAssemblies)}. You need to add the current entry-assembly name in Resources/Texts.json and Resources/Texts.en.json.");
 
 			var localizedString = stringLocalizer["Controllers.HomeController.Second-text"];
 			Assert.IsFalse(localizedString.ResourceNotFound);

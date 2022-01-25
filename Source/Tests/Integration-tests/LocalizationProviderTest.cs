@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -113,7 +113,7 @@ namespace IntegrationTests
 			var localization = localizationProvider.Localizations.Where(item => item.CultureName.Equals("en", StringComparison.OrdinalIgnoreCase)).ElementAt(1);
 			var localizationEntries = localizationProvider.GetLocalizationEntries(localization);
 
-			var localizationEntry = localizationEntries.ElementAt(2);
+			var localizationEntry = localizationEntries.ElementAt(4);
 			Assert.AreEqual("Very.Deep.Test.First.Second.Third.Fourth.Fifth.Sixth.Seventh.Eighth.Ninth.Tenth.Text", localizationEntry.Key);
 			Assert.AreEqual("Very deep test-value: en, \"\\Integration-tests\\Resources\\Texts.en.json\"", localizationEntry.Value.Value);
 		}

@@ -43,21 +43,22 @@ namespace Application
 
 			applicationBuilder.UseDeveloperExceptionPage();
 			applicationBuilder.UseStaticFiles();
+			applicationBuilder.UseRouting();
 			applicationBuilder.UseRequestLocalization();
-			applicationBuilder.UseMvc(routeBuilder =>
+			applicationBuilder.UseEndpoints(routeBuilder =>
 			{
 				var certificateControllerParameter = new { controller = "Certificate" };
 				var notCertificateControllerConstraints = new { controller = "((?!Certificate).)*" }; // Another expression could be: "Form|Home|Information|Localization"
 
-				routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+				routeBuilder.MapControllerRoute("Default", "{controller=Home}/{action=Index}/{id?}");
 
-				routeBuilder.MapRoute("Default-Localized", "{culture:culture}/{ui-culture:ui-culture}/{controller=Home}/{action=Index}/{id?}", null, notCertificateControllerConstraints);
-				routeBuilder.MapRoute("Default-Localized-Culture", "{culture:culture}/{controller=Home}/{action=Index}/{id?}", null, notCertificateControllerConstraints);
-				routeBuilder.MapRoute("Default-Localized-UI-Culture", "{ui-culture:ui-culture}/{controller=Home}/{action=Index}/{id?}", null, notCertificateControllerConstraints);
+				routeBuilder.MapControllerRoute("Default-Localized", "{culture:culture}/{ui-culture:ui-culture}/{controller=Home}/{action=Index}/{id?}", null, notCertificateControllerConstraints);
+				routeBuilder.MapControllerRoute("Default-Localized-Culture", "{culture:culture}/{controller=Home}/{action=Index}/{id?}", null, notCertificateControllerConstraints);
+				routeBuilder.MapControllerRoute("Default-Localized-UI-Culture", "{ui-culture:ui-culture}/{controller=Home}/{action=Index}/{id?}", null, notCertificateControllerConstraints);
 
-				routeBuilder.MapRoute("Certificate-Localized", "Certificate/{culture:culture}/{ui-culture:ui-culture}/{action=Index}/{id?}", certificateControllerParameter, certificateControllerParameter);
-				routeBuilder.MapRoute("Certificate-Localized-Culture", "Certificate/{culture:culture}/{action=Index}/{id?}", certificateControllerParameter, certificateControllerParameter);
-				routeBuilder.MapRoute("Certificate-Localized-UI-Culture", "Certificate/{ui-culture:ui-culture}/{action=Index}/{id?}", certificateControllerParameter, certificateControllerParameter);
+				routeBuilder.MapControllerRoute("Certificate-Localized", "Certificate/{culture:culture}/{ui-culture:ui-culture}/{action=Index}/{id?}", certificateControllerParameter, certificateControllerParameter);
+				routeBuilder.MapControllerRoute("Certificate-Localized-Culture", "Certificate/{culture:culture}/{action=Index}/{id?}", certificateControllerParameter, certificateControllerParameter);
+				routeBuilder.MapControllerRoute("Certificate-Localized-UI-Culture", "Certificate/{ui-culture:ui-culture}/{action=Index}/{id?}", certificateControllerParameter, certificateControllerParameter);
 			});
 		}
 
@@ -79,7 +80,7 @@ namespace Application
 				routeOptions.ConstraintMap.Add(RouteKeys.UiCulture, typeof(UiCultureRouteConstraint));
 			});
 
-			services.AddMvc(mvcOptions =>
+			services.AddControllersWithViews(mvcOptions =>
 					{
 						mvcOptions.Filters.Add(typeof(LocalizationFilter));
 						mvcOptions.Filters.Add(new MiddlewareFilterAttribute(typeof(RequestLocalizationMiddlewareConfigurator)));
@@ -87,11 +88,11 @@ namespace Application
 				)
 				.AddDataAnnotationsLocalization(options =>
 				{
-					// This is needed only because we have our shared MVC-library. The name of that assembly is Company.WebApplication.Shared. If we did not have the code-snippet below the localizer would not be created correctly. It would have an incorrect path/resource-base-name.
+					// This is needed only because we have our shared MVC-library. The name of that assembly is SharedMvc. If we did not have the code-snippet below the localizer would not be created correctly. It would have an incorrect path/resource-base-name.
 					options.DataAnnotationLocalizerProvider = (type, localizerFactory) => type.Assembly.Equals(typeof(StringLocalizerFactoryExtension).Assembly) ? localizerFactory.Create(type.FullName) : localizerFactory.Create(type);
 				})
-				.AddViewLocalization()
-				.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+				.AddViewLocalization();
+			//.SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
 			services.ConfigureExample(this.Configuration);
 		}

@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -53,23 +52,6 @@ namespace IntegrationTests
 		#endregion
 
 		#region Methods
-
-		protected internal virtual T BinaryDeserialize<T>(string value)
-		{
-			using(var memoryStream = new MemoryStream(Convert.FromBase64String(value)))
-			{
-				return (T)new BinaryFormatter().Deserialize(memoryStream);
-			}
-		}
-
-		protected internal virtual string BinarySerialize(object instance)
-		{
-			using(var memoryStream = new MemoryStream())
-			{
-				new BinaryFormatter().Serialize(memoryStream, instance);
-				return Convert.ToBase64String(memoryStream.ToArray());
-			}
-		}
 
 		[SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Should be disposed by the caller.")]
 		protected internal virtual Stream CreateStream(string value)

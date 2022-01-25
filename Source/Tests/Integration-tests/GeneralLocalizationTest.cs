@@ -431,7 +431,7 @@ namespace IntegrationTests
 			Assert.IsNotNull(message);
 			Assert.AreEqual("Error on options-changed.", message.ToString());
 
-			Assert.AreEqual(1, localizationSettings.RuntimeConfigurationExceptions.Count);
+			Assert.AreEqual(1, localizationSettings.RuntimeConfigurationExceptions.Count, $"Should contain only one but contains the following: {string.Join(", ", localizationSettings.RuntimeConfigurationExceptions.Keys.Select(item => item.Message))}. {this.PossibleReasonForFailure}");
 
 			var runtimeConfigurationExceptionEntry = localizationSettings.RuntimeConfigurationExceptions.FirstOrDefault();
 
@@ -454,7 +454,7 @@ namespace IntegrationTests
 		[TestMethod]
 		public void Configuration_RuntimeChangesShouldBeHandled()
 		{
-			const int sleepTime = 500;
+			const int sleepTime = 1000;
 
 			// Step-1
 			var serviceProvider = this.BuildServiceProvider("Configuration-Test-Step-1.json");
@@ -467,6 +467,7 @@ namespace IntegrationTests
 
 			var fileResourcesDirectoryPath = localizationOptionsMonitor.CurrentValue.FileResourcesDirectoryPath;
 
+			Assert.AreEqual(0, ((LocalizationSettings)localizationSettings).ConfiguredEmbeddedResourceAssemblies.Count());
 			Assert.AreEqual(0, localizationSettings.EmbeddedResourceAssemblies.Count);
 
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
@@ -482,6 +483,7 @@ namespace IntegrationTests
 
 			Thread.Sleep(sleepTime);
 
+			Assert.AreEqual(6, ((LocalizationSettings)localizationSettings).ConfiguredEmbeddedResourceAssemblies.Count(), this.PossibleReasonForFailure);
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count, this.PossibleReasonForFailure);
 
 			Assert.IsFalse(((LocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());

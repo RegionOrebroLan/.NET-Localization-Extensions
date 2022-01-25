@@ -783,8 +783,14 @@ namespace IntegrationTests.Resourcing
 
 			resourceProvider.Settings.EmbeddedResourceAssemblies.Add(assemblyHelper.Wrap(typeof(string).Assembly));
 
+#if NETCOREAPP3_1
+			const int expectedNumberOfEmbeddedResources = 1;
+#else
+			const int expectedNumberOfEmbeddedResources = 3;
+#endif
+
 			// System.Private.CoreLib.xml
-			Assert.AreEqual(1, resourceProvider.EmbeddedResources.Count());
+			Assert.AreEqual(expectedNumberOfEmbeddedResources, resourceProvider.EmbeddedResources.Count());
 
 			Assert.IsNotNull(resourceProvider.EmbeddedResourcesCache);
 

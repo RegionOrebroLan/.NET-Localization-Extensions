@@ -163,7 +163,15 @@ namespace IntegrationTests.Configuration
 			localizationOptions.EmbeddedResourceAssemblies.Add(this.AssemblyHelper.Wrap(typeof(string).Assembly).FullName);
 			localizationOptions.EmbeddedResourceAssemblies.Add(this.AssemblyHelper.Wrap(this.GetType().Assembly).FullName);
 
-			Assert.AreEqual("{\"AlphabeticalSorting\":true,\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e\",\"IntegrationTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9aeba83ffb1feacc\"],\"FileResourcesDirectoryPath\":\"Test\",\"IncludeParentCultures\":false,\"ThrowErrors\":false}", this.JsonSerialize(localizationOptions));
+#if NETCOREAPP3_1
+			const int version = 4;
+#elif NET5_0
+			const int version = 5;
+#elif NET6_0
+			const int version = 6;
+#endif
+
+			Assert.AreEqual($"{{\"AlphabeticalSorting\":true,\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib, Version={version}.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e\",\"IntegrationTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9aeba83ffb1feacc\"],\"FileResourcesDirectoryPath\":\"Test\",\"IncludeParentCultures\":false,\"ThrowErrors\":false}}", this.JsonSerialize(localizationOptions));
 		}
 
 		#endregion

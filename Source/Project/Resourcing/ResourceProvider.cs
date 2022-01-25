@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
@@ -17,10 +17,10 @@ namespace RegionOrebroLan.Localization.Resourcing
 		#region Constructors
 
 		[CLSCompliant(false)]
-		public ResourceProvider(IFileSystem fileSystem, IHostingEnvironment hostingEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, ILocalizationSettings settings)
+		public ResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, ILocalizationSettings settings)
 		{
 			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
-			this.HostingEnvironment = hostingEnvironment ?? throw new ArgumentNullException(nameof(hostingEnvironment));
+			this.HostEnvironment = hostEnvironment ?? throw new ArgumentNullException(nameof(hostEnvironment));
 
 			if(loggerFactory == null)
 				throw new ArgumentNullException(nameof(loggerFactory));
@@ -29,7 +29,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.ResourceLocator = resourceLocator ?? throw new ArgumentNullException(nameof(resourceLocator));
 			this.Settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
-			this.FileResourcesDirectoryWatcher = this.CreateFileResourcesDirectoryWatcher(fileSystem, hostingEnvironment, settings);
+			this.FileResourcesDirectoryWatcher = this.CreateFileResourcesDirectoryWatcher(fileSystem, hostEnvironment, settings);
 
 			settings.EmbeddedResourceAssembliesChanged += this.OnEmbeddedResourceAssembliesChanged;
 			settings.FileResourcesDirectoryChanged += this.OnFileResourcesDirectoryChanged;
@@ -103,7 +103,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 		protected internal virtual IFileSystem FileSystem { get; }
 
 		[CLSCompliant(false)]
-		protected internal virtual IHostingEnvironment HostingEnvironment { get; }
+		protected internal virtual IHostEnvironment HostEnvironment { get; }
 
 		[CLSCompliant(false)]
 		protected internal virtual ILogger Logger { get; }
@@ -142,20 +142,20 @@ namespace RegionOrebroLan.Localization.Resourcing
 		}
 
 		[CLSCompliant(false)]
-		protected internal IFileSystemWatcher CreateFileResourcesDirectoryWatcher(IFileSystem fileSystem, IHostingEnvironment hostingEnvironment, ILocalizationSettings settings)
+		protected internal IFileSystemWatcher CreateFileResourcesDirectoryWatcher(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILocalizationSettings settings)
 		{
 			if(fileSystem == null)
 				throw new ArgumentNullException(nameof(fileSystem));
 
-			if(hostingEnvironment == null)
-				throw new ArgumentNullException(nameof(hostingEnvironment));
+			if(hostEnvironment == null)
+				throw new ArgumentNullException(nameof(hostEnvironment));
 
 			if(settings == null)
 				throw new ArgumentNullException(nameof(settings));
 
 			var fileSystemWatcher = fileSystem.FileSystemWatcher.CreateNew();
 
-			this.SetFileSystemWatcher(settings.FileResourcesDirectory, fileSystemWatcher, hostingEnvironment);
+			this.SetFileSystemWatcher(settings.FileResourcesDirectory, fileSystemWatcher, hostEnvironment);
 
 			fileSystemWatcher.IncludeSubdirectories = true;
 
@@ -211,7 +211,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 				this.ClearFileResourcesCache();
 
-				this.SetFileSystemWatcher(this.Settings.FileResourcesDirectory, this.FileResourcesDirectoryWatcher, this.HostingEnvironment);
+				this.SetFileSystemWatcher(this.Settings.FileResourcesDirectory, this.FileResourcesDirectoryWatcher, this.HostEnvironment);
 			}
 			catch(Exception exception)
 			{
@@ -307,18 +307,18 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 		[CLSCompliant(false)]
 		[SuppressMessage("Performance", "CA1822:Mark members as static")]
-		protected internal void SetFileSystemWatcher(IDirectoryInfo fileResourcesDirectory, IFileSystemWatcher fileSystemWatcher, IHostingEnvironment hostingEnvironment)
+		protected internal void SetFileSystemWatcher(IDirectoryInfo fileResourcesDirectory, IFileSystemWatcher fileSystemWatcher, IHostEnvironment hostEnvironment)
 		{
 			if(fileSystemWatcher == null)
 				throw new ArgumentNullException(nameof(fileSystemWatcher));
 
-			if(hostingEnvironment == null)
-				throw new ArgumentNullException(nameof(hostingEnvironment));
+			if(hostEnvironment == null)
+				throw new ArgumentNullException(nameof(hostEnvironment));
 
 			if(fileResourcesDirectory == null)
 			{
 				fileSystemWatcher.EnableRaisingEvents = false;
-				fileSystemWatcher.Path = hostingEnvironment.ContentRootPath;
+				fileSystemWatcher.Path = hostEnvironment.ContentRootPath;
 			}
 			else
 			{

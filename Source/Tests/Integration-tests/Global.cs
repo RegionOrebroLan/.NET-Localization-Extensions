@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading;
@@ -18,7 +18,7 @@ namespace IntegrationTests
 	{
 		#region Fields
 
-		private static IHostingEnvironment _hostingEnvironment;
+		private static IHostEnvironment _hostEnvironment;
 		private static ILoggerFactory _loggerFactory;
 
 		// ReSharper disable PossibleNullReferenceException
@@ -31,16 +31,16 @@ namespace IntegrationTests
 
 		#region Properties
 
-		public static IHostingEnvironment HostingEnvironment
+		public static IHostEnvironment HostEnvironment
 		{
 			get
 			{
 				// ReSharper disable InvertIf
-				if(_hostingEnvironment == null)
+				if(_hostEnvironment == null)
 				{
 					const string applicationName = "Integration-tests";
 
-					_hostingEnvironment = new HostingEnvironment
+					_hostEnvironment = new HostingEnvironment
 					{
 						ApplicationName = applicationName,
 						ContentRootPath = ProjectDirectoryPath,
@@ -50,7 +50,7 @@ namespace IntegrationTests
 				}
 				// ReSharper restore InvertIf
 
-				return _hostingEnvironment;
+				return _hostEnvironment;
 			}
 		}
 
@@ -90,7 +90,7 @@ namespace IntegrationTests
 		{
 			var services = new ServiceCollection();
 
-			services.AddSingleton(HostingEnvironment);
+			services.AddSingleton(HostEnvironment);
 			services.AddSingleton(LoggerFactory);
 
 			return services;

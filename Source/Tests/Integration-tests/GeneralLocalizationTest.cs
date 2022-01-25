@@ -395,7 +395,7 @@ namespace IntegrationTests
 				services.AddSingleton(loggerFactoryMock.Object);
 			}, "Configuration-With-File-Resources-Directory-Path-Only.json");
 
-			var hostingEnvironment = serviceProvider.GetRequiredService<IHostingEnvironment>();
+			var hostEnvironment = serviceProvider.GetRequiredService<IHostEnvironment>();
 			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 			var stringLocalizer = serviceProvider.GetRequiredService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetRequiredService<ITestContext>();
@@ -425,7 +425,7 @@ namespace IntegrationTests
 			Assert.IsNotNull(exception);
 			Assert.IsTrue(exception is DirectoryNotFoundException);
 
-			var expectedExceptionMessage = $"File-resources-directory-exception: The directory \"{hostingEnvironment.ContentRootPath}\\{newFileResourcesDirectoryRelativePath}\" does not exist.";
+			var expectedExceptionMessage = $"File-resources-directory-exception: The directory \"{hostEnvironment.ContentRootPath}\\{newFileResourcesDirectoryRelativePath}\" does not exist.";
 			Assert.AreEqual(expectedExceptionMessage, exception.Message);
 
 			Assert.IsNotNull(message);
@@ -459,7 +459,7 @@ namespace IntegrationTests
 			// Step-1
 			var serviceProvider = this.BuildServiceProvider("Configuration-Test-Step-1.json");
 
-			var hostingEnvironment = serviceProvider.GetRequiredService<IHostingEnvironment>();
+			var hostEnvironment = serviceProvider.GetRequiredService<IHostEnvironment>();
 			var localizationOptionsMonitor = serviceProvider.GetRequiredService<IOptionsMonitor<LocalizationOptions>>();
 			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
 			var stringLocalizer = serviceProvider.GetRequiredService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
@@ -524,7 +524,7 @@ namespace IntegrationTests
 
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
-			Assert.AreEqual(hostingEnvironment.ContentRootPath, localizationSettings.FileResourcesDirectory.FullName);
+			Assert.AreEqual(hostEnvironment.ContentRootPath, localizationSettings.FileResourcesDirectory.FullName);
 
 			allLocalizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
 			Assert.AreEqual(41, allLocalizedStrings.Length);

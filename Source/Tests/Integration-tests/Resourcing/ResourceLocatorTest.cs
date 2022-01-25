@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
@@ -27,7 +27,7 @@ namespace IntegrationTests.Resourcing
 		private static IResourceValidator _acceptingResourceValidator;
 		private static IAssemblyHelper _assemblyHelper;
 		private static readonly IFileSystem _fileSystem = new FileSystem();
-		private static readonly IHostingEnvironment _hostingEnvironment = Global.HostingEnvironment;
+		private static readonly IHostEnvironment _hostEnvironment = Global.HostEnvironment;
 		private static readonly ILoggerFactory _loggerFactory = new LoggerFactory();
 		private static readonly IRootNamespaceResolver _rootNamespaceResolver = new RootNamespaceResolver();
 		private static IEnumerable<IResourceResolver> _singleAcceptingResourceResolverCollection;
@@ -61,7 +61,7 @@ namespace IntegrationTests.Resourcing
 
 		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ?? (_assemblyHelper = new AssemblyHelper(this.RootNamespaceResolver));
 		protected internal virtual IFileSystem FileSystem => _fileSystem;
-		protected internal virtual IHostingEnvironment HostingEnvironment => _hostingEnvironment;
+		protected internal virtual IHostEnvironment HostEnvironment => _hostEnvironment;
 		protected internal virtual ILoggerFactory LoggerFactory => _loggerFactory;
 		protected internal virtual IRootNamespaceResolver RootNamespaceResolver => _rootNamespaceResolver;
 
@@ -233,7 +233,7 @@ namespace IntegrationTests.Resourcing
 		public void GetFileResources_Test()
 		{
 			const string relativeDirectoryPath = "Resources";
-			var directoryPath = Path.Combine(this.HostingEnvironment.ContentRootPath, relativeDirectoryPath);
+			var directoryPath = Path.Combine(this.HostEnvironment.ContentRootPath, relativeDirectoryPath);
 
 			var fileResources = this.AcceptingResourceLocator.GetFileResources(directoryPath, true).ToArray();
 

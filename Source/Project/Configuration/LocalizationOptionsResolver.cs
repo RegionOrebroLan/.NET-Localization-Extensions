@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO.Abstractions;
 using System.Linq;
 using Microsoft.Extensions.Hosting;
@@ -14,13 +14,13 @@ namespace RegionOrebroLan.Localization.Configuration
 		#region Constructors
 
 		[CLSCompliant(false)]
-		public LocalizationOptionsResolver(IAssemblyHelper assemblyHelper, IEmbeddedResourceAssembliesValidator embeddedResourceAssembliesValidator, IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, IFileSystem fileSystem, IHostingEnvironment hostingEnvironment)
+		public LocalizationOptionsResolver(IAssemblyHelper assemblyHelper, IEmbeddedResourceAssembliesValidator embeddedResourceAssembliesValidator, IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, IFileSystem fileSystem, IHostEnvironment hostEnvironment)
 		{
 			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
 			this.EmbeddedResourceAssembliesValidator = embeddedResourceAssembliesValidator ?? throw new ArgumentNullException(nameof(embeddedResourceAssembliesValidator));
 			this.FileResourcesDirectoryValidator = fileResourcesDirectoryValidator ?? throw new ArgumentNullException(nameof(fileResourcesDirectoryValidator));
 			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
-			this.HostingEnvironment = hostingEnvironment ?? throw new ArgumentNullException(nameof(hostingEnvironment));
+			this.HostEnvironment = hostEnvironment ?? throw new ArgumentNullException(nameof(hostEnvironment));
 		}
 
 		#endregion
@@ -33,7 +33,7 @@ namespace RegionOrebroLan.Localization.Configuration
 		protected internal virtual IFileSystem FileSystem { get; }
 
 		[CLSCompliant(false)]
-		protected internal virtual IHostingEnvironment HostingEnvironment { get; }
+		protected internal virtual IHostEnvironment HostEnvironment { get; }
 
 		#endregion
 
@@ -74,7 +74,7 @@ namespace RegionOrebroLan.Localization.Configuration
 			if(path != null)
 			{
 				if(!this.FileSystem.Path.IsPathRooted(path))
-					path = this.FileSystem.Path.Combine(this.HostingEnvironment.ContentRootPath, path);
+					path = this.FileSystem.Path.Combine(this.HostEnvironment.ContentRootPath, path);
 
 				fileResourcesDirectory = this.FileSystem.DirectoryInfo.FromDirectoryName(path);
 			}

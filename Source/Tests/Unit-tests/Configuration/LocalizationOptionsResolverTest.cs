@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO.Abstractions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,7 +16,7 @@ namespace UnitTests.Configuration
 
 		protected internal virtual LocalizationOptionsResolver CreateLocalizationOptionsResolver()
 		{
-			return new LocalizationOptionsResolver(Mock.Of<IAssemblyHelper>(), Mock.Of<IEmbeddedResourceAssembliesValidator>(), Mock.Of<IFileResourcesDirectoryValidator>(), Mock.Of<IFileSystem>(), Mock.Of<IHostingEnvironment>());
+			return new LocalizationOptionsResolver(Mock.Of<IAssemblyHelper>(), Mock.Of<IEmbeddedResourceAssembliesValidator>(), Mock.Of<IFileResourcesDirectoryValidator>(), Mock.Of<IFileSystem>(), Mock.Of<IHostEnvironment>());
 		}
 
 		[TestMethod]

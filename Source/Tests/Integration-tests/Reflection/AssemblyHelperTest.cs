@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -46,7 +46,7 @@ namespace IntegrationTests.Reflection
 			var assemblies = this.AssemblyHelper.Find("*orebro*").ToArray();
 
 			Assert.IsTrue(assemblies.Any());
-			Assert.AreEqual(assemblies.Count(), assemblies.Distinct().Count());
+			Assert.AreEqual(assemblies.Length, assemblies.Distinct().Count());
 
 			foreach(var assembly in assemblies)
 			{
@@ -56,7 +56,7 @@ namespace IntegrationTests.Reflection
 			assemblies = this.AssemblyHelper.Find("MICROSOFT*").ToArray();
 
 			Assert.IsTrue(assemblies.Any());
-			Assert.AreEqual(assemblies.Count(), assemblies.Distinct().Count());
+			Assert.AreEqual(assemblies.Length, assemblies.Distinct().Count());
 
 			foreach(var assembly in assemblies)
 			{
@@ -65,12 +65,12 @@ namespace IntegrationTests.Reflection
 
 			var name = this.GetType().Assembly.GetName().Name;
 			assemblies = this.AssemblyHelper.Find(name).ToArray();
-			Assert.AreEqual(1, assemblies.Count());
+			Assert.AreEqual(1, assemblies.Length);
 			Assert.AreEqual(name, assemblies.First().Name);
 
 			var fullName = this.GetType().Assembly.FullName;
 			assemblies = this.AssemblyHelper.Find(fullName).ToArray();
-			Assert.AreEqual(1, assemblies.Count());
+			Assert.AreEqual(1, assemblies.Length);
 			Assert.AreEqual(fullName, assemblies.First().FullName);
 		}
 

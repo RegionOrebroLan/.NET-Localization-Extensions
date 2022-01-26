@@ -22,7 +22,7 @@ namespace IntegrationTests.Configuration
 
 		#region Properties
 
-		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ?? (_assemblyHelper = this.ServiceProvider.GetService<IAssemblyHelper>());
+		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ??= this.ServiceProvider.GetService<IAssemblyHelper>();
 		protected internal virtual IServiceProvider ServiceProvider => _serviceProvider;
 
 		#endregion

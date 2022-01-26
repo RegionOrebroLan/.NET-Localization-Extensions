@@ -110,8 +110,8 @@ namespace Application.Models.ViewModels
 		}
 
 		protected internal virtual bool LocalizerSelected => this.LocalizerBaseName != null || this.LocalizerLocation != null;
-		public virtual IDictionary<string, string> Names => this._names ?? (this._names = this.ExampleOptions.Value.Names.ToDictionary(item => item.Key.Replace('~', ':'), item => item.Value));
-		protected internal virtual IEnumerable<FieldInfo> ResourceManagerStringLocalizerFields => _resourceManagerStringLocalizerFields ?? (_resourceManagerStringLocalizerFields = typeof(ResourceManagerStringLocalizer).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).OrderBy(field => field.Name).ToArray());
+		public virtual IDictionary<string, string> Names => this._names ??= this.ExampleOptions.Value.Names.ToDictionary(item => item.Key.Replace('~', ':'), item => item.Value);
+		protected internal virtual IEnumerable<FieldInfo> ResourceManagerStringLocalizerFields => _resourceManagerStringLocalizerFields ??= typeof(ResourceManagerStringLocalizer).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).OrderBy(field => field.Name).ToArray();
 		public virtual IStringLocalizer SelectedLocalizer => this.SelectedLocalizerInformation?.Item1;
 		public virtual Exception SelectedLocalizerException => this.SelectedLocalizerInformation?.Item2;
 
@@ -153,7 +153,7 @@ namespace Application.Models.ViewModels
 			}
 		}
 
-		protected internal virtual IEnumerable<PropertyInfo> StringLocalizerProperties => _stringLocalizerProperties ?? (_stringLocalizerProperties = typeof(StringLocalizer).GetProperties(BindingFlags.Instance | BindingFlags.NonPublic).OrderBy(property => property.Name).ToArray());
+		protected internal virtual IEnumerable<PropertyInfo> StringLocalizerProperties => _stringLocalizerProperties ??= typeof(StringLocalizer).GetProperties(BindingFlags.Instance | BindingFlags.NonPublic).OrderBy(property => property.Name).ToArray();
 
 		#endregion
 

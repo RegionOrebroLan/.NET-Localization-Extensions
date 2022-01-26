@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,7 +19,7 @@ namespace IntegrationTests.Json.Serialization
 
 		#region Properties
 
-		protected internal virtual string TestResourcesDirectoryPath => _testResourcesDirectoryPath ?? (_testResourcesDirectoryPath = Path.Combine(Global.GetDirectoryPath(this.GetType()), "Test-resources"));
+		protected internal virtual string TestResourcesDirectoryPath => _testResourcesDirectoryPath ??= Path.Combine(Global.GetDirectoryPath(this.GetType()), "Test-resources");
 
 		#endregion
 

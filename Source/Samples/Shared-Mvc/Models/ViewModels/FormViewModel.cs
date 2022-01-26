@@ -21,7 +21,7 @@ namespace Application.Models.ViewModels
 
 		public virtual Form Form
 		{
-			get => this._form ?? (this._form = new Form());
+			get => this._form ??= new Form();
 			set => this._form = value;
 		}
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Abstractions;
@@ -25,7 +25,7 @@ namespace IntegrationTests
 
 		#region Properties
 
-		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ?? (_assemblyHelper = this.ServiceProvider.GetService<IAssemblyHelper>());
+		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ??= this.ServiceProvider.GetService<IAssemblyHelper>();
 		protected internal virtual IServiceProvider ServiceProvider => _serviceProvider;
 
 		#endregion

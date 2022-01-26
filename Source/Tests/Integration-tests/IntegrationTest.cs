@@ -31,10 +31,10 @@ namespace IntegrationTests
 		protected internal virtual string PossibleReasonForFailure => _possibleReasonForFailure;
 
 		// ReSharper disable PossibleNullReferenceException
-		protected internal virtual string TestResourcesDirectoryPath => _testResourcesDirectoryPath ?? (_testResourcesDirectoryPath = new DirectoryInfo(this.TestRootDirectoryPath).Parent.FullName);
+		protected internal virtual string TestResourcesDirectoryPath => _testResourcesDirectoryPath ??= new DirectoryInfo(this.TestRootDirectoryPath).Parent.FullName;
 		// ReSharper restore PossibleNullReferenceException
 
-		protected internal virtual string TestRootDirectoryPath => _testRootDirectoryPath ?? (_testRootDirectoryPath = Path.Combine(Global.ProjectDirectoryPath, Global.TestRootDirectoryRelativePath));
+		protected internal virtual string TestRootDirectoryPath => _testRootDirectoryPath ??= Path.Combine(Global.ProjectDirectoryPath, Global.TestRootDirectoryRelativePath);
 
 		#endregion
 

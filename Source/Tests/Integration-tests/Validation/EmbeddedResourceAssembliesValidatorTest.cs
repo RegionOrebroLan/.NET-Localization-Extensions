@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,7 +19,7 @@ namespace IntegrationTests.Validation
 
 		#region Properties
 
-		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ?? (_assemblyHelper = this.ServiceProvider.GetService<IAssemblyHelper>());
+		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ??= this.ServiceProvider.GetService<IAssemblyHelper>();
 		protected internal virtual IServiceProvider ServiceProvider => _serviceProvider;
 
 		#endregion

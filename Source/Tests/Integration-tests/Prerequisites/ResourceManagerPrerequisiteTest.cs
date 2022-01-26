@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -22,7 +22,7 @@ namespace IntegrationTests.Prerequisites
 
 		#region Properties
 
-		protected internal virtual string MixedResourcesDirectoryPath => _mixedResourcesDirectoryPath ?? (_mixedResourcesDirectoryPath = Path.Combine(Global.ProjectDirectoryPath, "Test-resources", "Mixed"));
+		protected internal virtual string MixedResourcesDirectoryPath => _mixedResourcesDirectoryPath ??= Path.Combine(Global.ProjectDirectoryPath, "Test-resources", "Mixed");
 		protected internal virtual FieldInfo ResourceSetsField => _resourceSetsField;
 
 		protected internal virtual Type RuntimeResourceSetType

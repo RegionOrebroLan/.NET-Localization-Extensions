@@ -36,7 +36,7 @@ namespace IntegrationTests.Resourcing
 
 		#region Properties
 
-		protected internal virtual IResourceLocator AcceptingResourceLocator => _acceptingResourceLocator ?? (_acceptingResourceLocator = this.CreateResourceLocator(this.SingleAcceptingResourceResolverCollection));
+		protected internal virtual IResourceLocator AcceptingResourceLocator => _acceptingResourceLocator ??= this.CreateResourceLocator(this.SingleAcceptingResourceResolverCollection);
 
 		protected internal virtual IResourceValidator AcceptingResourceValidator
 		{
@@ -59,7 +59,7 @@ namespace IntegrationTests.Resourcing
 			}
 		}
 
-		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ?? (_assemblyHelper = new AssemblyHelper(this.RootNamespaceResolver));
+		protected internal virtual IAssemblyHelper AssemblyHelper => _assemblyHelper ??= new AssemblyHelper(this.RootNamespaceResolver);
 		protected internal virtual IFileSystem FileSystem => _fileSystem;
 		protected internal virtual IHostEnvironment HostEnvironment => _hostEnvironment;
 		protected internal virtual ILoggerFactory LoggerFactory => _loggerFactory;

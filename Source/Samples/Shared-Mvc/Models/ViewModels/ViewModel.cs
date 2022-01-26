@@ -34,7 +34,7 @@ namespace Application.Models.ViewModels
 		#region Properties
 
 		protected internal virtual HttpContext HttpContext { get; }
-		public virtual ILayout Layout => this._layout ?? (this._layout = new Layout(this.HttpContext, this.LocalizerFactory, this.LoggerFactory));
+		public virtual ILayout Layout => this._layout ??= new Layout(this.HttpContext, this.LocalizerFactory, this.LoggerFactory);
 		public virtual IStringLocalizer Localizer { get; }
 		protected internal virtual IStringLocalizerFactory LocalizerFactory { get; }
 		protected internal virtual ILoggerFactory LoggerFactory { get; }

@@ -22,7 +22,7 @@ namespace IntegrationTests.Prerequisites
 
 		#region Properties
 
-		protected internal virtual InvestigatableResourceManagerStringLocalizerFactory InvestigatableResourceManagerStringLocalizerFactory => _investigatableResourceManagerStringLocalizerFactory ?? (_investigatableResourceManagerStringLocalizerFactory = new InvestigatableResourceManagerStringLocalizerFactory(Options.Create(this.LocalizationOptions), this.LoggerFactory));
+		protected internal virtual InvestigatableResourceManagerStringLocalizerFactory InvestigatableResourceManagerStringLocalizerFactory => _investigatableResourceManagerStringLocalizerFactory ??= new InvestigatableResourceManagerStringLocalizerFactory(Options.Create(this.LocalizationOptions), this.LoggerFactory);
 		protected internal virtual LocalizationOptions LocalizationOptions => _localizationOptions;
 		protected internal virtual ILoggerFactory LoggerFactory => _loggerFactory;
 

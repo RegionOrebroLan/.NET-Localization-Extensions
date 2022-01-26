@@ -110,7 +110,7 @@ namespace Application.Models.ViewModels.Shared
 			}
 		}
 
-		public virtual INavigationNode CultureNavigation => this._cultureNavigation ?? (this._cultureNavigation = this.GetCultureNavigationInternal(() => this.Culture, () => this.CultureSegment, "Culture", "ui-culture", () => this.RequestLocalizationOptions.SupportedCultures, this.GetCultureUrl));
+		public virtual INavigationNode CultureNavigation => this._cultureNavigation ??= this.GetCultureNavigationInternal(() => this.Culture, () => this.CultureSegment, "Culture", "ui-culture", () => this.RequestLocalizationOptions.SupportedCultures, this.GetCultureUrl);
 
 		protected internal virtual string CultureSegment
 		{
@@ -172,7 +172,7 @@ namespace Application.Models.ViewModels.Shared
 			}
 		}
 
-		protected internal virtual IEnumerable<string> PathSegments => this._pathSegments ?? (this._pathSegments = this.HttpContext.Request.Path.Value.Split(new[] { _pathSeparator }, StringSplitOptions.RemoveEmptyEntries));
+		protected internal virtual IEnumerable<string> PathSegments => this._pathSegments ??= this.HttpContext.Request.Path.Value.Split(new[] { _pathSeparator }, StringSplitOptions.RemoveEmptyEntries);
 
 		protected internal virtual IEnumerable<string> PathSegmentsWithoutController
 		{
@@ -245,7 +245,7 @@ namespace Application.Models.ViewModels.Shared
 		}
 
 		public virtual CultureInfo UiCulture => CultureInfo.CurrentUICulture;
-		public virtual INavigationNode UiCultureNavigation => this._uiCultureNavigation ?? (this._uiCultureNavigation = this.GetCultureNavigationInternal(() => this.UiCulture, () => this.UiCultureSegment, "UI-culture", "culture", () => this.RequestLocalizationOptions.SupportedUICultures, this.GetUiCultureUrl));
+		public virtual INavigationNode UiCultureNavigation => this._uiCultureNavigation ??= this.GetCultureNavigationInternal(() => this.UiCulture, () => this.UiCultureSegment, "UI-culture", "culture", () => this.RequestLocalizationOptions.SupportedUICultures, this.GetUiCultureUrl);
 
 		protected internal virtual string UiCultureSegment
 		{

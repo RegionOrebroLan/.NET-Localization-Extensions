@@ -18,7 +18,7 @@ namespace IntegrationTests.Reflection
 
 		#region Properties
 
-		protected internal virtual AssemblyHelper AssemblyHelper => _assemblyHelper ?? (_assemblyHelper = new AssemblyHelper(this.RootNamespaceResolver));
+		protected internal virtual AssemblyHelper AssemblyHelper => _assemblyHelper ??= new AssemblyHelper(this.RootNamespaceResolver);
 		protected internal virtual IRootNamespaceResolver RootNamespaceResolver => _rootNamespaceResolver;
 
 		#endregion

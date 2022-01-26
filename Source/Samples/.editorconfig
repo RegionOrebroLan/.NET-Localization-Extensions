@@ -2,7 +2,6 @@
 # Suppress
 
 # Temporary - we should control it later
-dotnet_diagnostic.CA1070.severity = none
 dotnet_diagnostic.CA1716.severity = none
 dotnet_diagnostic.CA1806.severity = none
 dotnet_diagnostic.IDE0004.severity = none

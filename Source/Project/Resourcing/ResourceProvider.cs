@@ -39,9 +39,9 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 		#region Events
 
-		public virtual event EventHandler EmbeddedResourcesChanged;
-		public virtual event EventHandler<FileResourceChangedEventArgs> FileResourceContentChanged;
-		public virtual event EventHandler FileResourcesChanged;
+		public event EventHandler EmbeddedResourcesChanged;
+		public event EventHandler<FileResourceChangedEventArgs> FileResourceContentChanged;
+		public event EventHandler FileResourcesChanged;
 
 		#endregion
 

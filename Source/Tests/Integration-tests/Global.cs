@@ -117,9 +117,11 @@ namespace IntegrationTests
 		}
 
 		[AssemblyInitialize]
-		[SuppressMessage("Usage", "CA1801:Review unused parameters")]
 		public static void Initialize(TestContext testContext)
 		{
+			if(testContext == null)
+				throw new ArgumentNullException(nameof(testContext));
+
 			var testRootDirectoryPath = Path.Combine(ProjectDirectoryPath, TestRootDirectoryRelativePath);
 
 			if(Directory.Exists(testRootDirectoryPath))

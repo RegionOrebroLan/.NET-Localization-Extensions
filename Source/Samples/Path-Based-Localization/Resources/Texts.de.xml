@@ -67,7 +67,7 @@
 				<localization>
 					<index>
 						<culture lookup="common.culture" />
-						<cultures lookup="company.webApplication.views.home.index.cultures" />
+						<cultures lookup="application.views.home.index.cultures" />
 						<information lookup="common.information" />
 						<localized-strings name="Localized strings">Lokalisierte Zeichenfolgen</localized-strings>
 						<localizers>Konfigurierte Lokalisierer</localizers>

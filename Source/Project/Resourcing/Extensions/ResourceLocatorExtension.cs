@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions;
 using System.Linq;
 using RegionOrebroLan.Localization.Reflection;
@@ -19,6 +20,7 @@ namespace RegionOrebroLan.Localization.Resourcing.Extensions
 			return resourceLocator.GetFileResources(directoryPath, true);
 		}
 
+		[SuppressMessage("Design", "CA1021:Avoid out parameters")]
 		public static bool IsValidEmbeddedResource(this IResourceLocator resourceLocator, IAssembly assembly, string name, out ILocalizationParser parser)
 		{
 			if(resourceLocator == null)
@@ -46,6 +48,7 @@ namespace RegionOrebroLan.Localization.Resourcing.Extensions
 			return resourceLocator.Resolvers.Any(resolver => resolver.Validator.IsValidFileResource(path));
 		}
 
+		[SuppressMessage("Design", "CA1021:Avoid out parameters")]
 		public static bool IsValidFileResource(this IResourceLocator resourceLocator, IFileInfo file, out ILocalizationParser parser)
 		{
 			if(resourceLocator == null)

@@ -133,9 +133,7 @@ namespace Application.Models.ViewModels
 
 							try
 							{
-								// ReSharper disable ReturnValueOfPureMethodIsNotUsed
-								localizer.GetAllStrings(false).ToArray();
-								// ReSharper restore ReturnValueOfPureMethodIsNotUsed
+								var _ = localizer.GetAllStrings(false).ToArray();
 
 								return new Tuple<IStringLocalizer, Exception>(localizer, null);
 							}

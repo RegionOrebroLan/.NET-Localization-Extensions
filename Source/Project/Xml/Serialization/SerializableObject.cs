@@ -19,10 +19,10 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 		#region Fields
 
 		private Lazy<string> _defaultElementLocalName;
-		private static readonly ConcurrentDictionary<Type, string> _defaultElementLocalNameDictionary = new ConcurrentDictionary<Type, string>();
+		private static readonly ConcurrentDictionary<Type, string> _defaultElementLocalNameDictionary = new();
 		private static Lazy<string> _defaultEntryElementLocalName;
 		private const string _nameAttributeName = "name";
-		private static readonly Regex _validElementNameRegularExpression = new Regex("^[a-zA-Z0-9_]+$", RegexOptions.Compiled);
+		private static readonly Regex _validElementNameRegularExpression = new("^[a-zA-Z0-9_]+$", RegexOptions.Compiled);
 
 		#endregion
 

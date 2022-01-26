@@ -13,7 +13,7 @@ namespace IntegrationTests.Prerequisites
 	{
 		#region Fields
 
-		private static readonly LocalizationOptions _localizationOptions = new LocalizationOptions();
+		private static readonly LocalizationOptions _localizationOptions = new();
 		private static readonly ILoggerFactory _loggerFactory = new LoggerFactory();
 
 		#endregion

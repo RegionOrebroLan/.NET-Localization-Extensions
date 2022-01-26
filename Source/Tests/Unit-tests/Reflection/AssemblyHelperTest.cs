@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -11,7 +11,7 @@ namespace UnitTests.Reflection
 	{
 		#region Fields
 
-		private static readonly AssemblyHelper _assemblyHelper = new AssemblyHelper(Mock.Of<IRootNamespaceResolver>());
+		private static readonly AssemblyHelper _assemblyHelper = new(Mock.Of<IRootNamespaceResolver>());
 
 		#endregion
 

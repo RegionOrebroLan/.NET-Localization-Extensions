@@ -15,7 +15,7 @@ namespace IntegrationTests.Prerequisites
 		#region Fields
 
 		private static InvestigatableResourceManagerStringLocalizerFactory _investigatableResourceManagerStringLocalizerFactory;
-		private static readonly LocalizationOptions _localizationOptions = new LocalizationOptions { ResourcesPath = "TestResources/ResxResources" };
+		private static readonly LocalizationOptions _localizationOptions = new() { ResourcesPath = "TestResources/ResxResources" };
 		private static readonly ILoggerFactory _loggerFactory = new LoggerFactory();
 
 		#endregion

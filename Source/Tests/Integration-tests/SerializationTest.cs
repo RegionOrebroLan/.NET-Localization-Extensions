@@ -13,14 +13,14 @@ namespace IntegrationTests
 	{
 		#region Fields
 
-		private static readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
+		private static readonly JsonSerializerSettings _jsonSerializerSettings = new()
 		{
 			Formatting = JsonFormatting.None,
 			NullValueHandling = NullValueHandling.Ignore
 		};
 
 		private static XmlSerializerNamespaces _xmlSerializerNamespaces;
-		private static readonly XmlWriterSettings _xmlWriterSettings = new XmlWriterSettings { OmitXmlDeclaration = true };
+		private static readonly XmlWriterSettings _xmlWriterSettings = new() { OmitXmlDeclaration = true };
 
 		#endregion
 

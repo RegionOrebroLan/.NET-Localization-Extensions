@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RegionOrebroLan.Localization;
@@ -11,7 +11,7 @@ namespace UnitTests
 	{
 		#region Fields
 
-		private static readonly LocalizationPathResolver _localizationPathResolver = new LocalizationPathResolver();
+		private static readonly LocalizationPathResolver _localizationPathResolver = new();
 
 		#endregion
 

@@ -4,6 +4,3 @@ dotnet_diagnostic.CA1707.severity = none
 dotnet_diagnostic.CA1849.severity = none
 dotnet_diagnostic.CA2007.severity = none
 dotnet_diagnostic.IDE0057.severity = none
-
-# Temporary
-dotnet_diagnostic.IDE0090.severity = none

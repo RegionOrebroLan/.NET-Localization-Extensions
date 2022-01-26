@@ -433,21 +433,15 @@ namespace Application.Models.ViewModels.Shared
 
 		protected internal virtual string GetRequestCultureProviderHint(string label, IRequestCultureProvider requestCultureProvider)
 		{
-			switch(requestCultureProvider)
+			return requestCultureProvider switch
 			{
-				case null:
-					return this.Localizer.GetString("default-settings");
-				case AcceptLanguageHeaderRequestCultureProvider _:
-					return this.Localizer.GetString("header");
-				case CookieRequestCultureProvider _:
-					return this.Localizer.GetString("cookie");
-				case QueryStringRequestCultureProvider _:
-					return this.Localizer.GetString("query-string") + (this.HttpContext.Request.Query.Keys.Contains(label, StringComparer.OrdinalIgnoreCase) ? null : "/" + this.Localizer.GetString("default-settings"));
-				case RouteDataRequestCultureProvider _:
-					return this.Localizer.GetString("url");
-				default:
-					return null;
-			}
+				null => this.Localizer.GetString("default-settings"),
+				AcceptLanguageHeaderRequestCultureProvider => this.Localizer.GetString("header"),
+				CookieRequestCultureProvider => this.Localizer.GetString("cookie"),
+				QueryStringRequestCultureProvider => this.Localizer.GetString("query-string") + (this.HttpContext.Request.Query.Keys.Contains(label, StringComparer.OrdinalIgnoreCase) ? null : "/" + this.Localizer.GetString("default-settings")),
+				RouteDataRequestCultureProvider => this.Localizer.GetString("url"),
+				_ => null,
+			};
 		}
 
 		protected internal virtual Uri GetUiCultureUrl(CultureInfo uiCulture)

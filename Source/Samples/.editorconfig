@@ -3,7 +3,6 @@
 dotnet_diagnostic.CA1716.severity = none
 
 # Temporary - we should control it later
-dotnet_diagnostic.IDE0066.severity = none
 dotnet_diagnostic.IDE0074.severity = none
 dotnet_diagnostic.IDE0077.severity = none
 dotnet_diagnostic.IDE0078.severity = none

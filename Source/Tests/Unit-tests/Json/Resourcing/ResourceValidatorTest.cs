@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Abstractions;
@@ -18,15 +18,12 @@ namespace UnitTests.Json.Resourcing
 		{
 			var rest = DateTime.Now.Millisecond % 3;
 
-			switch(rest)
+			return rest switch
 			{
-				case 1:
-					return ".JSON";
-				case 2:
-					return ".JsOn";
-				default:
-					return ".json";
-			}
+				1 => ".JSON",
+				2 => ".JsOn",
+				_ => ".json",
+			};
 		}
 
 		[TestMethod]

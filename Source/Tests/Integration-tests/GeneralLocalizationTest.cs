@@ -89,7 +89,7 @@ namespace IntegrationTests
 		public void Configuration_IfChanged_WillBeHandled()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
-			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetService<ITestContext>();
 
 			Assert.AreEqual(34, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
@@ -178,7 +178,7 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-Empty-File-Resources-Directory-Path.json");
 
-			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en-US"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en-US"));
 
 			Assert.AreEqual(24, stringLocalizer.GetAllStrings().Count());
 		}
@@ -188,7 +188,7 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-Empty-File-Resources-Directory-Path.json");
 
-			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en-US"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en-US"));
 
 			Assert.AreEqual(24, stringLocalizer.GetAllStrings().Count());
 		}
@@ -397,7 +397,7 @@ namespace IntegrationTests
 
 			var hostEnvironment = serviceProvider.GetRequiredService<IHostEnvironment>();
 			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
-			var stringLocalizer = serviceProvider.GetRequiredService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetRequiredService<ITestContext>();
 
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
@@ -462,7 +462,7 @@ namespace IntegrationTests
 			var hostEnvironment = serviceProvider.GetRequiredService<IHostEnvironment>();
 			var localizationOptionsMonitor = serviceProvider.GetRequiredService<IOptionsMonitor<LocalizationOptions>>();
 			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
-			var stringLocalizer = serviceProvider.GetRequiredService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetRequiredService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetRequiredService<ITestContext>();
 
 			var fileResourcesDirectoryPath = localizationOptionsMonitor.CurrentValue.FileResourcesDirectoryPath;
@@ -611,7 +611,7 @@ namespace IntegrationTests
 				var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
 				fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
 				settings = serviceProvider.GetRequiredService<ILocalizationSettings>();
-				var stringLocalizer = serviceProvider.GetRequiredService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en-US"));
+				var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en-US"));
 
 				Assert.AreEqual(0, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
 			}
@@ -661,7 +661,7 @@ namespace IntegrationTests
 
 			File.WriteAllText(resourceFilePath, string.Join(Environment.NewLine, resourceContentLines));
 
-			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var localizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
 
 			Assert.AreEqual(5, localizedStrings.Length);
@@ -711,7 +711,7 @@ namespace IntegrationTests
 
 			File.WriteAllText(resourceFilePath, string.Join(Environment.NewLine, resourceContentLines));
 
-			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var localizedStrings = stringLocalizer.GetAllStrings(false).ToArray();
 
 			Assert.AreEqual(5, localizedStrings.Length);
@@ -791,7 +791,7 @@ namespace IntegrationTests
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
 		protected internal virtual void StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(CultureInfo culture, bool includeParentCultures, int numberOfItems, IStringLocalizer stringLocalizer)
 		{
-			var localizedStrings = stringLocalizer.WithCulture(culture).GetAllStrings(includeParentCultures).ToArray();
+			var localizedStrings = ((StringLocalizer)stringLocalizer).Clone(culture).GetAllStrings(includeParentCultures).ToArray();
 			var localizedStringNames = localizedStrings.Select(item => item.Name).ToArray();
 			var localizedStringNameList = localizedStringNames.ToList();
 			localizedStringNameList.Sort();
@@ -805,19 +805,19 @@ namespace IntegrationTests
 		/// <summary>
 		/// This works because there is a node with name "TestHost.Controllers.HomeController" in resource-file "Integration-tests\Resources\Texts.en-US.json".
 		/// When executing this integration-test the application-assembly will be "testhost" and therefore "Controllers.HomeController.Second-text" will be found.
+		/// Depending on how we run the tests, depending on the host, "testhost" may also be "ReSharperTestRunner" or "TestHost.x86". In the future maybe also some other name.
 		/// </summary>
 		[TestMethod]
 		public void StringLocalizer_NotTyped_IfThereAreResourceNamesPrefixedWithTheAssemblyName_ShouldResolveLocalizedStringsRequestedWithoutTheAssemblyNamePrefix()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json");
-			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 
 			// Just to keep track of this test. So we, in the future, can fix this test with any other possible assembly running the tests.
-			var concreteStringLocalizer = (StringLocalizer)stringLocalizer;
 			var entryAssembly = Assembly.GetEntryAssembly();
-			Assert.AreEqual(entryAssembly?.FullName, concreteStringLocalizer.Assembly.FullName);
+			Assert.AreEqual(entryAssembly?.FullName, stringLocalizer.Assembly.FullName);
 			var possibleAssemblies = new HashSet<string>(new[] { "ReSharperTestRunner", "TestHost", "TestHost.x86" }, StringComparer.OrdinalIgnoreCase);
-			Assert.IsTrue(possibleAssemblies.Contains(concreteStringLocalizer.Assembly.Name), $"The entry-assembly is {entryAssembly?.GetName().Name} and is not contained in the list: {string.Join(", ", possibleAssemblies)}. You need to add the current entry-assembly name in Resources/Texts.json and Resources/Texts.en.json.");
+			Assert.IsTrue(possibleAssemblies.Contains(stringLocalizer.Assembly.Name), $"The entry-assembly is {entryAssembly?.GetName().Name} and is not contained in the list: {string.Join(", ", possibleAssemblies)}. You need to add the current entry-assembly name in Resources/Texts.json and Resources/Texts.en.json.");
 
 			var localizedString = stringLocalizer["Controllers.HomeController.Second-text"];
 			Assert.IsFalse(localizedString.ResourceNotFound);
@@ -838,7 +838,7 @@ namespace IntegrationTests
 			};
 
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json");
-			var stringLocalizer = serviceProvider.GetService<IStringLocalizer>().WithCulture(CultureInfo.GetCultureInfo("en"));
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 
 			Assert.AreEqual("\"A\", b, \"C\", d, \"E\"", stringLocalizer[@"format-examples\five-arguments", arguments.ToArray()].Value);
 

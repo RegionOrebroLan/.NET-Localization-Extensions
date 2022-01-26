@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.Linq;
 using Investigation.Localization;
@@ -13,6 +14,7 @@ namespace IntegrationTests.Prerequisites
 	{
 		#region Fields
 
+		private static CultureInfo _initialUiCulture;
 		private static readonly LocalizationOptions _localizationOptions = new();
 		private static readonly ILoggerFactory _loggerFactory = new LoggerFactory();
 
@@ -26,6 +28,12 @@ namespace IntegrationTests.Prerequisites
 		#endregion
 
 		#region Methods
+
+		[ClassCleanup]
+		public static void Cleanup()
+		{
+			CultureInfo.CurrentUICulture = _initialUiCulture;
+		}
 
 		protected internal virtual InvestigatableResourceManagerStringLocalizerFactory CreateInvestigatableResourceManagerStringLocalizerFactory(string resourcePath)
 		{
@@ -42,8 +50,7 @@ namespace IntegrationTests.Prerequisites
 		{
 			var stringLocalizer = new ResourceManagerStringLocalizerFactory(Options.Create(this.LocalizationOptions), Global.LoggerFactory).Create("Colors", "Colors");
 
-			stringLocalizer = stringLocalizer.WithCulture(CultureInfo.GetCultureInfo("de-DE"));
-
+			CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("de-DE");
 			var allStrings = stringLocalizer.GetAllStrings(true).ToArray();
 
 			Assert.AreEqual(3, allStrings.Length);
@@ -55,8 +62,7 @@ namespace IntegrationTests.Prerequisites
 			Assert.AreEqual("Colors.Colors", localizedString.SearchedLocation);
 			Assert.AreEqual("Red: \"\\Embedded-resources\\Colors\\Colors.resx\"", localizedString.Value);
 
-			stringLocalizer = stringLocalizer.WithCulture(CultureInfo.GetCultureInfo("en-US"));
-
+			CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
 			allStrings = stringLocalizer.GetAllStrings(true).ToArray();
 
 			Assert.AreEqual(3, allStrings.Length);
@@ -74,6 +80,8 @@ namespace IntegrationTests.Prerequisites
 		{
 			var stringLocalizerFactory = this.CreateInvestigatableResourceManagerStringLocalizerFactory(string.Empty);
 			var stringLocalizer = (InvestigatableResourceManagerStringLocalizer)stringLocalizerFactory.Create("Colors", "Colors");
+
+			CultureInfo.CurrentUICulture = _initialUiCulture;
 
 			var allStrings = stringLocalizer.GetAllStrings();
 			Assert.AreEqual(3, allStrings.Count());
@@ -98,6 +106,15 @@ namespace IntegrationTests.Prerequisites
 
 			allStrings = stringLocalizer.GetProtectedAllStrings(true, CultureInfo.GetCultureInfo("sv-SE"));
 			Assert.AreEqual(3, allStrings.Count());
+		}
+
+		[ClassInitialize]
+		public static void Initialize(TestContext testContext)
+		{
+			if(testContext == null)
+				throw new ArgumentNullException(nameof(testContext));
+
+			_initialUiCulture = CultureInfo.CurrentUICulture;
 		}
 
 		#endregion

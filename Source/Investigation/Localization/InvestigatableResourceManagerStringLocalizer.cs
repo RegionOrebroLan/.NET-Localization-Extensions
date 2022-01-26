@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Resources;
 using Investigation.Extensions;
 using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Localization.Internal;
 using Microsoft.Extensions.Logging;
 
 namespace Investigation.Localization
@@ -88,16 +87,6 @@ namespace Investigation.Localization
 				var resourceNamesCache = this.GetFieldValue<IResourceNamesCache>("_resourceNamesCache");
 
 				return resourceNamesCache;
-			}
-		}
-
-		public virtual IResourceStringProvider ResourceStringProvider
-		{
-			get
-			{
-				var resourceStringProvider = this.GetFieldValue<IResourceStringProvider>("_resourceStringProvider");
-
-				return resourceStringProvider;
 			}
 		}
 

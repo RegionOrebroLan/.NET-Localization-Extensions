@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -8,7 +8,8 @@ using RegionOrebroLan.Localization.Reflection;
 
 namespace RegionOrebroLan.Localization
 {
-	public class StringLocalizer : IStringLocalizer
+	/// <inheritdoc cref="IStringLocalizer" />
+	public class StringLocalizer : ICloneable, IStringLocalizer
 	{
 		#region Constructors
 
@@ -47,6 +48,19 @@ namespace RegionOrebroLan.Localization
 
 		#region Methods
 
+		object ICloneable.Clone()
+		{
+			return this.Clone();
+		}
+
+		[CLSCompliant(false)]
+		public virtual IStringLocalizer Clone(CultureInfo culture = null)
+		{
+			culture ??= this.Culture;
+
+			return new StringLocalizer(this.Assembly, culture, this.LocalizationProvider, this.Logger, string.Copy(this.Path));
+		}
+
 		[CLSCompliant(false)]
 		public virtual IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
 		{
@@ -56,7 +70,7 @@ namespace RegionOrebroLan.Localization
 		[CLSCompliant(false)]
 		protected internal virtual LocalizedString GetLocalizedString(string name, IEnumerable<object> arguments)
 		{
-			return (LocalizedString) this.LocalizationProvider.Get(arguments, this.Assembly, this.ResolveCulture(this.Culture), name, this.Path);
+			return (LocalizedString)this.LocalizationProvider.Get(arguments, this.Assembly, this.ResolveCulture(this.Culture), name, this.Path);
 		}
 
 		protected internal virtual CultureInfo ResolveCulture(CultureInfo culture)
@@ -65,12 +79,10 @@ namespace RegionOrebroLan.Localization
 		}
 
 		[CLSCompliant(false)]
-		public virtual IStringLocalizer WithCulture(CultureInfo culture)
+		[Obsolete("Use Clone(CultureInfo culture = null) instead. This method will be removed later. This method already have been removed from the Microsoft.Extensions.Localization.IStringLocalizer inteface.")]
+		public virtual IStringLocalizer WithCulture(CultureInfo culture = null)
 		{
-			if(culture == null)
-				throw new ArgumentNullException(nameof(culture));
-
-			return new StringLocalizer(this.Assembly, culture, this.LocalizationProvider, this.Logger, this.Path);
+			return this.Clone(culture);
 		}
 
 		#endregion

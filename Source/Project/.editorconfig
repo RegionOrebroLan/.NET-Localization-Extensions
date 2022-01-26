@@ -1,6 +1,6 @@
 [*.cs]
 # Suppress
-dotnet_diagnostic.CA2109.severity = none
+dotnet_diagnostic.CA2109.severity = none # The event-handlers are "protected internal", not "public".
 
 
 # Temporary - we should control it later

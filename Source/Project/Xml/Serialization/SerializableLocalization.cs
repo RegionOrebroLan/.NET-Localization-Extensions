@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -49,7 +49,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			{
 				// ReSharper disable ConvertIfStatementToNullCoalescingExpression
 				if(_validAttributeNames == null)
-					_validAttributeNames = new[] {this.NameAttributeName, this.PriorityAttributeName};
+					_validAttributeNames = new[] { this.NameAttributeName, this.PriorityAttributeName };
 				// ReSharper restore ConvertIfStatementToNullCoalescingExpression
 
 				return _validAttributeNames;
@@ -85,7 +85,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			var priorityAttribute = element.Attributes().GetAttribute(this.PriorityAttributeName);
 
 			if(priorityAttribute != null)
-				this.Priority = !string.IsNullOrEmpty(priorityAttribute.Value) ? int.Parse(priorityAttribute.Value, CultureInfo.InvariantCulture) : (int?) null;
+				this.Priority = !string.IsNullOrEmpty(priorityAttribute.Value) ? int.Parse(priorityAttribute.Value, CultureInfo.InvariantCulture) : null;
 
 			base.Load(element);
 		}

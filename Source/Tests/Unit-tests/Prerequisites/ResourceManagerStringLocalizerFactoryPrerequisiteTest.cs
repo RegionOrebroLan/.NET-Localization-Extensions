@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
 using Investigation.Localization;
@@ -13,6 +12,7 @@ using Moq.Protected;
 namespace UnitTests.Prerequisites
 {
 	[TestClass]
+	// ReSharper disable All
 	public class ResourceManagerStringLocalizerFactoryPrerequisiteTest
 	{
 		#region Fields
@@ -31,14 +31,11 @@ namespace UnitTests.Prerequisites
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
-		[SuppressMessage("Usage", "CA1806:Do not ignore method results")]
 		public void Constructor_IfTheLocalizationOptionsParameterIsNull_ShouldThrowAnArgumentNullException()
 		{
 			try
 			{
-				// ReSharper disable ObjectCreationAsStatement
-				new ResourceManagerStringLocalizerFactory(null, Mock.Of<ILoggerFactory>());
-				// ReSharper restore ObjectCreationAsStatement
+				var _ = new ResourceManagerStringLocalizerFactory(null, Mock.Of<ILoggerFactory>());
 			}
 			catch(ArgumentNullException argumentNullException)
 			{
@@ -49,14 +46,11 @@ namespace UnitTests.Prerequisites
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
-		[SuppressMessage("Usage", "CA1806:Do not ignore method results")]
 		public void Constructor_IfTheLoggerFactoryParameterIsNull_ShouldThrowAnArgumentNullException()
 		{
 			try
 			{
-				// ReSharper disable ObjectCreationAsStatement
-				new ResourceManagerStringLocalizerFactory(Mock.Of<IOptions<LocalizationOptions>>(), null);
-				// ReSharper restore ObjectCreationAsStatement
+				var _ = new ResourceManagerStringLocalizerFactory(Mock.Of<IOptions<LocalizationOptions>>(), null);
 			}
 			catch(ArgumentNullException argumentNullException)
 			{
@@ -94,15 +88,15 @@ namespace UnitTests.Prerequisites
 		{
 			var stringLocalizerFactory = this.CreateResourceManagerStringLocalizerFactory<InvestigatableResourceManagerStringLocalizerFactory>("Test-resources");
 			Assert.AreEqual("BaseNamespace.ResourcesRelativePathSystem.String", stringLocalizerFactory.GetProtectedResourcePrefix(typeof(string).GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
-			Assert.AreEqual("BaseNamespace.ResourcesRelativePathPrerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
+			Assert.AreEqual("BaseNamespace.ResourcesRelativePathUnitTests.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
 
 			stringLocalizerFactory = this.CreateResourceManagerStringLocalizerFactory<InvestigatableResourceManagerStringLocalizerFactory>(null);
 			Assert.AreEqual("BaseNamespace.ResourcesRelativePathSystem.String", stringLocalizerFactory.GetProtectedResourcePrefix(typeof(string).GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
-			Assert.AreEqual("BaseNamespace.ResourcesRelativePathPrerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
+			Assert.AreEqual("BaseNamespace.ResourcesRelativePathUnitTests.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
 
 			stringLocalizerFactory = this.CreateResourceManagerStringLocalizerFactory<InvestigatableResourceManagerStringLocalizerFactory>(string.Empty);
 			Assert.AreEqual("BaseNamespace.ResourcesRelativePathSystem.String", stringLocalizerFactory.GetProtectedResourcePrefix(typeof(string).GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
-			Assert.AreEqual("BaseNamespace.ResourcesRelativePathPrerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
+			Assert.AreEqual("BaseNamespace.ResourcesRelativePathUnitTests.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo(), "BaseNamespace", "ResourcesRelativePath"));
 		}
 
 		[TestMethod]
@@ -157,7 +151,7 @@ namespace UnitTests.Prerequisites
 
 			stringLocalizerFactory = this.CreateResourceManagerStringLocalizerFactory<InvestigatableResourceManagerStringLocalizerFactory>(resourcePath, rootNamespace);
 			Assert.AreEqual("My.Root.Namespace.Resource_Path.System.String", stringLocalizerFactory.GetProtectedResourcePrefix(typeof(string).GetTypeInfo()));
-			Assert.AreEqual("My.Root.Namespace.Resource_Path.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo()));
+			Assert.AreEqual("My.Root.Namespace.Resource_Path.UnitTests.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo()));
 		}
 
 		[TestMethod]
@@ -175,4 +169,5 @@ namespace UnitTests.Prerequisites
 
 		#endregion
 	}
+	// ReSharper restore All
 }

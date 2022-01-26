@@ -96,7 +96,6 @@ namespace IntegrationTests
 			return services;
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		public static string GetDirectoryPath(Type type)
 		{
 			if(type == null)

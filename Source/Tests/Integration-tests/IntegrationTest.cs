@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using IntegrationTests.Helpers;
@@ -99,7 +98,6 @@ namespace IntegrationTests
 			return this.BuildServiceProvider(services);
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual IServiceProvider BuildServiceProvider(Action<IConfiguration, IServiceCollection> additionalServicesConfiguration, string configurationFileName, bool emptyFileResourcesDirectory)
 		{
 			var testContext = this.PrepareTest(configurationFileName, emptyFileResourcesDirectory);

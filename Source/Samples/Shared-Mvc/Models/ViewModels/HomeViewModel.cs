@@ -23,8 +23,7 @@ namespace Application.Models.ViewModels
 		{
 			get
 			{
-				if(this._now == null)
-					this._now = new Lazy<DateTime>(() => DateTime.Now);
+				this._now ??= new Lazy<DateTime>(() => DateTime.Now);
 
 				return this._now.Value;
 			}

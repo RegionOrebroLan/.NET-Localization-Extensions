@@ -83,8 +83,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 				{
 					lock(this.FileResourcesLock)
 					{
-						if(this.FileResourcesCache == null)
-							this.FileResourcesCache = (this.Settings.FileResourcesDirectory != null ? this.ResourceLocator.GetFileResources(this.Settings.FileResourcesDirectory.FullName) : Enumerable.Empty<IFileResource>()).ToArray();
+						this.FileResourcesCache ??= (this.Settings.FileResourcesDirectory != null ? this.ResourceLocator.GetFileResources(this.Settings.FileResourcesDirectory.FullName) : Enumerable.Empty<IFileResource>()).ToArray();
 					}
 				}
 				// ReSharper restore InvertIf

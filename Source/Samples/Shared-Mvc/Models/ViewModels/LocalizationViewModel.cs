@@ -120,34 +120,31 @@ namespace Application.Models.ViewModels
 		{
 			get
 			{
-				if(this._selectedLocalizerInformation == null)
+				this._selectedLocalizerInformation ??= new Lazy<Tuple<IStringLocalizer, Exception>>(() =>
 				{
-					this._selectedLocalizerInformation = new Lazy<Tuple<IStringLocalizer, Exception>>(() =>
+					if(!this.LocalizerSelected)
+						return null;
+
+					try
 					{
-						if(!this.LocalizerSelected)
-							return null;
+						var localizer = this.LocalizerFactory.Create(this.LocalizerBaseName, this.LocalizerLocation);
 
 						try
 						{
-							var localizer = this.LocalizerFactory.Create(this.LocalizerBaseName, this.LocalizerLocation);
+							var _ = localizer.GetAllStrings(false).ToArray();
 
-							try
-							{
-								var _ = localizer.GetAllStrings(false).ToArray();
-
-								return new Tuple<IStringLocalizer, Exception>(localizer, null);
-							}
-							catch(Exception executionException)
-							{
-								return new Tuple<IStringLocalizer, Exception>(null, new InvalidOperationException($"The string-localizer from base-name \"{this.LocalizerBaseName}\" and location \"{this.LocalizerLocation}\" can not execute.", executionException));
-							}
+							return new Tuple<IStringLocalizer, Exception>(localizer, null);
 						}
-						catch(Exception exception)
+						catch(Exception executionException)
 						{
-							return new Tuple<IStringLocalizer, Exception>(null, new InvalidOperationException($"Could not create a string-localizer from base-name \"{this.LocalizerBaseName}\" and location \"{this.LocalizerLocation}\".", exception));
+							return new Tuple<IStringLocalizer, Exception>(null, new InvalidOperationException($"The string-localizer from base-name \"{this.LocalizerBaseName}\" and location \"{this.LocalizerLocation}\" can not execute.", executionException));
 						}
-					});
-				}
+					}
+					catch(Exception exception)
+					{
+						return new Tuple<IStringLocalizer, Exception>(null, new InvalidOperationException($"Could not create a string-localizer from base-name \"{this.LocalizerBaseName}\" and location \"{this.LocalizerLocation}\".", exception));
+					}
+				});
 
 				return this._selectedLocalizerInformation.Value;
 			}

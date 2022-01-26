@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using RegionOrebroLan.Localization.Abstractions;
 
@@ -30,10 +30,9 @@ namespace RegionOrebroLan.Localization
 
 			var resourceNotFound = value == null;
 
-			if(value == null)
-				value = this.CreateMessageForMissingValue(culture, name);
+			value ??= this.CreateMessageForMissingValue(culture, name);
 
-			return new LocalizedString(name, value, resourceNotFound, information) {Culture = culture};
+			return new LocalizedString(name, value, resourceNotFound, information) { Culture = culture };
 		}
 
 		protected internal virtual string CreateMessageForMissingValue(CultureInfo culture, string name)

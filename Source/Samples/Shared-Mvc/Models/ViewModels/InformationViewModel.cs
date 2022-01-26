@@ -32,8 +32,7 @@ namespace Application.Models.ViewModels
 		{
 			get
 			{
-				if(this._requestCultureFeature == null)
-					this._requestCultureFeature = new Lazy<IRequestCultureFeature>(() => this.HttpContext.Features.Get<IRequestCultureFeature>());
+				this._requestCultureFeature ??= new Lazy<IRequestCultureFeature>(() => this.HttpContext.Features.Get<IRequestCultureFeature>());
 
 				return this._requestCultureFeature.Value;
 			}
@@ -43,8 +42,7 @@ namespace Application.Models.ViewModels
 		{
 			get
 			{
-				if(this._requestLocalizationOptions == null)
-					this._requestLocalizationOptions = new Lazy<RequestLocalizationOptions>(() => this.HttpContext.RequestServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+				this._requestLocalizationOptions ??= new Lazy<RequestLocalizationOptions>(() => this.HttpContext.RequestServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
 				return this._requestLocalizationOptions.Value;
 			}

@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
@@ -33,7 +32,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			{
 				// ReSharper disable ConvertIfStatementToNullCoalescingExpression
 				if(_validAttributeNames == null)
-					_validAttributeNames = new[] {this.NameAttributeName, this.LookupAttributeName};
+					_validAttributeNames = new[] { this.NameAttributeName, this.LookupAttributeName };
 				// ReSharper restore ConvertIfStatementToNullCoalescingExpression
 
 				return _validAttributeNames;
@@ -46,7 +45,6 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 
 		#region Methods
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		public override void Load(XElement element)
 		{
 			if(element == null)
@@ -70,8 +68,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			if(nameAttribute != null)
 				this.Name = nameAttribute.Value;
 
-			if(this.Name == null)
-				this.Name = element.LocalName();
+			this.Name ??= element.LocalName();
 
 			if(!element.IsEmpty)
 				this.Value = element.Value;

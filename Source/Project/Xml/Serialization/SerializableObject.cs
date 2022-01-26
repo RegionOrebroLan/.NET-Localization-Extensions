@@ -33,21 +33,18 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 		{
 			get
 			{
-				if(this._defaultElementLocalName == null)
+				this._defaultElementLocalName ??= new Lazy<string>(() =>
 				{
-					this._defaultElementLocalName = new Lazy<string>(() =>
+					return this.DefaultElementLocalNameDictionary.GetOrAdd(this.GetType(), type =>
 					{
-						return this.DefaultElementLocalNameDictionary.GetOrAdd(this.GetType(), type =>
-						{
-							var elementName = type.GetCustomAttributes(typeof(XmlRootAttribute), true).OfType<XmlRootAttribute>().FirstOrDefault()?.ElementName;
+						var elementName = type.GetCustomAttributes(typeof(XmlRootAttribute), true).OfType<XmlRootAttribute>().FirstOrDefault()?.ElementName;
 
-							if(string.IsNullOrWhiteSpace(elementName))
-								elementName = type.Name;
+						if(string.IsNullOrWhiteSpace(elementName))
+							elementName = type.Name;
 
-							return elementName.FirstCharacterToLowerInvariant();
-						});
+						return elementName.FirstCharacterToLowerInvariant();
 					});
-				}
+				});
 
 				return this._defaultElementLocalName.Value;
 			}
@@ -59,8 +56,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 		{
 			get
 			{
-				if(_defaultEntryElementLocalName == null)
-					_defaultEntryElementLocalName = new Lazy<string>(() => new SerializableLocalizationEntry().DefaultElementLocalName);
+				_defaultEntryElementLocalName ??= new Lazy<string>(() => new SerializableLocalizationEntry().DefaultElementLocalName);
 
 				return _defaultEntryElementLocalName.Value;
 			}

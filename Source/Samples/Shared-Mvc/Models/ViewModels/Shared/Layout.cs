@@ -62,8 +62,7 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				if(this._certificate == null)
-					this._certificate = new Lazy<ICertificate>(() => (X509Certificate2Wrapper)this.HttpContext.Connection.ClientCertificate);
+				this._certificate ??= new Lazy<ICertificate>(() => (X509Certificate2Wrapper)this.HttpContext.Connection.ClientCertificate);
 
 				return this._certificate.Value;
 			}
@@ -73,16 +72,13 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				if(this._controllerSegment == null)
+				this._controllerSegment ??= new Lazy<string>(() =>
 				{
-					this._controllerSegment = new Lazy<string>(() =>
-					{
-						if(this.HttpContext.GetRouteValue(RouteKeys.Controller) is string controller)
-							return this.PathSegments.FirstOrDefault(segment => controller.Equals(segment, StringComparison.OrdinalIgnoreCase));
+					if(this.HttpContext.GetRouteValue(RouteKeys.Controller) is string controller)
+						return this.PathSegments.FirstOrDefault(segment => controller.Equals(segment, StringComparison.OrdinalIgnoreCase));
 
-						return null;
-					});
-				}
+					return null;
+				});
 
 				return this._controllerSegment.Value;
 			}
@@ -95,8 +91,7 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				if(this._cultureCookieValue == null)
-					this._cultureCookieValue = new Lazy<string>(() => this.HttpContext.Request.Cookies.TryGetValue(this.CultureCookieName, out var value) ? value : null);
+				this._cultureCookieValue ??= new Lazy<string>(() => this.HttpContext.Request.Cookies.TryGetValue(this.CultureCookieName, out var value) ? value : null);
 
 				return this._cultureCookieValue.Value;
 			}
@@ -108,21 +103,18 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				if(this._cultureSegment == null)
+				this._cultureSegment ??= new Lazy<string>(() =>
 				{
-					this._cultureSegment = new Lazy<string>(() =>
+					if(this.HttpContext.GetRouteValue(RouteKeys.Culture) is string culture)
 					{
-						if(this.HttpContext.GetRouteValue(RouteKeys.Culture) is string culture)
-						{
-							var potentialCultureSegment = this.PathSegmentsWithoutController.FirstOrDefault();
+						var potentialCultureSegment = this.PathSegmentsWithoutController.FirstOrDefault();
 
-							if(potentialCultureSegment != null && string.Equals(culture, potentialCultureSegment, StringComparison.OrdinalIgnoreCase))
-								return potentialCultureSegment;
-						}
+						if(potentialCultureSegment != null && string.Equals(culture, potentialCultureSegment, StringComparison.OrdinalIgnoreCase))
+							return potentialCultureSegment;
+					}
 
-						return null;
-					});
-				}
+					return null;
+				});
 
 				return this._cultureSegment.Value;
 			}
@@ -218,8 +210,7 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				if(this._requestCultureFeature == null)
-					this._requestCultureFeature = new Lazy<IRequestCultureFeature>(() => this.HttpContext.Features.Get<IRequestCultureFeature>());
+				this._requestCultureFeature ??= new Lazy<IRequestCultureFeature>(() => this.HttpContext.Features.Get<IRequestCultureFeature>());
 
 				return this._requestCultureFeature.Value;
 			}
@@ -229,8 +220,7 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				if(this._requestLocalizationOptions == null)
-					this._requestLocalizationOptions = new Lazy<RequestLocalizationOptions>(() => this.HttpContext.RequestServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+				this._requestLocalizationOptions ??= new Lazy<RequestLocalizationOptions>(() => this.HttpContext.RequestServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
 				return this._requestLocalizationOptions.Value;
 			}
@@ -243,21 +233,18 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				if(this._uiCultureSegment == null)
+				this._uiCultureSegment ??= new Lazy<string>(() =>
 				{
-					this._uiCultureSegment = new Lazy<string>(() =>
+					if(this.HttpContext.GetRouteValue(RouteKeys.UiCulture) is string uiCulture)
 					{
-						if(this.HttpContext.GetRouteValue(RouteKeys.UiCulture) is string uiCulture)
-						{
-							var potentialUiCultureSegment = this.CultureSegment != null ? this.PathSegmentsWithoutController.Count() > 1 ? this.PathSegmentsWithoutController.ElementAt(1) : null : this.PathSegmentsWithoutController.FirstOrDefault();
+						var potentialUiCultureSegment = this.CultureSegment != null ? this.PathSegmentsWithoutController.Count() > 1 ? this.PathSegmentsWithoutController.ElementAt(1) : null : this.PathSegmentsWithoutController.FirstOrDefault();
 
-							if(potentialUiCultureSegment != null && string.Equals(uiCulture, potentialUiCultureSegment, StringComparison.OrdinalIgnoreCase))
-								return potentialUiCultureSegment;
-						}
+						if(potentialUiCultureSegment != null && string.Equals(uiCulture, potentialUiCultureSegment, StringComparison.OrdinalIgnoreCase))
+							return potentialUiCultureSegment;
+					}
 
-						return null;
-					});
-				}
+					return null;
+				});
 
 				return this._uiCultureSegment.Value;
 			}

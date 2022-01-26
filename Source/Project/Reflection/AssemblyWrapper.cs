@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -38,8 +38,7 @@ namespace RegionOrebroLan.Localization.Reflection
 		{
 			get
 			{
-				if(this._culture == null)
-					this._culture = new Lazy<CultureInfo>(() => this.Assembly.GetName().CultureInfo);
+				this._culture ??= new Lazy<CultureInfo>(() => this.Assembly.GetName().CultureInfo);
 
 				return this._culture.Value;
 			}
@@ -54,8 +53,7 @@ namespace RegionOrebroLan.Localization.Reflection
 		{
 			get
 			{
-				if(this._name == null)
-					this._name = new Lazy<string>(() => this.Assembly.GetName().Name);
+				this._name ??= new Lazy<string>(() => this.Assembly.GetName().Name);
 
 				return this._name.Value;
 			}
@@ -65,15 +63,12 @@ namespace RegionOrebroLan.Localization.Reflection
 		{
 			get
 			{
-				if(this._rootNamespace == null)
+				this._rootNamespace ??= new Lazy<string>(() =>
 				{
-					this._rootNamespace = new Lazy<string>(() =>
-					{
-						var rootNamespace = this.RootNamespaceResolver.GetRootNamespace(this.Assembly);
+					var rootNamespace = this.RootNamespaceResolver.GetRootNamespace(this.Assembly);
 
-						return rootNamespace?.Name ?? (this.MainAssembly == null ? this.Assembly.GetName().Name : this.MainAssembly.RootNamespace);
-					});
-				}
+					return rootNamespace?.Name ?? (this.MainAssembly == null ? this.Assembly.GetName().Name : this.MainAssembly.RootNamespace);
+				});
 
 				return this._rootNamespace.Value;
 			}

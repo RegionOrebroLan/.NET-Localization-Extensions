@@ -106,8 +106,7 @@ namespace RegionOrebroLan.Localization
 				{
 					lock(this.ResourceContentLock)
 					{
-						if(this.ResourceContentCache == null)
-							this.ResourceContentCache = this.Resources.ToDictionary(resource => resource, resource => resource.Read());
+						this.ResourceContentCache ??= this.Resources.ToDictionary(resource => resource, resource => resource.Read());
 					}
 				}
 				// ReSharper restore InvertIf

@@ -3,6 +3,9 @@
 		<TargetFramework>net5.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.13" />
+	</ItemGroup>
+	<ItemGroup>
 		<ProjectReference Include="..\..\Embedded-resources\Animals\Animals.csproj" />
 		<ProjectReference Include="..\..\Embedded-resources\Colors\Colors.csproj" />
 		<ProjectReference Include="..\..\Embedded-resources\Numbers\Numbers.csproj" />

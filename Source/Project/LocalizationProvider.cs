@@ -128,7 +128,6 @@ namespace RegionOrebroLan.Localization
 
 		#region Methods
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void ClearLocalizationsCache()
 		{
 			this.Logger.LogInformationIfEnabled("Clearing the localizations cache.");
@@ -143,7 +142,6 @@ namespace RegionOrebroLan.Localization
 			}
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void ClearLocalizedStringCache()
 		{
 			this.Logger.LogInformationIfEnabled("Clearing the localized-string cache.");
@@ -151,7 +149,6 @@ namespace RegionOrebroLan.Localization
 			this.LocalizedStringCache.Clear();
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void ClearLocalizedStringListCache()
 		{
 			this.Logger.LogInformationIfEnabled("Clearing the localized-string-list cache.");
@@ -160,7 +157,6 @@ namespace RegionOrebroLan.Localization
 			this.LocalizedStringsWithParentCulturesIncludedCache.Clear();
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void ClearResourceContentCache()
 		{
 			this.Logger.LogInformationIfEnabled("Clearing the resource-content cache.");
@@ -465,8 +461,7 @@ namespace RegionOrebroLan.Localization
 			return value ?? lookupValue;
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
-		[SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code", Justification = "<Pending>")]
+		[SuppressMessage("Maintainability", "CA1508:Avoid dead conditional code")]
 		protected internal virtual void UpdateResourceContent(string path)
 		{
 			if(path == null)

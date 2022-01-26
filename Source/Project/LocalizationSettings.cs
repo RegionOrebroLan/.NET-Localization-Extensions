@@ -29,7 +29,6 @@ namespace RegionOrebroLan.Localization
 		#region Constructors
 
 		[CLSCompliant(false)]
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		public LocalizationSettings(IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, ILoggerFactory loggerFactory, IOptionsMonitor<LocalizationOptions> optionsMonitor, ILocalizationOptionsResolver optionsResolver)
 		{
 			this.FileResourcesDirectoryValidator = fileResourcesDirectoryValidator ?? throw new ArgumentNullException(nameof(fileResourcesDirectoryValidator));
@@ -88,7 +87,6 @@ namespace RegionOrebroLan.Localization
 			}
 		}
 
-		[SuppressMessage("Usage", "CA2227:Collection properties should be read only")]
 		protected internal virtual IEnumerable<IAssembly> ConfiguredEmbeddedResourceAssemblies
 		{
 			get => this._configuredEmbeddedResourceAssemblies;
@@ -172,7 +170,6 @@ namespace RegionOrebroLan.Localization
 		}
 
 		[SuppressMessage("Design", "CA1031:Do not catch general exception types")]
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void OnOptionsChanged(LocalizationOptions localizationOptions, string name)
 		{
 			this.Logger.LogDebugIfEnabled("Options changed - begin");

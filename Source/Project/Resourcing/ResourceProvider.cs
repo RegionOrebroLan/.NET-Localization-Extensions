@@ -111,7 +111,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 		#region Methods
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void ClearEmbeddedResourcesCache()
 		{
 			this.Logger.LogInformationIfEnabled("Clearing the embedded-resources cache.");
@@ -124,7 +123,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.OnEmbeddedResourcesChanged();
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void ClearFileResourcesCache()
 		{
 			this.Logger.LogInformationIfEnabled("Clearing the file-resources cache.");
@@ -198,7 +196,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.FileResourcesChanged?.Invoke(this, EventArgs.Empty);
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void OnFileResourcesDirectoryChanged(object sender, EventArgs e)
 		{
 			try
@@ -216,7 +213,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			}
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void OnFileResourcesDirectoryEntryChanged(object sender, FileSystemEventArgs e)
 		{
 			if(e == null)
@@ -232,7 +228,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.OnFileResourceContentChanged(e.FullPath);
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void OnFileResourcesDirectoryEntryCreated(object sender, FileSystemEventArgs e)
 		{
 			if(e == null)
@@ -251,7 +246,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.ClearFileResourcesCache();
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void OnFileResourcesDirectoryEntryDeleted(object sender, FileSystemEventArgs e)
 		{
 			if(e == null)
@@ -269,7 +263,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.ClearFileResourcesCache();
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void OnFileResourcesDirectoryEntryError(object sender, ErrorEventArgs e)
 		{
 			if(e == null)
@@ -278,7 +271,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.Logger.LogWarningIfEnabled("OnFileResourcesDirectoryEntryError: {0}", e.GetException());
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void OnFileResourcesDirectoryEntryRenamed(object sender, RenamedEventArgs e)
 		{
 			if(e == null)

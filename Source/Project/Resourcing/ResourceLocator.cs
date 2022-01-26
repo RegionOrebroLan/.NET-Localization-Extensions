@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO.Abstractions;
 using System.Linq;
@@ -54,7 +53,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			return this.GetEmbeddedResources(new[] { assembly }.Concat(this.GetSatelliteAssemblies(assembly)));
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual IEnumerable<IEmbeddedResource> GetEmbeddedResources(IEnumerable<IAssembly> assemblies)
 		{
 			assemblies = assemblies?.ToArray();

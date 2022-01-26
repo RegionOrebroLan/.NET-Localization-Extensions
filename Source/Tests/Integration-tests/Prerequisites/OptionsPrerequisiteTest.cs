@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -87,11 +87,11 @@ namespace IntegrationTests.Prerequisites
 			Assert.AreEqual(string.Empty, onChangeOptionsName);
 		}
 
-		protected internal virtual IEnumerable<IOptionsChangeTokenSource<TOptions>> GetSources<TOptions>(IOptionsMonitor<TOptions> optionsMonitor) where TOptions : class, new()
+		protected internal virtual IEnumerable<IDisposable> GetRegistrations<TOptions>(IOptionsMonitor<TOptions> optionsMonitor) where TOptions : class, new()
 		{
-			var sourcesField = typeof(OptionsMonitor<TOptions>).GetField("_sources", BindingFlags.Instance | BindingFlags.NonPublic);
+			var registrationsField = typeof(OptionsMonitor<TOptions>).GetField("_registrations", BindingFlags.Instance | BindingFlags.NonPublic);
 
-			return (IEnumerable<IOptionsChangeTokenSource<TOptions>>)sourcesField.GetValue(optionsMonitor);
+			return (IEnumerable<IDisposable>)registrationsField?.GetValue(optionsMonitor);
 		}
 
 		[TestMethod]
@@ -170,22 +170,24 @@ namespace IntegrationTests.Prerequisites
 		}
 
 		[TestMethod]
-		public void OptionsMonitor_IfOptionsAreSetupWithActionAndNotWithConfigurationFiles_ShouldHaveNoSources()
+		public void OptionsMonitor_IfOptionsAreSetupWithActionAndNotWithConfigurationFiles_ShouldHaveNoRegistrations()
 		{
 			var serviceProvider = new ServiceCollection().Configure<MicrosoftLocalizationOptions>(localizationOptions => { }).BuildServiceProvider();
 			var optionsMonitor = (OptionsMonitor<MicrosoftLocalizationOptions>)serviceProvider.GetService<IOptionsMonitor<MicrosoftLocalizationOptions>>();
-			Assert.IsFalse(this.GetSources(optionsMonitor).Any());
-			Assert.AreEqual(0, this.GetSources(optionsMonitor).Count());
+			var registrations = this.GetRegistrations(optionsMonitor).ToArray();
+			Assert.IsFalse(registrations.Any());
+			Assert.AreEqual(0, registrations.Length);
 		}
 
 		[TestMethod]
-		public void OptionsMonitor_IfOptionsAreSetupWithConfigurationFiles_ShouldHaveSources()
+		public void OptionsMonitor_IfOptionsAreSetupWithConfigurationFiles_ShouldHaveRegistrations()
 		{
 			var serviceProvider = this.BuildServiceProvider((configuration, services) => { services.Configure<MicrosoftLocalizationOptions>(configuration.GetSection("Localization")); }, "Options-Prerequisite-Test.json");
 
 			var optionsMonitor = serviceProvider.GetService<IOptionsMonitor<MicrosoftLocalizationOptions>>();
-			Assert.IsTrue(this.GetSources(optionsMonitor).Any());
-			Assert.AreEqual(1, this.GetSources(optionsMonitor).Count());
+			var registrations = this.GetRegistrations(optionsMonitor).ToArray();
+			Assert.IsTrue(registrations.Any());
+			Assert.AreEqual(1, registrations.Length);
 		}
 
 		[TestMethod]

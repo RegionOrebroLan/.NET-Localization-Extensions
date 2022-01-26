@@ -340,16 +340,16 @@ namespace Application.Models.ViewModels.Shared
 				case null:
 					informationArgument = this.Localizer.GetString("the default settings");
 					break;
-				case AcceptLanguageHeaderRequestCultureProvider _:
+				case AcceptLanguageHeaderRequestCultureProvider:
 					informationArgument = this.Localizer.GetString("the request-header (browser-settings)");
 					break;
-				case CookieRequestCultureProvider _:
+				case CookieRequestCultureProvider:
 					informationArgument = this.Localizer.GetString("a cookie");
 					break;
-				case QueryStringRequestCultureProvider _:
+				case QueryStringRequestCultureProvider:
 					informationArgument = this.Localizer.GetString("the query-string") + (this.HttpContext.Request.Query.Keys.Contains(label, StringComparer.OrdinalIgnoreCase) ? null : this.Localizer.GetString("or the default settings"));
 					break;
-				case RouteDataRequestCultureProvider _:
+				case RouteDataRequestCultureProvider:
 					informationArgument = (cultureSegment == null ? this.Localizer.GetString("the " + otherRouteKey + "-route-key of") + " " : null) + this.Localizer.GetString("the url");
 					break;
 				default:

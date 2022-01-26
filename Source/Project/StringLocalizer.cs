@@ -58,7 +58,7 @@ namespace RegionOrebroLan.Localization
 		{
 			culture ??= this.Culture;
 
-			return new StringLocalizer(this.Assembly, culture, this.LocalizationProvider, this.Logger, string.Copy(this.Path));
+			return new StringLocalizer(this.Assembly, culture, this.LocalizationProvider, this.Logger, this.Path != null ? string.Copy(this.Path) : null);
 		}
 
 		[CLSCompliant(false)]

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -160,7 +159,6 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			);
 		}
 
-		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
 		protected internal virtual void ValidateChildElement(XElement element)
 		{
 			if(element == null)

@@ -9,5 +9,6 @@
 		<LangVersion>10.0</LangVersion>
 		<NoWarn>CA1014</NoWarn>
 		<SignAssembly>true</SignAssembly>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 	</PropertyGroup>
 </Project>

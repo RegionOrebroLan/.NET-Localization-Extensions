@@ -23,11 +23,7 @@ namespace RegionOrebroLan.Localization
 		{
 			this.LocalizationPathResolver = localizationPathResolver ?? throw new ArgumentNullException(nameof(localizationPathResolver));
 			this.LocalizedStringFactory = localizedStringFactory ?? throw new ArgumentNullException(nameof(localizedStringFactory));
-
-			if(loggerFactory == null)
-				throw new ArgumentNullException(nameof(loggerFactory));
-
-			this.Logger = loggerFactory.CreateLogger(this.GetType().FullName);
+			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
 			this.ResourceProvider = resourceProvider ?? throw new ArgumentNullException(nameof(resourceProvider));
 			this.Settings = settings ?? throw new ArgumentNullException(nameof(settings));
 

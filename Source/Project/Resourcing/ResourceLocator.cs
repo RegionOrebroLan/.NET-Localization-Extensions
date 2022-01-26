@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -25,11 +25,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 		{
 			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
 			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
-
-			if(loggerFactory == null)
-				throw new ArgumentNullException(nameof(loggerFactory));
-
-			this.Logger = loggerFactory.CreateLogger(this.GetType().FullName);
+			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
 			this.Resolvers = resolvers ?? throw new ArgumentNullException(nameof(resolvers));
 		}
 
@@ -55,7 +51,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(assembly == null)
 				throw new ArgumentNullException(nameof(assembly));
 
-			return this.GetEmbeddedResources(new[] {assembly}.Concat(this.GetSatelliteAssemblies(assembly)));
+			return this.GetEmbeddedResources(new[] { assembly }.Concat(this.GetSatelliteAssemblies(assembly)));
 		}
 
 		[SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]

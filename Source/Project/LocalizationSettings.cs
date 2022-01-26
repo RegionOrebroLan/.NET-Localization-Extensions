@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
@@ -33,11 +33,7 @@ namespace RegionOrebroLan.Localization
 		public LocalizationSettings(IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, ILoggerFactory loggerFactory, IOptionsMonitor<LocalizationOptions> optionsMonitor, ILocalizationOptionsResolver optionsResolver)
 		{
 			this.FileResourcesDirectoryValidator = fileResourcesDirectoryValidator ?? throw new ArgumentNullException(nameof(fileResourcesDirectoryValidator));
-
-			if(loggerFactory == null)
-				throw new ArgumentNullException(nameof(loggerFactory));
-
-			this.Logger = loggerFactory.CreateLogger(this.GetType().FullName);
+			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
 
 			if(optionsMonitor == null)
 				throw new ArgumentNullException(nameof(optionsMonitor));
@@ -210,7 +206,7 @@ namespace RegionOrebroLan.Localization
 
 				var previousEmbeddedResourceAssemblies = this.EmbeddedResourceAssemblies.ToArray();
 
-				var observableSetCollection = (ObservableSetCollection<IAssembly>) this.EmbeddedResourceAssemblies;
+				var observableSetCollection = (ObservableSetCollection<IAssembly>)this.EmbeddedResourceAssemblies;
 
 				observableSetCollection.CollectionChanged -= this.OnEmbeddedResourceAssembliesCollectionChanged;
 
@@ -249,7 +245,7 @@ namespace RegionOrebroLan.Localization
 		{
 			this.OptionsChangeListener?.Dispose();
 
-			var observableSetCollection = (ObservableSetCollection<IAssembly>) this.EmbeddedResourceAssemblies;
+			var observableSetCollection = (ObservableSetCollection<IAssembly>)this.EmbeddedResourceAssemblies;
 
 			if(observableSetCollection != null)
 				observableSetCollection.CollectionChanged -= this.OnEmbeddedResourceAssembliesCollectionChanged;

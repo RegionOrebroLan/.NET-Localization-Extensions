@@ -21,11 +21,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 		{
 			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
 			this.HostEnvironment = hostEnvironment ?? throw new ArgumentNullException(nameof(hostEnvironment));
-
-			if(loggerFactory == null)
-				throw new ArgumentNullException(nameof(loggerFactory));
-
-			this.Logger = loggerFactory.CreateLogger(this.GetType().FullName);
+			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
 			this.ResourceLocator = resourceLocator ?? throw new ArgumentNullException(nameof(resourceLocator));
 			this.Settings = settings ?? throw new ArgumentNullException(nameof(settings));
 

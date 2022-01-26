@@ -50,16 +50,8 @@ namespace Application.Models.ViewModels.Shared
 		public Layout(HttpContext httpContext, IStringLocalizerFactory localizerFactory, ILoggerFactory loggerFactory)
 		{
 			this.HttpContext = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
-
-			if(localizerFactory == null)
-				throw new ArgumentNullException(nameof(localizerFactory));
-
-			this.Localizer = localizerFactory.Create(this.GetType().FullName);
-
-			if(loggerFactory == null)
-				throw new ArgumentNullException(nameof(loggerFactory));
-
-			this.Logger = loggerFactory.CreateLogger(this.GetType());
+			this.Localizer = (localizerFactory ?? throw new ArgumentNullException(nameof(localizerFactory))).Create(this.GetType().FullName);
+			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
 		}
 
 		#endregion

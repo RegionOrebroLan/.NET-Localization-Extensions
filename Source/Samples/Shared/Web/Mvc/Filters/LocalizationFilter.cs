@@ -74,7 +74,7 @@ namespace Shared.Web.Mvc.Filters
 			// ReSharper disable InvertIf
 			if(cultureToMatch != null)
 			{
-				cultureMap = cultureMap ?? new Dictionary<CultureInfo, CultureInfo>();
+				cultureMap ??= new Dictionary<CultureInfo, CultureInfo>();
 
 				foreach(var mapping in cultureMap)
 				{

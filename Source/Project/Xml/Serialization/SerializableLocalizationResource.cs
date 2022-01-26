@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
@@ -32,7 +32,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			}
 		}
 
-		public virtual List<SerializableLocalization> Localizations { get; } = new List<SerializableLocalization>();
+		public virtual IList<SerializableLocalization> Localizations { get; } = new List<SerializableLocalization>();
 		protected internal override IEnumerable<string> ValidAttributeNames => _validAttributeNames;
 
 		#endregion

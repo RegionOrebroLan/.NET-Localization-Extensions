@@ -104,7 +104,7 @@ namespace IntegrationTests
 
 			Assert.AreEqual(24, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
 
-			var configurationContentLines = File.ReadAllLines(testContext.ConfigurationFilePath).Where((value, index) => index < 2 || index > 9).ToArray();
+			var configurationContentLines = File.ReadAllLines(testContext.ConfigurationFilePath).Where((value, index) => index is < 2 or > 9).ToArray();
 			configurationContent = string.Join(Environment.NewLine, configurationContentLines);
 			File.WriteAllText(testContext.ConfigurationFilePath, configurationContent);
 

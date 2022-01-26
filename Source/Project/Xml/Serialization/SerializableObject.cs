@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -85,7 +85,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			if(element != null)
 				messages.Add($"Element: name = \"{element.DeclaredName()}\", node-type = {element.NodeType}.");
 
-			return this.CreateXmlException(string.Join(" ", messages), (IXmlLineInfo) element);
+			return this.CreateXmlException(string.Join(" ", messages), (IXmlLineInfo)element);
 		}
 
 		protected internal virtual XmlException CreateXmlException(string message, IXmlLineInfo lineInformation)
@@ -166,7 +166,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 			if(element == null)
 				throw new ArgumentNullException(nameof(element));
 
-			if(element.NodeType == XmlNodeType.Comment || element.NodeType == XmlNodeType.Whitespace)
+			if(element.NodeType is XmlNodeType.Comment or XmlNodeType.Whitespace)
 				return;
 
 			throw this.CreateXmlException("Invalid child-element.", element);

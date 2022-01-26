@@ -329,9 +329,6 @@ namespace IntegrationTests.Resourcing
 		public void FileResourcesDirectory_IfAnInvalidResourceFileIsCreatedInASubDirectory_TheFileResourcesCacheShouldNotBeCleared()
 		{
 			var resourceProvider = this.CreateResourceProvider();
-			// ReSharper disable PossibleNullReferenceException
-			var embeddedResourcesPath = Path.Combine(new DirectoryInfo(Global.ProjectDirectoryPath).Parent.Parent.FullName, @"Embedded-resources\Colors");
-			// ReSharper restore PossibleNullReferenceException
 			var fileResourcesDirectoryPath = resourceProvider.Settings.FileResourcesDirectory.FullName;
 			var subDirectoryPath = Directory.CreateDirectory(Path.Combine(fileResourcesDirectoryPath, @"Directory\Directory")).FullName;
 

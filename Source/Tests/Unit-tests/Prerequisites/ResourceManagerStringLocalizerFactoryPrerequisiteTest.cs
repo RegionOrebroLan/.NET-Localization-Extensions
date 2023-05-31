@@ -147,7 +147,7 @@ namespace UnitTests.Prerequisites
 
 			var stringLocalizerFactory = this.CreateResourceManagerStringLocalizerFactory<InvestigatableResourceManagerStringLocalizerFactory>(resourcePath);
 			Assert.AreEqual("System.Private.CoreLib.Resource_Path.System.String", stringLocalizerFactory.GetProtectedResourcePrefix(typeof(string).GetTypeInfo()));
-			Assert.AreEqual("UnitTests.Resource_Path.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo()));
+			Assert.AreEqual("Unit-tests.Resource_Path.UnitTests.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", stringLocalizerFactory.GetProtectedResourcePrefix(this.GetType().GetTypeInfo()));
 
 			stringLocalizerFactory = this.CreateResourceManagerStringLocalizerFactory<InvestigatableResourceManagerStringLocalizerFactory>(resourcePath, rootNamespace);
 			Assert.AreEqual("My.Root.Namespace.Resource_Path.System.String", stringLocalizerFactory.GetProtectedResourcePrefix(typeof(string).GetTypeInfo()));

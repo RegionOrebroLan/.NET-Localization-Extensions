@@ -28,10 +28,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 		{
 			get
 			{
-				// ReSharper disable ConvertIfStatementToNullCoalescingExpression
-				if(_attributeValidationExceptionMessagePrefix == null)
-					_attributeValidationExceptionMessagePrefix = $"The \"{this.DefaultElementLocalName}\"-element has invalid attributes.";
-				// ReSharper restore ConvertIfStatementToNullCoalescingExpression
+				_attributeValidationExceptionMessagePrefix ??= $"The \"{this.DefaultElementLocalName}\"-element has invalid attributes.";
 
 				return _attributeValidationExceptionMessagePrefix;
 			}
@@ -47,10 +44,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 		{
 			get
 			{
-				// ReSharper disable ConvertIfStatementToNullCoalescingExpression
-				if(_validAttributeNames == null)
-					_validAttributeNames = new[] { this.NameAttributeName, this.PriorityAttributeName };
-				// ReSharper restore ConvertIfStatementToNullCoalescingExpression
+				_validAttributeNames ??= new[] { this.NameAttributeName, this.PriorityAttributeName };
 
 				return _validAttributeNames;
 			}

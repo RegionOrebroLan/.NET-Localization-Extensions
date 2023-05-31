@@ -69,10 +69,7 @@ namespace IntegrationTests.Resourcing
 		{
 			get
 			{
-				// ReSharper disable ConvertIfStatementToNullCoalescingExpression
-				if(_singleAcceptingResourceResolverCollection == null)
-					_singleAcceptingResourceResolverCollection = new[] { new ResourceResolver(Mock.Of<ILocalizationParser>(), this.AcceptingResourceValidator) };
-				// ReSharper restore ConvertIfStatementToNullCoalescingExpression
+				_singleAcceptingResourceResolverCollection ??= new[] { new ResourceResolver(Mock.Of<ILocalizationParser>(), this.AcceptingResourceValidator) };
 
 				return _singleAcceptingResourceResolverCollection;
 			}

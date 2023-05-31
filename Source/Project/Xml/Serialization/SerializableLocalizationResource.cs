@@ -23,10 +23,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 		{
 			get
 			{
-				// ReSharper disable ConvertIfStatementToNullCoalescingExpression
-				if(_attributeValidationExceptionMessagePrefix == null)
-					_attributeValidationExceptionMessagePrefix = $"The \"{this.DefaultElementLocalName}\"-element only supports \"xmlns:*\"-attributes.";
-				// ReSharper restore ConvertIfStatementToNullCoalescingExpression
+				_attributeValidationExceptionMessagePrefix ??= $"The \"{this.DefaultElementLocalName}\"-element only supports \"xmlns:*\"-attributes.";
 
 				return _attributeValidationExceptionMessagePrefix;
 			}

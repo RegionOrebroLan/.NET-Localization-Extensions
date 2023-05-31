@@ -30,10 +30,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 		{
 			get
 			{
-				// ReSharper disable ConvertIfStatementToNullCoalescingExpression
-				if(_validAttributeNames == null)
-					_validAttributeNames = new[] { this.NameAttributeName, this.LookupAttributeName };
-				// ReSharper restore ConvertIfStatementToNullCoalescingExpression
+				_validAttributeNames ??= new[] { this.NameAttributeName, this.LookupAttributeName };
 
 				return _validAttributeNames;
 			}

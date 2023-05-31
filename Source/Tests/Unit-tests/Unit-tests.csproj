@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<AssemblyName>UnitTests</AssemblyName>
-		<RootNamespace>$(AssemblyName)</RootNamespace>
+		<RootNamespace>UnitTests</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="../../Investigation/Investigation.csproj" />

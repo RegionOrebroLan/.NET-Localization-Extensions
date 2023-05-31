@@ -26,11 +26,5 @@
 		<Content Remove="@(_Remove)" />
 		<EmbeddedResource Remove="@(_Remove)" />
 		<None Remove="@(_Remove)" />
-		<!--
-		<Compile Remove="Test-resources/Root/**" />
-		<Content Remove="Test-resources/Root/**" />
-		<EmbeddedResource Remove="Test-resources/Root/**" />
-		<None Remove="Test-resources/Root/**" />
-		-->
 	</ItemGroup>
 </Project>

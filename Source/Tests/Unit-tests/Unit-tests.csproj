@@ -2,7 +2,6 @@
 	<PropertyGroup>
 		<AssemblyName>UnitTests</AssemblyName>
 		<RootNamespace>$(AssemblyName)</RootNamespace>
-		<TargetFrameworks>net5.0;net6.0;netcoreapp3.1</TargetFrameworks>
 	</PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\Investigation\Investigation.csproj" />

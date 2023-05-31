@@ -13,11 +13,12 @@ namespace UnitTests.Collections.ObjectModel
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
+		[SuppressMessage("Style", "IDE0028:Simplify collection initialization")]
 		public void Add_ItemParameter_IfTheParameterAlreadyExists_ShouldThrowAnArgumentException()
 		{
-			// ReSharper disable UseObjectOrCollectionInitializer
+			// ReSharper disable All
 			var set = new ObservableSetCollection<string> { "Test" };
-			// ReSharper restore UseObjectOrCollectionInitializer
+			// ReSharper restore All
 
 			set.Add("Test");
 		}
@@ -97,14 +98,15 @@ namespace UnitTests.Collections.ObjectModel
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
+		[SuppressMessage("Style", "IDE0028:Simplify collection initialization")]
 		public void Set_IfTheParameterAlreadyExists_ShouldThrowAnArgumentException()
 		{
-			// ReSharper disable UseObjectOrCollectionInitializer
+			// ReSharper disable All
 			var set = new ObservableSetCollection<string>
 			{
 				"Test"
 			};
-			// ReSharper restore UseObjectOrCollectionInitializer
+			// ReSharper restore All
 
 			set.Add("Test");
 		}

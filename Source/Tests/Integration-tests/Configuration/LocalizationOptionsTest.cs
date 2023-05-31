@@ -123,23 +123,23 @@ namespace IntegrationTests.Configuration
 			expectedLocalizationOptions.EmbeddedResourceAssemblies.Add(this.AssemblyHelper.Wrap(typeof(string).Assembly).Name);
 			expectedLocalizationOptions.EmbeddedResourceAssemblies.Add(this.AssemblyHelper.Wrap(this.GetType().Assembly).Name);
 
-			var localizationOptions = JsonConvert.DeserializeObject<LocalizationOptions>("{\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib\",\"IntegrationTests\"],\"FileResourcesDirectoryPath\":\"Test\"}");
+			var localizationOptions = JsonConvert.DeserializeObject<LocalizationOptions>("{\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib\",\"Integration-tests\"],\"FileResourcesDirectoryPath\":\"Test\"}");
 
 			Assert.IsTrue(localizationOptions.AlphabeticalSorting);
 			Assert.AreEqual(2, localizationOptions.EmbeddedResourceAssemblies.Count);
 			Assert.AreEqual("System.Private.CoreLib", localizationOptions.EmbeddedResourceAssemblies.ElementAt(0));
-			Assert.AreEqual("IntegrationTests", localizationOptions.EmbeddedResourceAssemblies.ElementAt(1));
+			Assert.AreEqual("Integration-tests", localizationOptions.EmbeddedResourceAssemblies.ElementAt(1));
 			Assert.IsTrue(expectedLocalizationOptions.EmbeddedResourceAssemblies.SequenceEqual(localizationOptions.EmbeddedResourceAssemblies));
 			Assert.AreEqual("Test", localizationOptions.FileResourcesDirectoryPath);
 			Assert.AreEqual(expectedLocalizationOptions.FileResourcesDirectoryPath, localizationOptions.FileResourcesDirectoryPath);
 			Assert.IsFalse(localizationOptions.ThrowErrors);
 
-			localizationOptions = JsonConvert.DeserializeObject<LocalizationOptions>("{\"AlphabeticalSorting\":false,\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib\",\"IntegrationTests\"],\"FileResourcesDirectoryPath\":\"Test\",\"ThrowErrors\":true}");
+			localizationOptions = JsonConvert.DeserializeObject<LocalizationOptions>("{\"AlphabeticalSorting\":false,\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib\",\"Integration-tests\"],\"FileResourcesDirectoryPath\":\"Test\",\"ThrowErrors\":true}");
 
 			Assert.IsFalse(localizationOptions.AlphabeticalSorting);
 			Assert.AreEqual(2, localizationOptions.EmbeddedResourceAssemblies.Count);
 			Assert.AreEqual("System.Private.CoreLib", localizationOptions.EmbeddedResourceAssemblies.ElementAt(0));
-			Assert.AreEqual("IntegrationTests", localizationOptions.EmbeddedResourceAssemblies.ElementAt(1));
+			Assert.AreEqual("Integration-tests", localizationOptions.EmbeddedResourceAssemblies.ElementAt(1));
 			Assert.IsTrue(expectedLocalizationOptions.EmbeddedResourceAssemblies.SequenceEqual(localizationOptions.EmbeddedResourceAssemblies));
 			Assert.AreEqual("Test", localizationOptions.FileResourcesDirectoryPath);
 			Assert.AreEqual(expectedLocalizationOptions.FileResourcesDirectoryPath, localizationOptions.FileResourcesDirectoryPath);
@@ -171,7 +171,7 @@ namespace IntegrationTests.Configuration
 			const int version = 6;
 #endif
 
-			Assert.AreEqual($"{{\"AlphabeticalSorting\":true,\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib, Version={version}.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e\",\"IntegrationTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9aeba83ffb1feacc\"],\"FileResourcesDirectoryPath\":\"Test\",\"IncludeParentCultures\":false,\"ThrowErrors\":false}}", this.JsonSerialize(localizationOptions));
+			Assert.AreEqual($"{{\"AlphabeticalSorting\":true,\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib, Version={version}.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e\",\"Integration-tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9aeba83ffb1feacc\"],\"FileResourcesDirectoryPath\":\"Test\",\"IncludeParentCultures\":false,\"ThrowErrors\":false}}", this.JsonSerialize(localizationOptions));
 		}
 
 		#endregion

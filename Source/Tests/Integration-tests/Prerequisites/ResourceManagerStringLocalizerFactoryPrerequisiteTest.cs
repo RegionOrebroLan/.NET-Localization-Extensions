@@ -51,7 +51,7 @@ namespace IntegrationTests.Prerequisites
 
 			stringLocalizer = (InvestigatableResourceManagerStringLocalizer)this.InvestigatableResourceManagerStringLocalizerFactory.Create(this.GetType());
 			var secondBaseName = stringLocalizer.ResourceBaseName;
-			Assert.AreEqual("IntegrationTests.TestResources.ResxResources.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", secondBaseName);
+			Assert.AreEqual("Integration-tests.TestResources.ResxResources.IntegrationTests.Prerequisites.ResourceManagerStringLocalizerFactoryPrerequisiteTest", secondBaseName);
 		}
 
 		[TestMethod]

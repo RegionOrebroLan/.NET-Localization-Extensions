@@ -101,16 +101,14 @@ namespace IntegrationTests
 			if(type == null)
 				throw new ArgumentNullException(nameof(type));
 
-			if(type.Assembly != typeof(Global).Assembly)
+			var globalType = typeof(Global);
+
+			if(type.Assembly != globalType.Assembly)
 				throw new InvalidOperationException("It is not possible to get the directory-path for a type outside this assembly.");
 
 			var @namespace = type.Namespace;
-			var assemblyName = type.Assembly.GetName().Name;
 
-			if(!@namespace.StartsWith(assemblyName, StringComparison.OrdinalIgnoreCase))
-				throw new InvalidOperationException("The namespace must start with the assembly-name.");
-
-			var relativePath = @namespace.Substring(assemblyName.Length).TrimStart('.').Replace(".", @"\", StringComparison.OrdinalIgnoreCase);
+			var relativePath = @namespace.Substring(globalType.Namespace.Length).TrimStart('.').Replace(".", @"\", StringComparison.OrdinalIgnoreCase);
 
 			return Path.Combine(ProjectDirectoryPath, relativePath);
 		}

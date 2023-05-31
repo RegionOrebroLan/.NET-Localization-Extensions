@@ -12,25 +12,25 @@
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\Embedded-resources\Animals\Animals.csproj" />
-		<ProjectReference Include="..\..\Embedded-resources\Colors\Colors.csproj" />
-		<ProjectReference Include="..\..\Embedded-resources\Numbers\Numbers.csproj" />
-		<ProjectReference Include="..\..\Embedded-resources\Prioritized-words\Prioritized-words.csproj" />
-		<ProjectReference Include="..\..\Embedded-resources\Root-namespaced-resources\Root-namespaced-resources.csproj" />
-		<ProjectReference Include="..\..\Embedded-resources\Words\Words.csproj" />
-		<ProjectReference Include="..\..\Investigation\Investigation.csproj" />
+		<ProjectReference Include="../../Embedded-resources/Animals/Animals.csproj" />
+		<ProjectReference Include="../../Embedded-resources/Colors/Colors.csproj" />
+		<ProjectReference Include="../../Embedded-resources/Numbers/Numbers.csproj" />
+		<ProjectReference Include="../../Embedded-resources/Prioritized-words/Prioritized-words.csproj" />
+		<ProjectReference Include="../../Embedded-resources/Root-namespaced-resources/Root-namespaced-resources.csproj" />
+		<ProjectReference Include="../../Embedded-resources/Words/Words.csproj" />
+		<ProjectReference Include="../../Investigation/Investigation.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-		<_Remove Include="Test-resources\Root\**" />
+		<_Remove Include="Test-resources/Root/**" />
 		<Compile Remove="@(_Remove)" />
 		<Content Remove="@(_Remove)" />
 		<EmbeddedResource Remove="@(_Remove)" />
 		<None Remove="@(_Remove)" />
 		<!--
-		<Compile Remove="Test-resources\Root\**" />
-		<Content Remove="Test-resources\Root\**" />
-		<EmbeddedResource Remove="Test-resources\Root\**" />
-		<None Remove="Test-resources\Root\**" />
+		<Compile Remove="Test-resources/Root/**" />
+		<Content Remove="Test-resources/Root/**" />
+		<EmbeddedResource Remove="Test-resources/Root/**" />
+		<None Remove="Test-resources/Root/**" />
 		-->
 	</ItemGroup>
 </Project>

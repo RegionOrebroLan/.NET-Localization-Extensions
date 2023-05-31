@@ -4,6 +4,6 @@
 		<RootNamespace>$(AssemblyName)</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\Investigation\Investigation.csproj" />
+		<ProjectReference Include="../../Investigation/Investigation.csproj" />
 	</ItemGroup>
 </Project>

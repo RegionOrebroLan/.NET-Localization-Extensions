@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -11,7 +11,7 @@ namespace RegionOrebroLan.Localization.Json.Serialization
 	{
 		#region Properties
 
-		[JsonProperty("Name", Order = 10)]
+		[JsonProperty(nameof(Name), Order = 10)]
 		public virtual string CultureName { get; set; }
 
 		IDictionary<string, ILocalizationEntry> ILocalizationNode.Entries => this.Entries.ToDictionary(item => item.Key, item => (ILocalizationEntry) item.Value);

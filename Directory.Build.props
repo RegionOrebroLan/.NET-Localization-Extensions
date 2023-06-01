@@ -10,6 +10,7 @@
 		<LangVersion>10.0</LangVersion>
 		<NoWarn>CA1014</NoWarn>
 		<SignAssembly>true</SignAssembly>
+		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 	</PropertyGroup>
 </Project>

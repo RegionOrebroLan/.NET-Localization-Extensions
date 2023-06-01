@@ -169,6 +169,8 @@ namespace IntegrationTests.Configuration
 			const int version = 5;
 #elif NET6_0
 			const int version = 6;
+#elif NET7_0
+			const int version = 7;
 #endif
 
 			Assert.AreEqual($"{{\"AlphabeticalSorting\":true,\"EmbeddedResourceAssemblies\":[\"System.Private.CoreLib, Version={version}.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e\",\"Integration-tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9aeba83ffb1feacc\"],\"FileResourcesDirectoryPath\":\"Test\",\"IncludeParentCultures\":false,\"ThrowErrors\":false}}", this.JsonSerialize(localizationOptions));

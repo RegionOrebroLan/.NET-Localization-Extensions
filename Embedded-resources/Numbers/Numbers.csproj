@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<None Remove="File.is.txt" />
+		<None Remove="Numbers.json" />
+		<EmbeddedResource Include="File.is.txt" />
+		<EmbeddedResource Include="Numbers.json" />
+	</ItemGroup>
+</Project>

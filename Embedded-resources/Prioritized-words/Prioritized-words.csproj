@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<RootNamespace>Words.Prioritized</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Prioritized-words.json" />
+		<EmbeddedResource Include="Prioritized-words.json" />
+	</ItemGroup>
+</Project>

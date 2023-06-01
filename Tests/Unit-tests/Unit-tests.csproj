@@ -2,7 +2,4 @@
 	<PropertyGroup>
 		<RootNamespace>UnitTests</RootNamespace>
 	</PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="../../Investigation/Investigation.csproj" />
-	</ItemGroup>
 </Project>

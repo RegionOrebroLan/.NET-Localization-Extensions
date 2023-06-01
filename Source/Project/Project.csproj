@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<AssemblyName>RegionOrebroLan.Localization</AssemblyName>
-		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.snk</AssemblyOriginatorKeyFile>
+		<AssemblyOriginatorKeyFile>$(SolutionDir)StrongName.snk</AssemblyOriginatorKeyFile>
 		<Authors>Region Örebro län</Authors>
 		<Company>$(Authors)</Company>
 		<Copyright>Copyright (c) 2019 $(Company)</Copyright>
@@ -32,7 +32,7 @@
 	</ItemGroup>
 	<Target Name="HandleAssemblyOriginatorKeyFile" BeforeTargets="BeforeBuild" Condition="$(SignAssembly) AND !Exists('$(AssemblyOriginatorKeyFile)')">
 		<PropertyGroup>
-			<_DevelopmentAssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</_DevelopmentAssemblyOriginatorKeyFile>
+			<_DevelopmentAssemblyOriginatorKeyFile>$(SolutionDir)StrongName.Development.snk</_DevelopmentAssemblyOriginatorKeyFile>
 		</PropertyGroup>
 		<Warning Text="The strong-name-key-file '$(AssemblyOriginatorKeyFile)' does not exist. The strong-name-key-file '$(_DevelopmentAssemblyOriginatorKeyFile)' is used instead." />
 		<PropertyGroup>

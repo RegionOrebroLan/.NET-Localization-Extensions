@@ -17,7 +17,6 @@
 		<ProjectReference Include="../../Embedded-resources/Prioritized-words/Prioritized-words.csproj" />
 		<ProjectReference Include="../../Embedded-resources/Root-namespaced-resources/Root-namespaced-resources.csproj" />
 		<ProjectReference Include="../../Embedded-resources/Words/Words.csproj" />
-		<ProjectReference Include="../../Investigation/Investigation.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<_Remove Include="Test-resources/Root/**" />

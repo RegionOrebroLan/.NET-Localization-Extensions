@@ -398,8 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Custom
-Source/.Global/Signing/*
-!Source/.Global/Signing/ReadMe.md
-!Source/.Global/Signing/StrongName.Development.snk
+StrongName.snk
 
-Source/Tests/Integration-tests/Test-resources/Root/
+Tests/Integration-tests/Test-resources/Root/

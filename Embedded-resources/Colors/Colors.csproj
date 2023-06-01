@@ -1,11 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<AssemblyOriginatorKeyFile>$(SolutionDir).Global\Signing\StrongName.Development.snk</AssemblyOriginatorKeyFile>
-		<DelaySign>false</DelaySign>
-		<RootNamespace>Colors</RootNamespace>
-		<SignAssembly>true</SignAssembly>
-		<TargetFramework>netstandard2.0</TargetFramework>
-	</PropertyGroup>
+<Project Sdk="Microsoft.NET.Sdk">
 	<ItemGroup>
 		<None Remove="Colors.en.json" />
 		<None Remove="Colors.en.txt" />

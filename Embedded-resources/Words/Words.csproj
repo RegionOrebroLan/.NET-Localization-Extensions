@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<None Remove="Other\fi\Words.json" />
+		<None Remove="Other\sv\Words.json" />
+		<None Remove="en\Words.json" />
+		<EmbeddedResource Include="Other\fi\Words.json" />
+		<EmbeddedResource Include="Other\sv\Words.json" />
+		<EmbeddedResource Include="en\Words.json" />
+	</ItemGroup>
+</Project>

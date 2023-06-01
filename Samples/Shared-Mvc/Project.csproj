@@ -2,10 +2,10 @@
 	<PropertyGroup>
 		<AssemblyName>SharedMvc</AssemblyName>
 		<RootNamespace>Application</RootNamespace>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Localization.Routing" Version="2.2.0" />
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="../../Source/Project/Project.csproj" />

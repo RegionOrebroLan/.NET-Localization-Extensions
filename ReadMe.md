@@ -241,3 +241,9 @@ A localization-entry can be a lookup to another entry:
 
 - [Path-Based-Localization-Web-Application](/Source/Samples/Path-Based-Localization/): Web-application with path-based localization
 - [Resx-Localization-Web-Application](/Source/Samples/Resx-Localization/): Web-application with RESX-localization
+
+## 2 Development
+
+### 2.1 Signing
+
+Drop the "StrongName.snk" file in the repository-root. The file should not be included in source control.

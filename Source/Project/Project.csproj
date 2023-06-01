@@ -28,7 +28,7 @@
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="RegionOrebroLan.Logging" Version="0.0.3-alpha" />
-		<PackageReference Include="System.IO.Abstractions" Version="16.1.26" />
+		<PackageReference Include="System.IO.Abstractions" Version="17.2.3" />
 	</ItemGroup>
 	<Target Name="HandleAssemblyOriginatorKeyFile" BeforeTargets="BeforeBuild" Condition="$(SignAssembly) AND !Exists('$(AssemblyOriginatorKeyFile)')">
 		<PropertyGroup>

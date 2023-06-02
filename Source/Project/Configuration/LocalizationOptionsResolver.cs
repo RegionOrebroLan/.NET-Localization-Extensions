@@ -13,7 +13,6 @@ namespace RegionOrebroLan.Localization.Configuration
 	{
 		#region Constructors
 
-		[CLSCompliant(false)]
 		public LocalizationOptionsResolver(IAssemblyHelper assemblyHelper, IEmbeddedResourceAssembliesValidator embeddedResourceAssembliesValidator, IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, IFileSystem fileSystem, IHostEnvironment hostEnvironment)
 		{
 			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
@@ -31,8 +30,6 @@ namespace RegionOrebroLan.Localization.Configuration
 		protected internal virtual IEmbeddedResourceAssembliesValidator EmbeddedResourceAssembliesValidator { get; }
 		protected internal virtual IFileResourcesDirectoryValidator FileResourcesDirectoryValidator { get; }
 		protected internal virtual IFileSystem FileSystem { get; }
-
-		[CLSCompliant(false)]
 		protected internal virtual IHostEnvironment HostEnvironment { get; }
 
 		#endregion

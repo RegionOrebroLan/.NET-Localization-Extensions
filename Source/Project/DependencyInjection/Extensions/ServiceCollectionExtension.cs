@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.Linq;
@@ -33,7 +33,6 @@ namespace RegionOrebroLan.Localization.DependencyInjection.Extensions
 			return services;
 		}
 
-		[CLSCompliant(false)]
 		public static IServiceCollection AddPathBasedLocalization(this IServiceCollection services)
 		{
 			if(services == null)
@@ -61,13 +60,11 @@ namespace RegionOrebroLan.Localization.DependencyInjection.Extensions
 			return services;
 		}
 
-		[CLSCompliant(false)]
 		public static IServiceCollection AddPathBasedLocalization(this IServiceCollection services, IConfiguration configuration)
 		{
 			return services.AddPathBasedLocalization(configuration, LocalizationOptions.DefaultConfigurationPath);
 		}
 
-		[CLSCompliant(false)]
 		public static IServiceCollection AddPathBasedLocalization(this IServiceCollection services, IConfiguration configuration, string configurationPath)
 		{
 			if(services == null)
@@ -95,7 +92,6 @@ namespace RegionOrebroLan.Localization.DependencyInjection.Extensions
 			return services;
 		}
 
-		[CLSCompliant(false)]
 		public static IServiceCollection AddPathBasedLocalization(this IServiceCollection services, Action<LocalizationOptions> optionsAction)
 		{
 			if(services == null)

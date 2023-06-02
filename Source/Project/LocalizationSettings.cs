@@ -28,7 +28,6 @@ namespace RegionOrebroLan.Localization
 
 		#region Constructors
 
-		[CLSCompliant(false)]
 		public LocalizationSettings(IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, ILoggerFactory loggerFactory, IOptionsMonitor<LocalizationOptions> optionsMonitor, ILocalizationOptionsResolver optionsResolver)
 		{
 			this.FileResourcesDirectoryValidator = fileResourcesDirectoryValidator ?? throw new ArgumentNullException(nameof(fileResourcesDirectoryValidator));
@@ -127,9 +126,7 @@ namespace RegionOrebroLan.Localization
 			}
 		}
 
-		[CLSCompliant(false)]
 		protected internal virtual ILogger Logger { get; }
-
 		protected internal virtual IDisposable OptionsChangeListener { get; }
 		protected internal virtual ILocalizationOptionsResolver OptionsResolver { get; }
 		public virtual IDictionary<Exception, DateTime> RuntimeConfigurationExceptions { get; } = new Dictionary<Exception, DateTime>();

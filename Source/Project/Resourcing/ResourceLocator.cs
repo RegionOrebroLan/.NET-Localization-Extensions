@@ -19,7 +19,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 		#region Constructors
 
-		[CLSCompliant(false)]
 		public ResourceLocator(IAssemblyHelper assemblyHelper, IFileSystem fileSystem, ILoggerFactory loggerFactory, IEnumerable<IResourceResolver> resolvers)
 		{
 			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
@@ -34,10 +33,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 		protected internal virtual IAssemblyHelper AssemblyHelper { get; }
 		protected internal virtual IFileSystem FileSystem { get; }
-
-		[CLSCompliant(false)]
 		protected internal virtual ILogger Logger { get; }
-
 		public virtual IEnumerable<IResourceResolver> Resolvers { get; }
 		protected internal virtual string SatelliteAssemblySearchPatternFormat => _satelliteAssemblySearchPatternFormat;
 

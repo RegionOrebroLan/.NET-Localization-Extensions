@@ -13,7 +13,6 @@ namespace RegionOrebroLan.Localization
 	{
 		#region Constructors
 
-		[CLSCompliant(false)]
 		public StringLocalizer(IAssembly assembly, CultureInfo culture, ILocalizationProvider localizationProvider, ILogger logger, string path)
 		{
 			this.Assembly = assembly ?? throw new ArgumentNullException(nameof(assembly));
@@ -36,12 +35,8 @@ namespace RegionOrebroLan.Localization
 		[CLSCompliant(false)]
 		public virtual LocalizedString this[string name, params object[] arguments] => this.GetLocalizedString(name, arguments);
 
-		[CLSCompliant(false)]
 		protected internal virtual ILocalizationProvider LocalizationProvider { get; }
-
-		[CLSCompliant(false)]
 		protected internal virtual ILogger Logger { get; }
-
 		protected internal virtual string Path { get; }
 
 		#endregion

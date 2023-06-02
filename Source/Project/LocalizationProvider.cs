@@ -18,7 +18,6 @@ namespace RegionOrebroLan.Localization
 	{
 		#region Constructors
 
-		[CLSCompliant(false)]
 		public LocalizationProvider(ILocalizationPathResolver localizationPathResolver, ILocalizedStringFactory localizedStringFactory, ILoggerFactory loggerFactory, IResourceProvider resourceProvider, ILocalizationSettings settings)
 		{
 			this.LocalizationPathResolver = localizationPathResolver ?? throw new ArgumentNullException(nameof(localizationPathResolver));
@@ -93,8 +92,6 @@ namespace RegionOrebroLan.Localization
 		protected internal virtual ILocalizedStringFactory LocalizedStringFactory { get; }
 		protected internal virtual ConcurrentDictionary<string, IEnumerable<ILocalizedString>> LocalizedStringsWithoutParentCulturesIncludedCache { get; } = new ConcurrentDictionary<string, IEnumerable<ILocalizedString>>(StringComparer.OrdinalIgnoreCase);
 		protected internal virtual ConcurrentDictionary<string, IEnumerable<ILocalizedString>> LocalizedStringsWithParentCulturesIncludedCache { get; } = new ConcurrentDictionary<string, IEnumerable<ILocalizedString>>(StringComparer.OrdinalIgnoreCase);
-
-		[CLSCompliant(false)]
 		protected internal virtual ILogger Logger { get; }
 
 		protected internal virtual IDictionary<IResource, string> ResourceContent

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
@@ -16,7 +16,6 @@ namespace RegionOrebroLan.Localization
 
 		#region Constructors
 
-		[CLSCompliant(false)]
 		public StringLocalizerFactory(IAssemblyHelper assemblyHelper, ILocalizationProvider localizationProvider, ILoggerFactory loggerFactory)
 		{
 			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
@@ -30,11 +29,7 @@ namespace RegionOrebroLan.Localization
 
 		protected internal virtual IAssemblyHelper AssemblyHelper { get; }
 		protected internal virtual string CacheKeyNullValue => _cacheKeyNullValue;
-
-		[CLSCompliant(false)]
 		protected internal virtual ILocalizationProvider LocalizationProvider { get; }
-
-		[CLSCompliant(false)]
 		protected internal virtual ILoggerFactory LoggerFactory { get; }
 
 		[CLSCompliant(false)]

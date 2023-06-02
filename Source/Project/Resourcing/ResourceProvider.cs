@@ -16,7 +16,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 	{
 		#region Constructors
 
-		[CLSCompliant(false)]
 		public ResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, ILocalizationSettings settings)
 		{
 			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
@@ -96,13 +95,8 @@ namespace RegionOrebroLan.Localization.Resourcing
 		protected internal virtual IFileSystemWatcher FileResourcesDirectoryWatcher { get; }
 		protected internal virtual object FileResourcesLock { get; } = new object();
 		protected internal virtual IFileSystem FileSystem { get; }
-
-		[CLSCompliant(false)]
 		protected internal virtual IHostEnvironment HostEnvironment { get; }
-
-		[CLSCompliant(false)]
 		protected internal virtual ILogger Logger { get; }
-
 		protected internal virtual IResourceLocator ResourceLocator { get; }
 		protected internal virtual ILocalizationSettings Settings { get; }
 
@@ -134,7 +128,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.OnFileResourcesChanged();
 		}
 
-		[CLSCompliant(false)]
 		protected internal IFileSystemWatcher CreateFileResourcesDirectoryWatcher(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILocalizationSettings settings)
 		{
 			if(fileSystem == null)
@@ -292,7 +285,6 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.ClearFileResourcesCache();
 		}
 
-		[CLSCompliant(false)]
 		[SuppressMessage("Performance", "CA1822:Mark members as static")]
 		protected internal void SetFileSystemWatcher(IDirectoryInfo fileResourcesDirectory, IFileSystemWatcher fileSystemWatcher, IHostEnvironment hostEnvironment)
 		{

@@ -13,7 +13,7 @@ namespace RegionOrebroLan.Localization
 
 		private const char _root = ':';
 		private const char _separator = '.';
-		private static readonly IEnumerable<char> _separatorsToReplace = new[] {Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar};
+		private static readonly IEnumerable<char> _separatorsToReplace = new[] { Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar };
 
 		#endregion
 

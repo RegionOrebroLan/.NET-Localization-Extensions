@@ -38,9 +38,9 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 
 			using(var stream = this.CreateStream(value))
 			{
-				using(var xmlReader = XmlReader.Create(stream, new XmlReaderSettings {IgnoreWhitespace = true}))
+				using(var xmlReader = XmlReader.Create(stream, new XmlReaderSettings { IgnoreWhitespace = true }))
 				{
-					var serializableLocalizationResource = (SerializableLocalizationResource) new XmlSerializer(typeof(SerializableLocalizationResource)).Deserialize(xmlReader);
+					var serializableLocalizationResource = (SerializableLocalizationResource)new XmlSerializer(typeof(SerializableLocalizationResource)).Deserialize(xmlReader);
 
 					return serializableLocalizationResource.Localizations;
 				}

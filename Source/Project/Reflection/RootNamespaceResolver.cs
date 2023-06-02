@@ -20,7 +20,7 @@ namespace RegionOrebroLan.Localization.Reflection
 			if(assembly == null)
 				throw new ArgumentNullException(nameof(assembly));
 
-			return this.Cache.GetOrAdd(assembly.FullName, key => (RootNamespaceAttributeWrapper) assembly.GetCustomAttribute<RootNamespaceAttribute>());
+			return this.Cache.GetOrAdd(assembly.FullName, key => (RootNamespaceAttributeWrapper)assembly.GetCustomAttribute<RootNamespaceAttribute>());
 		}
 
 		#endregion

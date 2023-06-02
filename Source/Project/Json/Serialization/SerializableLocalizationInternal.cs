@@ -14,7 +14,7 @@ namespace RegionOrebroLan.Localization.Json.Serialization
 		[JsonProperty(nameof(Name), Order = 10)]
 		public virtual string CultureName { get; set; }
 
-		IDictionary<string, ILocalizationEntry> ILocalizationNode.Entries => this.Entries.ToDictionary(item => item.Key, item => (ILocalizationEntry) item.Value);
+		IDictionary<string, ILocalizationEntry> ILocalizationNode.Entries => this.Entries.ToDictionary(item => item.Key, item => (ILocalizationEntry)item.Value);
 
 		[JsonProperty(Order = 40)]
 		public virtual IDictionary<string, SerializableLocalizationEntry> Entries { get; } = new Dictionary<string, SerializableLocalizationEntry>(StringComparer.OrdinalIgnoreCase);

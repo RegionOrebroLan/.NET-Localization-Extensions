@@ -10,7 +10,7 @@ namespace RegionOrebroLan.Localization.Json.Serialization
 	{
 		#region Properties
 
-		IDictionary<string, ILocalizationEntry> ILocalizationNode.Entries => this.Entries.ToDictionary(item => item.Key, item => (ILocalizationEntry) item.Value);
+		IDictionary<string, ILocalizationEntry> ILocalizationNode.Entries => this.Entries.ToDictionary(item => item.Key, item => (ILocalizationEntry)item.Value);
 
 		[JsonProperty(Order = 30)]
 		public virtual IDictionary<string, SerializableLocalizationEntry> Entries { get; } = new Dictionary<string, SerializableLocalizationEntry>(StringComparer.OrdinalIgnoreCase);

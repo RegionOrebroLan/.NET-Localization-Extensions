@@ -12,7 +12,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 	{
 		#region Properties
 
-		IDictionary<string, ILocalizationEntry> ILocalizationNode.Entries => this.Entries.ToDictionary(item => item.Key, item => (ILocalizationEntry) item.Value);
+		IDictionary<string, ILocalizationEntry> ILocalizationNode.Entries => this.Entries.ToDictionary(item => item.Key, item => (ILocalizationEntry)item.Value);
 		public virtual IDictionary<string, SerializableLocalizationEntry> Entries { get; } = new Dictionary<string, SerializableLocalizationEntry>(StringComparer.OrdinalIgnoreCase);
 		public abstract string Name { get; }
 		IEnumerable<ILocalizationNode> ILocalizationNode.Nodes => this.Nodes;

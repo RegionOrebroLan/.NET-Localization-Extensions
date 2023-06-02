@@ -90,7 +90,7 @@ namespace RegionOrebroLan.Localization.Reflection
 					return Assembly.Load(new AssemblyName(assembly.FullName));
 
 				if(destinationType == typeof(AssemblyWrapper))
-					return (AssemblyWrapper) this.AssemblyHelper.LoadByName(assembly.FullName);
+					return (AssemblyWrapper)this.AssemblyHelper.LoadByName(assembly.FullName);
 
 				if(destinationType == typeof(IAssembly))
 					return this.AssemblyHelper.LoadByName(assembly.FullName);

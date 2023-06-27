@@ -13,7 +13,7 @@
 		<PackageTags>json json-based json-based-localization json-localization localization path path-based path-based-localization path-localization xml xml-based xml-based-localization xml-localization</PackageTags>
 		<RootNamespace>$(AssemblyName)</RootNamespace>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<VersionPrefix>1.0.1</VersionPrefix>
+		<VersionPrefix>1.1.0</VersionPrefix>
 		<VersionSuffix>alpha</VersionSuffix>
 	</PropertyGroup>
 	<ItemGroup>

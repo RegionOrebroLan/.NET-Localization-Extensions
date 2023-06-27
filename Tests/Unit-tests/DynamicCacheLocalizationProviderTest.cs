@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -9,7 +9,7 @@ using RegionOrebroLan.Localization.Serialization;
 namespace UnitTests
 {
 	[TestClass]
-	public class LocalizationProviderTest
+	public class DynamicCacheLocalizationProviderTest
 	{
 		#region Fields
 
@@ -112,12 +112,12 @@ namespace UnitTests
 			return localizationMock.Object;
 		}
 
-		protected internal virtual LocalizationProvider CreateLocalizationProvider()
+		protected internal virtual DynamicCacheLocalizationProvider CreateLocalizationProvider()
 		{
-			return new LocalizationProvider(Mock.Of<ILocalizationPathResolver>(), Mock.Of<ILocalizedStringFactory>(), Mock.Of<ILoggerFactory>(), this.ResourceProvider, this.Settings);
+			return new DynamicCacheLocalizationProvider(Mock.Of<ILocalizationPathResolver>(), Mock.Of<ILocalizedStringFactory>(), Mock.Of<ILoggerFactory>(), this.ResourceProvider, this.Settings);
 		}
 
-		protected internal virtual LocalizationProvider CreateLocalizationProvider(bool throwErrors)
+		protected internal virtual DynamicCacheLocalizationProvider CreateLocalizationProvider(bool throwErrors)
 		{
 			var localizationProvider = this.CreateLocalizationProvider();
 			localizationProvider.Settings.ThrowErrors = throwErrors;

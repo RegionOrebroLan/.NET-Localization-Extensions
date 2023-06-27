@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +17,7 @@ namespace IntegrationTests.Xml.Serialization
 		public void Parse_IfAnEntryIsOnADeepNode_ShouldWorkProperly()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json");
-			var localizationProvider = (LocalizationProvider)serviceProvider.GetService<ILocalizationProvider>();
+			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetService<ILocalizationProvider>();
 
 			var resource = localizationProvider.Resources.OfType<IFileResource>().First(item => Path.GetFileName(item.Path).Equals("Texts.xml", StringComparison.Ordinal));
 			var localization = resource.Parser.Parse(resource, resource.Read()).Last();

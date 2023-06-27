@@ -14,7 +14,7 @@ using RegionOrebroLan.Localization.Reflection;
 namespace IntegrationTests
 {
 	[TestClass]
-	public class LocalizationProviderTest : IntegrationTest
+	public class DynamicCacheLocalizationProviderTest : IntegrationTest
 	{
 		#region Methods
 
@@ -23,7 +23,7 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
 
-			var localizationProvider = (LocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
+			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
 
 			this.ValidateLocalizedStringListCacheCleared(localizationProvider);
 			this.PopulateLocalizedStringListCache(localizationProvider);
@@ -60,7 +60,7 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
 
-			var localizationProvider = (LocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
+			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
 
 			this.ValidateLocalizedStringCacheCleared(localizationProvider);
 			this.PopulateLocalizedStringCache(localizationProvider);
@@ -93,7 +93,7 @@ namespace IntegrationTests
 		}
 
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
-		protected internal virtual IEnumerable<ILocalizedString> GetAllLocalizedStrings(IAssemblyHelper assemblyHelper, bool includeParentCultures, LocalizationProvider localizationProvider)
+		protected internal virtual IEnumerable<ILocalizedString> GetAllLocalizedStrings(IAssemblyHelper assemblyHelper, bool includeParentCultures, DynamicCacheLocalizationProvider localizationProvider)
 		{
 			var localizedStrings = new List<ILocalizedString>();
 
@@ -109,7 +109,7 @@ namespace IntegrationTests
 		public void GetLocalizationEntries_IfAnEntryIsOnADeepNode_ShouldWorkProperly()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json");
-			var localizationProvider = (LocalizationProvider)serviceProvider.GetService<ILocalizationProvider>();
+			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetService<ILocalizationProvider>();
 			var localization = localizationProvider.Localizations.Where(item => item.CultureName.Equals("en", StringComparison.OrdinalIgnoreCase)).ElementAt(1);
 			var localizationEntries = localizationProvider.GetLocalizationEntries(localization);
 
@@ -123,7 +123,7 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
 
-			var localizationProvider = (LocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
+			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
 			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			this.ValidateLocalizedStringListCacheCleared(localizationProvider);
@@ -144,7 +144,7 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
 
-			var localizationProvider = (LocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
+			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
 			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			this.ValidateLocalizedStringCacheCleared(localizationProvider);
@@ -161,14 +161,14 @@ namespace IntegrationTests
 		}
 
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
-		protected internal virtual void PopulateLocalizedStringCache(LocalizationProvider localizationProvider)
+		protected internal virtual void PopulateLocalizedStringCache(DynamicCacheLocalizationProvider localizationProvider)
 		{
 			localizationProvider.LocalizedStringCache.GetOrAdd("Test", _ => null);
 			Assert.AreEqual(1, localizationProvider.LocalizedStringCache.Count);
 		}
 
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
-		protected internal virtual void PopulateLocalizedStringListCache(LocalizationProvider localizationProvider)
+		protected internal virtual void PopulateLocalizedStringListCache(DynamicCacheLocalizationProvider localizationProvider)
 		{
 			localizationProvider.LocalizedStringsWithoutParentCulturesIncludedCache.GetOrAdd("Test", _ => Enumerable.Empty<ILocalizedString>());
 			Assert.AreEqual(1, localizationProvider.LocalizedStringsWithoutParentCulturesIncludedCache.Count);
@@ -178,13 +178,13 @@ namespace IntegrationTests
 		}
 
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
-		protected internal virtual void ValidateLocalizedStringCacheCleared(LocalizationProvider localizationProvider)
+		protected internal virtual void ValidateLocalizedStringCacheCleared(DynamicCacheLocalizationProvider localizationProvider)
 		{
 			Assert.AreEqual(0, localizationProvider.LocalizedStringCache.Count, this.PossibleReasonForFailure);
 		}
 
 		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
-		protected internal virtual void ValidateLocalizedStringListCacheCleared(LocalizationProvider localizationProvider)
+		protected internal virtual void ValidateLocalizedStringListCacheCleared(DynamicCacheLocalizationProvider localizationProvider)
 		{
 			Assert.AreEqual(0, localizationProvider.LocalizedStringsWithoutParentCulturesIncludedCache.Count, this.PossibleReasonForFailure);
 			Assert.AreEqual(0, localizationProvider.LocalizedStringsWithParentCulturesIncludedCache.Count, this.PossibleReasonForFailure);

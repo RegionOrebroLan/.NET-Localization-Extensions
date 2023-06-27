@@ -741,7 +741,7 @@ namespace IntegrationTests
 			var serviceProvider = this.BuildServiceProvider();
 
 			Assert.IsNotNull(serviceProvider.GetService<ILocalizationProvider>());
-			Assert.IsTrue(serviceProvider.GetService<ILocalizationProvider>() is LocalizationProvider);
+			Assert.IsTrue(serviceProvider.GetService<ILocalizationProvider>() is DynamicCacheLocalizationProvider);
 
 			Assert.IsNotNull(serviceProvider.GetService<IOptions<LocalizationOptions>>());
 

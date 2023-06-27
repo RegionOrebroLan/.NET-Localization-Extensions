@@ -1,8 +1,10 @@
+using System;
 using Microsoft.Extensions.Logging;
 using RegionOrebroLan.Localization.Resourcing;
 
 namespace RegionOrebroLan.Localization
 {
+	[Obsolete("Will be removed. Use DynamicCacheLocalizationProvider instead.")]
 	public class LocalizationProvider : DynamicCacheLocalizationProvider
 	{
 		#region Constructors

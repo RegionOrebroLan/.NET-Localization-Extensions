@@ -12,7 +12,7 @@ using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {
-	public class DynamicCacheResourceProvider : IResourceProvider
+	public class DynamicCacheResourceProvider : IDynamicResourceProvider
 	{
 		#region Constructors
 

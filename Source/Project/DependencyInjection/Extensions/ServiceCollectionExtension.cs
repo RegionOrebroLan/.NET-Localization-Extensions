@@ -109,8 +109,8 @@ namespace RegionOrebroLan.Localization.DependencyInjection.Extensions
 			if(services == null)
 				throw new ArgumentNullException(nameof(services));
 
+			services.TryAddSingleton<IDynamicResourceProvider, DynamicCacheResourceProvider>();
 			services.TryAddSingleton<IResourceLocator, ResourceLocator>();
-			services.TryAddSingleton<IResourceProvider, DynamicCacheResourceProvider>();
 			services.AddSingleton<IResourceResolver>(serviceProvider => new ResourceResolver(new JsonLocalizationParser(), new JsonResourceValidator(serviceProvider.GetService<IFileSystem>())));
 			services.AddSingleton<IResourceResolver>(serviceProvider => new ResourceResolver(new XmlLocalizationParser(), new XmlResourceValidator(serviceProvider.GetService<IFileSystem>())));
 

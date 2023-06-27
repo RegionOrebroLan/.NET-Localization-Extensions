@@ -13,21 +13,21 @@ namespace UnitTests
 	{
 		#region Fields
 
-		private static IResourceProvider _resourceProvider;
+		private static IDynamicResourceProvider _resourceProvider;
 		private static ILocalizationSettings _settings;
 
 		#endregion
 
 		#region Properties
 
-		protected internal virtual IResourceProvider ResourceProvider
+		protected internal virtual IDynamicResourceProvider ResourceProvider
 		{
 			get
 			{
 				// ReSharper disable InvertIf
 				if(_resourceProvider == null)
 				{
-					var resourceProviderMock = new Mock<IResourceProvider>();
+					var resourceProviderMock = new Mock<IDynamicResourceProvider>();
 					resourceProviderMock.SetupAllProperties();
 					//resourceProviderMock.Setup(resourceProvider => resourceProvider.Settings).Returns(this.Settings);
 

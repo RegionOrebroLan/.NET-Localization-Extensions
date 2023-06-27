@@ -36,7 +36,7 @@ namespace IntegrationTests.Resourcing
 
 		protected internal virtual DynamicCacheResourceProvider CreateResourceProvider()
 		{
-			return (DynamicCacheResourceProvider)this.BuildServiceProvider().GetService<IResourceProvider>();
+			return (DynamicCacheResourceProvider)this.BuildServiceProvider().GetService<IDynamicResourceProvider>();
 		}
 
 		[TestMethod]
@@ -70,7 +70,7 @@ namespace IntegrationTests.Resourcing
 		public void FileResourcesDirectory_Configuration_IfConfigurationIsChangedWithANewFileResourcesDirectoryPathAndAValidResourceFileIsCreatedInASubDirectoryInThePreviousFileResourcesDirectory_TheFileResourcesCacheShouldNotBeCleared()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
-			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IDynamicResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var subDirectoryPath = Directory.CreateDirectory(Path.Combine(testContext.ConfiguredFileResourcesDirectoryPath, @"Directory\Directory")).FullName;
 
@@ -98,7 +98,7 @@ namespace IntegrationTests.Resourcing
 		public void FileResourcesDirectory_Configuration_IfConfigurationIsChangedWithANewFileResourcesDirectoryPathAndAValidResourceFileIsCreatedInThePreviousFileResourcesDirectory_TheFileResourcesCacheShouldNotBeCleared()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
-			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IDynamicResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var previousResourcesDirectoryPath = testContext.ConfiguredFileResourcesDirectoryPath;
 
@@ -709,7 +709,7 @@ namespace IntegrationTests.Resourcing
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
 			var fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
-			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IDynamicResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var subDirectoryPath = Directory.CreateDirectory(Path.Combine(testContext.ConfiguredFileResourcesDirectoryPath, @"Directory\Directory")).FullName;
 
@@ -732,7 +732,7 @@ namespace IntegrationTests.Resourcing
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
 			var fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
-			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IDynamicResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var previousResourcesDirectoryPath = testContext.ConfiguredFileResourcesDirectoryPath;
 
@@ -752,7 +752,7 @@ namespace IntegrationTests.Resourcing
 
 		protected internal virtual DynamicCacheResourceProvider GetResourceProvider(IServiceProvider serviceProvider)
 		{
-			return (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			return (DynamicCacheResourceProvider)serviceProvider.GetService<IDynamicResourceProvider>();
 		}
 
 		[TestMethod]

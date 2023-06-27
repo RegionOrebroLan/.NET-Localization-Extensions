@@ -9,7 +9,7 @@ namespace RegionOrebroLan.Localization
 	{
 		#region Constructors
 
-		public LocalizationProvider(ILocalizationPathResolver localizationPathResolver, ILocalizedStringFactory localizedStringFactory, ILoggerFactory loggerFactory, IResourceProvider resourceProvider, ILocalizationSettings settings) : base(localizationPathResolver, localizedStringFactory, loggerFactory, resourceProvider, settings) { }
+		public LocalizationProvider(ILocalizationPathResolver localizationPathResolver, ILocalizedStringFactory localizedStringFactory, ILoggerFactory loggerFactory, IDynamicResourceProvider resourceProvider, ILocalizationSettings settings) : base(localizationPathResolver, localizedStringFactory, loggerFactory, resourceProvider, settings) { }
 
 		#endregion
 	}

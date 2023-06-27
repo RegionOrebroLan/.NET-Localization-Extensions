@@ -13,7 +13,7 @@ using RegionOrebroLan.Localization.Resourcing;
 namespace IntegrationTests.Resourcing
 {
 	[TestClass]
-	public class ResourceProviderTest : IntegrationTest
+	public class DynamicCacheResourceProviderTest : IntegrationTest
 	{
 		#region Fields
 
@@ -34,9 +34,9 @@ namespace IntegrationTests.Resourcing
 			using(File.Create(path)) { }
 		}
 
-		protected internal virtual ResourceProvider CreateResourceProvider()
+		protected internal virtual DynamicCacheResourceProvider CreateResourceProvider()
 		{
-			return (ResourceProvider)this.BuildServiceProvider().GetService<IResourceProvider>();
+			return (DynamicCacheResourceProvider)this.BuildServiceProvider().GetService<IResourceProvider>();
 		}
 
 		[TestMethod]
@@ -70,7 +70,7 @@ namespace IntegrationTests.Resourcing
 		public void FileResourcesDirectory_Configuration_IfConfigurationIsChangedWithANewFileResourcesDirectoryPathAndAValidResourceFileIsCreatedInASubDirectoryInThePreviousFileResourcesDirectory_TheFileResourcesCacheShouldNotBeCleared()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
-			var resourceProvider = (ResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var subDirectoryPath = Directory.CreateDirectory(Path.Combine(testContext.ConfiguredFileResourcesDirectoryPath, @"Directory\Directory")).FullName;
 
@@ -98,7 +98,7 @@ namespace IntegrationTests.Resourcing
 		public void FileResourcesDirectory_Configuration_IfConfigurationIsChangedWithANewFileResourcesDirectoryPathAndAValidResourceFileIsCreatedInThePreviousFileResourcesDirectory_TheFileResourcesCacheShouldNotBeCleared()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
-			var resourceProvider = (ResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var previousResourcesDirectoryPath = testContext.ConfiguredFileResourcesDirectoryPath;
 
@@ -709,7 +709,7 @@ namespace IntegrationTests.Resourcing
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
 			var fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
-			var resourceProvider = (ResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var subDirectoryPath = Directory.CreateDirectory(Path.Combine(testContext.ConfiguredFileResourcesDirectoryPath, @"Directory\Directory")).FullName;
 
@@ -732,7 +732,7 @@ namespace IntegrationTests.Resourcing
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
 			var fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
-			var resourceProvider = (ResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			var resourceProvider = (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var previousResourcesDirectoryPath = testContext.ConfiguredFileResourcesDirectoryPath;
 
@@ -750,9 +750,9 @@ namespace IntegrationTests.Resourcing
 			Assert.IsNotNull(resourceProvider.FileResourcesCache, this.PossibleReasonForFailure);
 		}
 
-		protected internal virtual ResourceProvider GetResourceProvider(IServiceProvider serviceProvider)
+		protected internal virtual DynamicCacheResourceProvider GetResourceProvider(IServiceProvider serviceProvider)
 		{
-			return (ResourceProvider)serviceProvider.GetService<IResourceProvider>();
+			return (DynamicCacheResourceProvider)serviceProvider.GetService<IResourceProvider>();
 		}
 
 		[TestMethod]

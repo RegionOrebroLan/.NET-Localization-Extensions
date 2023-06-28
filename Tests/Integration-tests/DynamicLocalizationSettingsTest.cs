@@ -14,7 +14,7 @@ using RegionOrebroLan.Localization.Reflection;
 namespace IntegrationTests
 {
 	[TestClass]
-	public class LocalizationSettingsTest : IntegrationTest
+	public class DynamicLocalizationSettingsTest : IntegrationTest
 	{
 		#region Fields
 
@@ -36,7 +36,7 @@ namespace IntegrationTests
 		public void AlphabeticalSorting_IfChanged_ShouldTriggerAlphabeticalSortingChanged()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Empty.json");
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			Assert.IsTrue(localizationSettings.AlphabeticalSorting);
 
@@ -99,7 +99,7 @@ namespace IntegrationTests
 		public void EmbeddedResourceAssemblies_Add_IfTheAssemblyAlreadyExists_ShouldThrowAnArguementException()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 			var animalAssembly = serviceProvider.GetRequiredService<IAssemblyHelper>().Wrap(typeof(Animals.TheClass).Assembly);
 
 			Assert.IsTrue(localizationSettings.EmbeddedResourceAssemblies.Contains(animalAssembly));
@@ -122,7 +122,7 @@ namespace IntegrationTests
 		public void EmbeddedResourceAssemblies_Add_IfTheValueIsNull_ShouldThrowAnArguementNullException()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count);
 
@@ -143,7 +143,7 @@ namespace IntegrationTests
 		public void EmbeddedResourceAssemblies_Set_IfTheAssemblyAlreadyExists_ShouldThrowAnArguementException()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 			var animalAssembly = serviceProvider.GetRequiredService<IAssemblyHelper>().Wrap(typeof(Animals.TheClass).Assembly);
 
 			Assert.IsTrue(localizationSettings.EmbeddedResourceAssemblies.Contains(animalAssembly));
@@ -166,7 +166,7 @@ namespace IntegrationTests
 		public void EmbeddedResourceAssemblies_Set_IfTheValueIsNull_ShouldThrowAnArguementException()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count);
 
@@ -188,7 +188,7 @@ namespace IntegrationTests
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Empty.json");
 			var fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			var fileResourcesDirectory = fileSystem.DirectoryInfo.FromDirectoryName("Z:\\" + Guid.NewGuid().ToString());
 
@@ -210,7 +210,7 @@ namespace IntegrationTests
 		public void FileResourcesDirectory_Set_IfTheParameterIsNull_ShouldNotThrowAnException()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Empty.json");
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			Assert.IsNull(localizationSettings.FileResourcesDirectory);
 

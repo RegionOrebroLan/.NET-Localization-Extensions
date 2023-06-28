@@ -14,7 +14,7 @@ using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization
 {
-	public class LocalizationSettings : ILocalizationSettings
+	public class DynamicLocalizationSettings : ILocalizationSettings
 	{
 		#region Fields
 
@@ -28,7 +28,7 @@ namespace RegionOrebroLan.Localization
 
 		#region Constructors
 
-		public LocalizationSettings(IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, ILoggerFactory loggerFactory, IOptionsMonitor<LocalizationOptions> optionsMonitor, ILocalizationOptionsResolver optionsResolver)
+		public DynamicLocalizationSettings(IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, ILoggerFactory loggerFactory, IOptionsMonitor<LocalizationOptions> optionsMonitor, ILocalizationOptionsResolver optionsResolver)
 		{
 			this.FileResourcesDirectoryValidator = fileResourcesDirectoryValidator ?? throw new ArgumentNullException(nameof(fileResourcesDirectoryValidator));
 			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
@@ -235,7 +235,7 @@ namespace RegionOrebroLan.Localization
 
 		#region Finalizers
 
-		~LocalizationSettings()
+		~DynamicLocalizationSettings()
 		{
 			this.OptionsChangeListener?.Dispose();
 

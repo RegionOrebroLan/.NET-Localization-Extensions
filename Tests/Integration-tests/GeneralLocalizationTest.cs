@@ -289,7 +289,7 @@ namespace IntegrationTests
 				services.AddSingleton(loggerFactoryMock.Object);
 			}, "Configuration-With-File-Resources-Directory-Path-Only.json");
 
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 
 			var alphabeticalSorting = localizationSettings.AlphabeticalSorting;
 			var embeddedResourceAssemblies = localizationSettings.EmbeddedResourceAssemblies;
@@ -396,7 +396,7 @@ namespace IntegrationTests
 			}, "Configuration-With-File-Resources-Directory-Path-Only.json");
 
 			var hostEnvironment = serviceProvider.GetRequiredService<IHostEnvironment>();
-			var localizationSettings = (LocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
 			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetRequiredService<ITestContext>();
 
@@ -467,7 +467,7 @@ namespace IntegrationTests
 
 			var fileResourcesDirectoryPath = localizationOptionsMonitor.CurrentValue.FileResourcesDirectoryPath;
 
-			Assert.AreEqual(0, ((LocalizationSettings)localizationSettings).ConfiguredEmbeddedResourceAssemblies.Count());
+			Assert.AreEqual(0, ((DynamicLocalizationSettings)localizationSettings).ConfiguredEmbeddedResourceAssemblies.Count());
 			Assert.AreEqual(0, localizationSettings.EmbeddedResourceAssemblies.Count);
 
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
@@ -483,10 +483,10 @@ namespace IntegrationTests
 
 			Thread.Sleep(sleepTime);
 
-			Assert.AreEqual(6, ((LocalizationSettings)localizationSettings).ConfiguredEmbeddedResourceAssemblies.Count(), this.PossibleReasonForFailure);
+			Assert.AreEqual(6, ((DynamicLocalizationSettings)localizationSettings).ConfiguredEmbeddedResourceAssemblies.Count(), this.PossibleReasonForFailure);
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count, this.PossibleReasonForFailure);
 
-			Assert.IsFalse(((LocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
+			Assert.IsFalse(((DynamicLocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
 
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
@@ -503,7 +503,7 @@ namespace IntegrationTests
 
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count, this.PossibleReasonForFailure);
 
-			Assert.IsFalse(((LocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
+			Assert.IsFalse(((DynamicLocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
 
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
@@ -520,7 +520,7 @@ namespace IntegrationTests
 
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count, this.PossibleReasonForFailure);
 
-			Assert.IsFalse(((LocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
+			Assert.IsFalse(((DynamicLocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
 
 			Assert.IsNotNull(localizationSettings.FileResourcesDirectory);
 			Assert.IsTrue(localizationSettings.FileResourcesDirectory.Exists);
@@ -538,7 +538,7 @@ namespace IntegrationTests
 
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count, this.PossibleReasonForFailure);
 
-			Assert.IsFalse(((LocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
+			Assert.IsFalse(((DynamicLocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
 
 			Assert.IsNull(localizationSettings.FileResourcesDirectory);
 
@@ -554,7 +554,7 @@ namespace IntegrationTests
 
 			Assert.AreEqual(2, localizationSettings.EmbeddedResourceAssemblies.Count, this.PossibleReasonForFailure);
 
-			Assert.IsFalse(((LocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
+			Assert.IsFalse(((DynamicLocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
 
 			Assert.IsNull(localizationSettings.FileResourcesDirectory);
 
@@ -570,7 +570,7 @@ namespace IntegrationTests
 
 			Assert.AreEqual(0, localizationSettings.EmbeddedResourceAssemblies.Count, this.PossibleReasonForFailure);
 
-			Assert.IsFalse(((LocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
+			Assert.IsFalse(((DynamicLocalizationSettings)localizationSettings).RuntimeConfigurationExceptions.Any());
 
 			Assert.IsNull(localizationSettings.FileResourcesDirectory);
 

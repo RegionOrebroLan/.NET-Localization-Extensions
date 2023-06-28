@@ -47,7 +47,7 @@ namespace RegionOrebroLan.Localization.DependencyInjection.Extensions
 			services.TryAddSingleton<ILocalizationOptionsResolver, LocalizationOptionsResolver>();
 			services.TryAddSingleton<ILocalizationPathResolver, LocalizationPathResolver>();
 			services.TryAddSingleton<ILocalizationProvider, DynamicCacheLocalizationProvider>();
-			services.TryAddSingleton<ILocalizationSettings, LocalizationSettings>();
+			services.TryAddSingleton<ILocalizationSettings, DynamicLocalizationSettings>();
 			services.TryAddSingleton<ILocalizedStringFactory, LocalizedStringFactory>();
 			services.TryAddSingleton<IRootNamespaceResolver, RootNamespaceResolver>();
 

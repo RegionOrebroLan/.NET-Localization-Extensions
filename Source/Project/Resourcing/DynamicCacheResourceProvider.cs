@@ -16,7 +16,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 	{
 		#region Constructors
 
-		public DynamicCacheResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, ILocalizationSettings settings)
+		public DynamicCacheResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, IDynamicLocalizationSettings settings)
 		{
 			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
 			this.HostEnvironment = hostEnvironment ?? throw new ArgumentNullException(nameof(hostEnvironment));
@@ -98,7 +98,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 		protected internal virtual IHostEnvironment HostEnvironment { get; }
 		protected internal virtual ILogger Logger { get; }
 		protected internal virtual IResourceLocator ResourceLocator { get; }
-		protected internal virtual ILocalizationSettings Settings { get; }
+		protected internal virtual IDynamicLocalizationSettings Settings { get; }
 
 		#endregion
 
@@ -128,7 +128,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			this.OnFileResourcesChanged();
 		}
 
-		protected internal IFileSystemWatcher CreateFileResourcesDirectoryWatcher(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILocalizationSettings settings)
+		protected internal IFileSystemWatcher CreateFileResourcesDirectoryWatcher(IFileSystem fileSystem, IHostEnvironment hostEnvironment, IDynamicLocalizationSettings settings)
 		{
 			if(fileSystem == null)
 				throw new ArgumentNullException(nameof(fileSystem));

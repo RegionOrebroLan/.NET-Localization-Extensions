@@ -42,12 +42,12 @@ namespace RegionOrebroLan.Localization.DependencyInjection.Extensions
 
 			services.AddResourcing();
 
+			services.TryAddSingleton<IDynamicLocalizationSettings, DynamicLocalizationSettings>();
 			services.TryAddSingleton<IEmbeddedResourceAssembliesValidator, EmbeddedResourceAssembliesValidator>();
 			services.TryAddSingleton<IFileResourcesDirectoryValidator, FileResourcesDirectoryValidator>();
 			services.TryAddSingleton<ILocalizationOptionsResolver, LocalizationOptionsResolver>();
 			services.TryAddSingleton<ILocalizationPathResolver, LocalizationPathResolver>();
 			services.TryAddSingleton<ILocalizationProvider, DynamicCacheLocalizationProvider>();
-			services.TryAddSingleton<ILocalizationSettings, DynamicLocalizationSettings>();
 			services.TryAddSingleton<ILocalizedStringFactory, LocalizedStringFactory>();
 			services.TryAddSingleton<IRootNamespaceResolver, RootNamespaceResolver>();
 

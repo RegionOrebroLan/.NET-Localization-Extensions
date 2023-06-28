@@ -124,7 +124,7 @@ namespace IntegrationTests
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
 
 			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
-			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 
 			this.ValidateLocalizedStringListCacheCleared(localizationProvider);
 			this.PopulateLocalizedStringListCache(localizationProvider);
@@ -145,7 +145,7 @@ namespace IntegrationTests
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
 
 			var localizationProvider = (DynamicCacheLocalizationProvider)serviceProvider.GetRequiredService<ILocalizationProvider>();
-			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 
 			this.ValidateLocalizedStringCacheCleared(localizationProvider);
 			this.PopulateLocalizedStringCache(localizationProvider);

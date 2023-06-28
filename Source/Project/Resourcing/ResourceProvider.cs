@@ -10,7 +10,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 	{
 		#region Constructors
 
-		public ResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, ILocalizationSettings settings) : base(fileSystem, hostEnvironment, loggerFactory, resourceLocator, settings) { }
+		public ResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, IDynamicLocalizationSettings settings) : base(fileSystem, hostEnvironment, loggerFactory, resourceLocator, settings) { }
 
 		#endregion
 	}

@@ -18,7 +18,7 @@ namespace RegionOrebroLan.Localization
 	{
 		#region Constructors
 
-		public DynamicCacheLocalizationProvider(ILocalizationPathResolver localizationPathResolver, ILocalizedStringFactory localizedStringFactory, ILoggerFactory loggerFactory, IDynamicResourceProvider resourceProvider, ILocalizationSettings settings)
+		public DynamicCacheLocalizationProvider(ILocalizationPathResolver localizationPathResolver, ILocalizedStringFactory localizedStringFactory, ILoggerFactory loggerFactory, IDynamicResourceProvider resourceProvider, IDynamicLocalizationSettings settings)
 		{
 			this.LocalizationPathResolver = localizationPathResolver ?? throw new ArgumentNullException(nameof(localizationPathResolver));
 			this.LocalizedStringFactory = localizedStringFactory ?? throw new ArgumentNullException(nameof(localizedStringFactory));
@@ -118,7 +118,7 @@ namespace RegionOrebroLan.Localization
 		protected internal virtual object ResourceContentLock { get; } = new object();
 		protected internal virtual IDynamicResourceProvider ResourceProvider { get; }
 		protected internal virtual IEnumerable<IResource> Resources => ((IEnumerable<IResource>)this.ResourceProvider.EmbeddedResources).Concat(this.ResourceProvider.FileResources);
-		protected internal virtual ILocalizationSettings Settings { get; }
+		protected internal virtual IDynamicLocalizationSettings Settings { get; }
 
 		#endregion
 

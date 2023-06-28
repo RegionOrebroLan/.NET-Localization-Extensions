@@ -14,7 +14,7 @@ using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization
 {
-	public class DynamicLocalizationSettings : ILocalizationSettings
+	public class DynamicLocalizationSettings : IDynamicLocalizationSettings
 	{
 		#region Fields
 

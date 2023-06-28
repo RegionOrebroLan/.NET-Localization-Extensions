@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO.Abstractions;
@@ -6,7 +6,7 @@ using RegionOrebroLan.Localization.Reflection;
 
 namespace RegionOrebroLan.Localization
 {
-	public interface ILocalizationSettings
+	public interface IDynamicLocalizationSettings
 	{
 		#region Events
 

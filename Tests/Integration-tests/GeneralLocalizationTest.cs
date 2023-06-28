@@ -125,7 +125,7 @@ namespace IntegrationTests
 		public void Configuration_IfEmbeddedResourceAssembliesAreConfigured_TheLocalizationSettingsShouldIncludeThem()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
-			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 
 			Assert.AreEqual(6, localizationSettings.EmbeddedResourceAssemblies.Count);
 			Assert.AreEqual("Animals, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9aeba83ffb1feacc", localizationSettings.EmbeddedResourceAssemblies[0].FullName);
@@ -289,7 +289,7 @@ namespace IntegrationTests
 				services.AddSingleton(loggerFactoryMock.Object);
 			}, "Configuration-With-File-Resources-Directory-Path-Only.json");
 
-			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 
 			var alphabeticalSorting = localizationSettings.AlphabeticalSorting;
 			var embeddedResourceAssemblies = localizationSettings.EmbeddedResourceAssemblies;
@@ -396,7 +396,7 @@ namespace IntegrationTests
 			}, "Configuration-With-File-Resources-Directory-Path-Only.json");
 
 			var hostEnvironment = serviceProvider.GetRequiredService<IHostEnvironment>();
-			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetRequiredService<ITestContext>();
 
@@ -461,7 +461,7 @@ namespace IntegrationTests
 
 			var hostEnvironment = serviceProvider.GetRequiredService<IHostEnvironment>();
 			var localizationOptionsMonitor = serviceProvider.GetRequiredService<IOptionsMonitor<LocalizationOptions>>();
-			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetRequiredService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
 			var testContext = serviceProvider.GetRequiredService<ITestContext>();
 
@@ -586,7 +586,7 @@ namespace IntegrationTests
 
 			try
 			{
-				serviceProvider.GetRequiredService<ILocalizationSettings>();
+				serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 			}
 			catch(InvalidOperationException invalidOperationException)
 			{
@@ -604,13 +604,13 @@ namespace IntegrationTests
 		public void LocalizationSettings_IfTheFileResourcesDirectoryIsChangedToADirectoryThatDoesNotExist_ShouldThrowADirectoryNotFoundException()
 		{
 			IFileSystem fileSystem = null;
-			ILocalizationSettings settings = null;
+			IDynamicLocalizationSettings settings = null;
 
 			try
 			{
 				var serviceProvider = this.BuildServiceProvider("Configuration-With-File-Resources-Directory-Path-Only.json", true);
 				fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
-				settings = serviceProvider.GetRequiredService<ILocalizationSettings>();
+				settings = serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 				var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en-US"));
 
 				Assert.AreEqual(0, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
@@ -758,7 +758,7 @@ namespace IntegrationTests
 			var serviceProvider = this.BuildServiceProvider("Configuration-Default.json");
 
 			// Remove embedded xml-resources.
-			var localizationSettings = serviceProvider.GetRequiredService<ILocalizationSettings>();
+			var localizationSettings = serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 			Assert.AreEqual("Animals", localizationSettings.EmbeddedResourceAssemblies[0].Name);
 			localizationSettings.EmbeddedResourceAssemblies.RemoveAt(0);
 

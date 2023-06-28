@@ -14,7 +14,7 @@ namespace UnitTests
 		#region Fields
 
 		private static IDynamicResourceProvider _resourceProvider;
-		private static ILocalizationSettings _settings;
+		private static IDynamicLocalizationSettings _settings;
 
 		#endregion
 
@@ -39,14 +39,14 @@ namespace UnitTests
 			}
 		}
 
-		protected internal virtual ILocalizationSettings Settings
+		protected internal virtual IDynamicLocalizationSettings Settings
 		{
 			get
 			{
 				// ReSharper disable InvertIf
 				if(_settings == null)
 				{
-					var optionsMock = new Mock<ILocalizationSettings>();
+					var optionsMock = new Mock<IDynamicLocalizationSettings>();
 					optionsMock.SetupAllProperties();
 
 					_settings = optionsMock.Object;

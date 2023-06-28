@@ -12,17 +12,14 @@ using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {
-	public class DynamicCacheResourceProvider : IDynamicResourceProvider
+	public class DynamicCacheResourceProvider : BasicCacheResourceProvider<IDynamicLocalizationSettings>, IDynamicResourceProvider
 	{
 		#region Constructors
 
-		public DynamicCacheResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, IDynamicLocalizationSettings settings)
+		public DynamicCacheResourceProvider(IFileSystem fileSystem, IHostEnvironment hostEnvironment, ILoggerFactory loggerFactory, IResourceLocator resourceLocator, IDynamicLocalizationSettings settings) : base(loggerFactory, resourceLocator, settings)
 		{
 			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
 			this.HostEnvironment = hostEnvironment ?? throw new ArgumentNullException(nameof(hostEnvironment));
-			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
-			this.ResourceLocator = resourceLocator ?? throw new ArgumentNullException(nameof(resourceLocator));
-			this.Settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
 			this.FileResourcesDirectoryWatcher = this.CreateFileResourcesDirectoryWatcher(fileSystem, hostEnvironment, settings);
 
@@ -42,63 +39,9 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 		#region Properties
 
-		public virtual IEnumerable<IEmbeddedResource> EmbeddedResources
-		{
-			get
-			{
-				// ReSharper disable InvertIf
-				if(this.EmbeddedResourcesCache == null)
-				{
-					lock(this.EmbeddedResourcesLock)
-					{
-						if(this.EmbeddedResourcesCache == null)
-						{
-							var embeddedResources = new List<IEmbeddedResource>();
-
-							foreach(var assembly in this.Settings.EmbeddedResourceAssemblies.Where(assembly => assembly != null).Distinct())
-							{
-								embeddedResources.AddRange(this.ResourceLocator.GetEmbeddedResources(assembly));
-							}
-
-							this.EmbeddedResourcesCache = embeddedResources.ToArray();
-						}
-					}
-				}
-				// ReSharper restore InvertIf
-
-				return this.EmbeddedResourcesCache;
-			}
-		}
-
-		protected internal virtual IEnumerable<IEmbeddedResource> EmbeddedResourcesCache { get; set; }
-		protected internal virtual object EmbeddedResourcesLock { get; } = new object();
-
-		public virtual IEnumerable<IFileResource> FileResources
-		{
-			get
-			{
-				// ReSharper disable InvertIf
-				if(this.FileResourcesCache == null)
-				{
-					lock(this.FileResourcesLock)
-					{
-						this.FileResourcesCache ??= (this.Settings.FileResourcesDirectory != null ? this.ResourceLocator.GetFileResources(this.Settings.FileResourcesDirectory.FullName) : Enumerable.Empty<IFileResource>()).ToArray();
-					}
-				}
-				// ReSharper restore InvertIf
-
-				return this.FileResourcesCache;
-			}
-		}
-
-		protected internal virtual IEnumerable<IFileResource> FileResourcesCache { get; set; }
 		protected internal virtual IFileSystemWatcher FileResourcesDirectoryWatcher { get; }
-		protected internal virtual object FileResourcesLock { get; } = new object();
 		protected internal virtual IFileSystem FileSystem { get; }
 		protected internal virtual IHostEnvironment HostEnvironment { get; }
-		protected internal virtual ILogger Logger { get; }
-		protected internal virtual IResourceLocator ResourceLocator { get; }
-		protected internal virtual IDynamicLocalizationSettings Settings { get; }
 
 		#endregion
 

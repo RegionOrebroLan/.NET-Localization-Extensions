@@ -6,11 +6,11 @@ using RegionOrebroLan.Localization.Resourcing.Extensions;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {
-	public abstract class BasicCacheResourceProvider<TLocalizationSettings> : IResourceProvider where TLocalizationSettings : ILocalizationSettings
+	public abstract class BasicCacheResourceProvider<TSettings> : IResourceProvider where TSettings : ILocalizationSettings
 	{
 		#region Constructors
 
-		protected BasicCacheResourceProvider(ILoggerFactory loggerFactory, IResourceLocator resourceLocator, TLocalizationSettings settings)
+		protected BasicCacheResourceProvider(ILoggerFactory loggerFactory, IResourceLocator resourceLocator, TSettings settings)
 		{
 			this.Logger = (loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory))).CreateLogger(this.GetType());
 			this.ResourceLocator = resourceLocator ?? throw new ArgumentNullException(nameof(resourceLocator));
@@ -74,7 +74,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 		protected internal virtual object FileResourcesLock { get; } = new();
 		protected internal virtual ILogger Logger { get; }
 		protected internal virtual IResourceLocator ResourceLocator { get; }
-		protected internal virtual TLocalizationSettings Settings { get; }
+		protected internal virtual TSettings Settings { get; }
 
 		#endregion
 	}

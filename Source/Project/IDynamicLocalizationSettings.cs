@@ -6,7 +6,7 @@ using RegionOrebroLan.Localization.Reflection;
 
 namespace RegionOrebroLan.Localization
 {
-	public interface IDynamicLocalizationSettings
+	public interface IDynamicLocalizationSettings : ILocalizationSettings
 	{
 		#region Events
 
@@ -19,11 +19,11 @@ namespace RegionOrebroLan.Localization
 
 		#region Properties
 
-		bool AlphabeticalSorting { get; set; }
-		IList<IAssembly> EmbeddedResourceAssemblies { get; }
-		IDirectoryInfo FileResourcesDirectory { get; set; }
-		bool IncludeParentCultures { get; set; }
-		bool ThrowErrors { get; set; }
+		new bool AlphabeticalSorting { get; set; }
+		new IList<IAssembly> EmbeddedResourceAssemblies { get; }
+		new IDirectoryInfo FileResourcesDirectory { get; set; }
+		new bool IncludeParentCultures { get; set; }
+		new bool ThrowErrors { get; set; }
 
 		#endregion
 	}

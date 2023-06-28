@@ -92,6 +92,7 @@ namespace RegionOrebroLan.Localization
 			set => this._configuredEmbeddedResourceAssemblies = value;
 		}
 
+		IEnumerable<IAssembly> ILocalizationSettings.EmbeddedResourceAssemblies => this.EmbeddedResourceAssemblies;
 		public virtual IList<IAssembly> EmbeddedResourceAssemblies { get; }
 
 		public virtual IDirectoryInfo FileResourcesDirectory

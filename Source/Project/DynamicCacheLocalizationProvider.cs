@@ -2,8 +2,8 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Microsoft.Extensions.Logging;
+using RegionOrebroLan.Localization.Logging.Extensions;
 using RegionOrebroLan.Localization.Resourcing;
-using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization
 {
@@ -106,7 +106,7 @@ namespace RegionOrebroLan.Localization
 
 			if(fileResource == null)
 			{
-				this.Logger.LogWarningIfEnabled("The file-resource with path \"{0}\" could not be found.", path);
+				this.Logger.LogWarningIfEnabled(() => $"The file-resource with path \"{path}\" could not be found.");
 				return;
 			}
 

@@ -7,8 +7,8 @@ using System.IO.Abstractions;
 using System.Linq;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RegionOrebroLan.Localization.Logging.Extensions;
 using RegionOrebroLan.Localization.Resourcing.Extensions;
-using RegionOrebroLan.Logging.Extensions;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {
@@ -153,12 +153,12 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(e == null)
 				throw new ArgumentNullException(nameof(e));
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryChanged: {0} ({1})", e.FullPath, e.ChangeType);
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryChanged: {e.FullPath} ({e.ChangeType})");
 
 			if(!this.ResourceLocator.IsValidFileResource(e.FullPath))
 				return;
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryChanged: A valid file-resource was changed and the FileResourceContentChanged-event will be triggered. The file changed: {0}", e.FullPath);
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryChanged: A valid file-resource was changed and the FileResourceContentChanged-event will be triggered. The file changed: {e.FullPath}");
 
 			this.OnFileResourceContentChanged(e.FullPath);
 		}
@@ -168,7 +168,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(e == null)
 				throw new ArgumentNullException(nameof(e));
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryCreated: {0} ({1})", e.FullPath, e.ChangeType);
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryCreated: {e.FullPath} ({e.ChangeType})");
 
 			if(this.FileSystem.Directory.Exists(e.FullPath))
 				return;
@@ -176,7 +176,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(!this.ResourceLocator.IsValidFileResource(e.FullPath))
 				return;
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryCreated: A valid file-resource was created and the file-resources cache will be cleared. The file created: {0}", e.FullPath);
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryCreated: A valid file-resource was created and the file-resources cache will be cleared. The file created: {e.FullPath}");
 
 			this.ClearFileResourcesCache();
 		}
@@ -186,14 +186,14 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(e == null)
 				throw new ArgumentNullException(nameof(e));
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryDeleted: {0} ({1})", e.FullPath, e.ChangeType);
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryDeleted: {e.FullPath} ({e.ChangeType})");
 
 			var matchingFileResource = (this.FileResourcesCache ?? Enumerable.Empty<IFileResource>()).FirstOrDefault(fileResource => string.Equals(fileResource.Path, e.FullPath, StringComparison.OrdinalIgnoreCase));
 
 			if(matchingFileResource == null)
 				return;
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryDeleted: A cached file-resource was physically deleted and the file-resources cache will be cleared. The file deleted: {0}", e.FullPath);
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryDeleted: A cached file-resource was physically deleted and the file-resources cache will be cleared. The file deleted: {e.FullPath}");
 
 			this.ClearFileResourcesCache();
 		}
@@ -203,7 +203,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(e == null)
 				throw new ArgumentNullException(nameof(e));
 
-			this.Logger.LogWarningIfEnabled("OnFileResourcesDirectoryEntryError: {0}", e.GetException());
+			this.Logger.LogWarningIfEnabled(() => $"OnFileResourcesDirectoryEntryError: {e.GetException()}");
 		}
 
 		protected internal virtual void OnFileResourcesDirectoryEntryRenamed(object sender, RenamedEventArgs e)
@@ -211,7 +211,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(e == null)
 				throw new ArgumentNullException(nameof(e));
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryRenamed: from \"{0}\" to \"{1}\" ({2})", e.OldFullPath, e.FullPath, e.ChangeType);
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryRenamed: from \"{e.OldFullPath}\" to \"{e.FullPath}\" ({e.ChangeType})");
 
 			var renamedFilePaths = new List<string>();
 
@@ -223,7 +223,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(!renamedFilePaths.Any(path => this.ResourceLocator.IsValidFileResource(path)))
 				return;
 
-			this.Logger.LogDebugIfEnabled("OnFileResourcesDirectoryEntryRenamed: Valid file-resources were renamed and the file-resources cache will be cleared. Files renamed: \"{0}\"", string.Join("\", \"", renamedFilePaths));
+			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryRenamed: Valid file-resources were renamed and the file-resources cache will be cleared. Files renamed: \"{string.Join("\", \"", renamedFilePaths)}\"");
 
 			this.ClearFileResourcesCache();
 		}

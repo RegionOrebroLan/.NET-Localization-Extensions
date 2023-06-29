@@ -668,7 +668,7 @@ namespace IntegrationTests
 
 			try
 			{
-				settings.FileResourcesDirectory = fileSystem.DirectoryInfo.FromDirectoryName(fileResourcesDirectoryPath);
+				settings.FileResourcesDirectory = fileSystem.DirectoryInfo.New(fileResourcesDirectoryPath);
 			}
 			catch(DirectoryNotFoundException directoryNotFoundException)
 			{

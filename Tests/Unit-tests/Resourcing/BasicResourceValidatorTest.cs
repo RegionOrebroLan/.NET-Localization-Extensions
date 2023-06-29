@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
 using Moq;
 using RegionOrebroLan.Localization.Reflection;
+using UnitTests.Mocks.IO.Abstractions;
 
 namespace UnitTests.Resourcing
 {
@@ -68,17 +69,22 @@ namespace UnitTests.Resourcing
 			fileInfoMock.Setup(fileInfo => fileInfo.Exists).Returns(exists);
 			fileInfoMock.Setup(fileInfo => fileInfo.Extension).Returns(Path.GetExtension(path));
 			fileInfoMock.Setup(fileInfo => fileInfo.FullName).Returns(path);
-			fileInfoMock.Setup(fileInfo => fileInfo.OpenRead()).Returns(this.CreateStream(content));
+			fileInfoMock.Setup(fileInfo => fileInfo.OpenRead()).Returns(this.CreateFileSystemStream(path, content));
 
 			var fileInfoFactoryMock = new Mock<IFileInfoFactory>();
 			fileInfoFactoryMock.SetupAllProperties();
-			fileInfoFactoryMock.Setup(fileInfoFactory => fileInfoFactory.FromFileName(path)).Returns(fileInfoMock.Object);
+			fileInfoFactoryMock.Setup(fileInfoFactory => fileInfoFactory.New(path)).Returns(fileInfoMock.Object);
 
 			fileSystemMock.Setup(fileSystem => fileSystem.File).Returns(fileMock.Object);
 			fileSystemMock.Setup(fileSystem => fileSystem.FileInfo).Returns(fileInfoFactoryMock.Object);
 			fileSystemMock.Setup(fileSystem => fileSystem.Path).Returns(new PathWrapper(fileSystemMock.Object));
 
 			return fileSystemMock.Object;
+		}
+
+		protected internal virtual FileSystemStream CreateFileSystemStream(string path, string value)
+		{
+			return new FileSystemStreamMock(this.CreateStream(value), path, false);
 		}
 
 		[SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Should be disposed by the caller.")]

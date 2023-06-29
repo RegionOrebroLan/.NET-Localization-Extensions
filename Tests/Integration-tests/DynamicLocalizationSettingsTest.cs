@@ -190,7 +190,7 @@ namespace IntegrationTests
 			var fileSystem = serviceProvider.GetRequiredService<IFileSystem>();
 			var localizationSettings = (DynamicLocalizationSettings)serviceProvider.GetRequiredService<IDynamicLocalizationSettings>();
 
-			var fileResourcesDirectory = fileSystem.DirectoryInfo.FromDirectoryName("Z:\\" + Guid.NewGuid().ToString());
+			var fileResourcesDirectory = fileSystem.DirectoryInfo.New("Z:\\" + Guid.NewGuid().ToString());
 
 			Assert.IsFalse(fileResourcesDirectory.Exists);
 

@@ -713,7 +713,7 @@ namespace IntegrationTests.Resourcing
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var subDirectoryPath = Directory.CreateDirectory(Path.Combine(testContext.ConfiguredFileResourcesDirectoryPath, @"Directory\Directory")).FullName;
 
-			resourceProvider.Settings.FileResourcesDirectory = fileSystem.DirectoryInfo.FromDirectoryName(testContext.FileResourcesDirectoryPath);
+			resourceProvider.Settings.FileResourcesDirectory = fileSystem.DirectoryInfo.New(testContext.FileResourcesDirectoryPath);
 
 			Assert.AreEqual(6, resourceProvider.FileResources.Count(), this.PossibleReasonForFailure);
 			Assert.IsNotNull(resourceProvider.FileResourcesCache, this.PossibleReasonForFailure);
@@ -736,7 +736,7 @@ namespace IntegrationTests.Resourcing
 			var testContext = serviceProvider.GetService<ITestContext>();
 			var previousResourcesDirectoryPath = testContext.ConfiguredFileResourcesDirectoryPath;
 
-			resourceProvider.Settings.FileResourcesDirectory = fileSystem.DirectoryInfo.FromDirectoryName(testContext.FileResourcesDirectoryPath);
+			resourceProvider.Settings.FileResourcesDirectory = fileSystem.DirectoryInfo.New(testContext.FileResourcesDirectoryPath);
 
 			Assert.AreEqual(6, resourceProvider.FileResources.Count(), this.PossibleReasonForFailure);
 			Assert.IsNotNull(resourceProvider.FileResourcesCache, this.PossibleReasonForFailure);

@@ -136,7 +136,7 @@ namespace UnitTests.Json.Resourcing
 			const string path = "Invalid-path";
 
 			var fileInfoFactoryMock = new Mock<IFileInfoFactory>();
-			fileInfoFactoryMock.Setup(fileInfoFactory => fileInfoFactory.FromFileName(path)).Throws<ArgumentException>();
+			fileInfoFactoryMock.Setup(fileInfoFactory => fileInfoFactory.New(path)).Throws<ArgumentException>();
 			var fileSystemMock = new Mock<IFileSystem>();
 			fileSystemMock.Setup(theFileSystem => theFileSystem.FileInfo).Returns(fileInfoFactoryMock.Object);
 			var fileSystem = fileSystemMock.Object;
@@ -145,7 +145,7 @@ namespace UnitTests.Json.Resourcing
 
 			try
 			{
-				fileSystem.FileInfo.FromFileName(path);
+				fileSystem.FileInfo.New(path);
 			}
 			catch(Exception exception)
 			{

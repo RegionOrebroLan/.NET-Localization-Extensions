@@ -116,7 +116,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 				}
 			}
 
-			foreach(var file in this.FileSystem.DirectoryInfo.FromDirectoryName(directoryPath).EnumerateFiles(searchPattern))
+			foreach(var file in this.FileSystem.DirectoryInfo.New(directoryPath).EnumerateFiles(searchPattern))
 			{
 				yield return file;
 			}

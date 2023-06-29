@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions;
 using System.Linq;
@@ -53,7 +53,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 
 			try
 			{
-				return this.IsValidFileResource(this.FileSystem.FileInfo.FromFileName(path));
+				return this.IsValidFileResource(this.FileSystem.FileInfo.New(path));
 			}
 			catch
 			{

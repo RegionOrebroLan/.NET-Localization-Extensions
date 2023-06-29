@@ -82,7 +82,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			if(settings == null)
 				throw new ArgumentNullException(nameof(settings));
 
-			var fileSystemWatcher = fileSystem.FileSystemWatcher.CreateNew();
+			var fileSystemWatcher = fileSystem.FileSystemWatcher.New();
 
 			this.SetFileSystemWatcher(settings.FileResourcesDirectory, fileSystemWatcher, hostEnvironment);
 

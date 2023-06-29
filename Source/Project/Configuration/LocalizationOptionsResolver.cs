@@ -73,7 +73,7 @@ namespace RegionOrebroLan.Localization.Configuration
 				if(!this.FileSystem.Path.IsPathRooted(path))
 					path = this.FileSystem.Path.Combine(this.HostEnvironment.ContentRootPath, path);
 
-				fileResourcesDirectory = this.FileSystem.DirectoryInfo.FromDirectoryName(path);
+				fileResourcesDirectory = this.FileSystem.DirectoryInfo.New(path);
 			}
 			// ReSharper restore InvertIf
 

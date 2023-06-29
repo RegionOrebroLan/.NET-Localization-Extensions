@@ -16,16 +16,16 @@ The functional idea behind it:
 
 ### 1.1 Features
 
-- **Localizable strings (translations) in json- and/or xml-files** - Manage your localizable strings in [json-](/Source/Embedded-resources/Colors/Colors.en.json) and/or [xml-files](/Source/Embedded-resources/Animals/Animals.en.xml)
+- **Localizable strings (translations) in json- and/or xml-files** - Manage your localizable strings in [json-](/Embedded-resources/Colors/Colors.en.json) and/or [xml-files](/Embedded-resources/Animals/Animals.en.xml)
 - **Localizable strings in embedded- and/or file-resources** - Both embedded- and file-resources are supported.
 - **Caching and changable at runtime** - Localizable strings can be changed, added and removed at runtime. Resources and resource-entries are cached and if changes occurs the cache is cleared.
 - **Caching and NOT changable at runtime** - If we don't want a dynamic cache we can use a static cache. To get our changed resources, we need an application restart. That is, we need an application restart to clear the cache. Regarding configuration, see below.
-- **Previously declared localizable strings can be overrided** - A value for a path can be overridden with the same path in another or the same resource. The last path will be the one that applies. Embedded-resources are read in the order they are added and file-resources are read in normal file-system order. Embedded-resources are read before file-resources. The order can be changed by setting a [priority-attribute](/Source/Embedded-resources/Prioritized-words/Prioritized-words.json#L6). The resource with the highest priority will be read last.
+- **Previously declared localizable strings can be overrided** - A value for a path can be overridden with the same path in another or the same resource. The last path will be the one that applies. Embedded-resources are read in the order they are added and file-resources are read in normal file-system order. Embedded-resources are read before file-resources. The order can be changed by setting a [priority-attribute](/Embedded-resources/Prioritized-words/Prioritized-words.json#L6). The resource with the highest priority will be read last.
 - **Lookup** - A value for a path can be looked up on another path. If an entry have both a lookup-value and a value, the value will apply.
 - **Rooted path for typed string-localizer** - If you have a typed string-localizer, eg. IStringLocalizer&lt;HomeController&gt;, you can still get localized strings by the full path with a leading colon, eg localizer[":the.full.path"].
 - **Case-insensitive path declaration** - Path declaration is case-insensitive and path-separators are ".", "/" or "\\".
 - **Resource-names** - The name of a resource does not affect the culture. The culture is set in the resource.
-- **Root-namespace-attribute can be used** - [Example](/Source/Embedded-resources/Root-namespaced-resources/Properties/Assembly-Information.cs#L3)
+- **Root-namespace-attribute can be used** - [Example](/Embedded-resources/Root-namespaced-resources/Properties/Assembly-Information.cs#L3)
 
 ### 1.2 Configuration & settings
 

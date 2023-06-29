@@ -19,6 +19,7 @@ The functional idea behind it:
 - **Localizable strings (translations) in json- and/or xml-files** - Manage your localizable strings in [json-](/Source/Embedded-resources/Colors/Colors.en.json) and/or [xml-files](/Source/Embedded-resources/Animals/Animals.en.xml)
 - **Localizable strings in embedded- and/or file-resources** - Both embedded- and file-resources are supported.
 - **Caching and changable at runtime** - Localizable strings can be changed, added and removed at runtime. Resources and resource-entries are cached and if changes occurs the cache is cleared.
+- **Caching and NOT changable at runtime** - If we don't want a dynamic cache we can use a static cache. To get our changed resources, we need an application restart. That is, we need an application restart to clear the cache. Regarding configuration, see below.
 - **Previously declared localizable strings can be overrided** - A value for a path can be overridden with the same path in another or the same resource. The last path will be the one that applies. Embedded-resources are read in the order they are added and file-resources are read in normal file-system order. Embedded-resources are read before file-resources. The order can be changed by setting a [priority-attribute](/Source/Embedded-resources/Prioritized-words/Prioritized-words.json#L6). The resource with the highest priority will be read last.
 - **Lookup** - A value for a path can be looked up on another path. If an entry have both a lookup-value and a value, the value will apply.
 - **Rooted path for typed string-localizer** - If you have a typed string-localizer, eg. IStringLocalizer&lt;HomeController&gt;, you can still get localized strings by the full path with a leading colon, eg localizer[":the.full.path"].
@@ -68,92 +69,65 @@ AppSettings.json example:
 
 ### 1.3 Setup
 
-Example: [Web-application startup](/Source/Samples/Path-Based-Localization/Startup.cs#L70)
+Example: [Web-application startup](/Samples/Path-Based-Localization/Program.cs#L22)
 
 #### 1.3.1 With AppSettings.json
 
-    using System;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using RegionOrebroLan.Localization.DependencyInjection.Extensions;
+	...
 
-    namespace Company.WebApplication
+	builder.Services.AddPathBasedLocalization(this.Configuration);
+
+	...
+
+##### 1.3.1.1 If we want to use a static cache - AppSettings.json
+
     {
-	    public class Startup
-	    {
-		    public Startup(IConfiguration configuration)
-		    {
-			    this.Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-		    }
-
-		    public virtual IConfiguration Configuration { get; }
-
-		    public virtual void ConfigureServices(IServiceCollection services)
-		    {
-			    if(services == null)
-				    throw new ArgumentNullException(nameof(services));
-
-			    // ...
-
-			    services.AddPathBasedLocalization(this.Configuration);
-
-			    // ...
-		    }
+	    "LocalizationDependencyInjection": {
+		    "StaticCache": true
 	    }
     }
 
 #### 1.3.2 Action
 
-    using System;
-    using Microsoft.Extensions.DependencyInjection;
-    using RegionOrebroLan.Localization.DependencyInjection.Extensions;
+	...
 
-    namespace Company.WebApplication
+	builder.Services.AddPathBasedLocalization(localizationOptions =>
     {
-	    public class Startup
-	    {
-		    public virtual void ConfigureServices(IServiceCollection services)
-		    {
-			    if(services == null)
-				    throw new ArgumentNullException(nameof(services));
+		localizationOptions.AlphabeticalSorting = true;
+		localizationOptions.EmbeddedResourceAssemblies.Add("Assembly-name"); // Can be an assembly-name, assembly-name-pattern (MyAssembly*) or an assembly-fullname. 
+		localizationOptions.FileResourcesDirectoryPath = "Resources";
+    });
 
-			    // ...
-                
-               services.AddPathBasedLocalization(localizationOptions =>
-			    {
-					localizationOptions.AlphabeticalSorting = true;
-					localizationOptions.EmbeddedResourceAssemblies.Add("Assembly-name"); // Can be an assembly-name, assembly-name-pattern (MyAssembly*) or an assembly-fullname. 
-					localizationOptions.FileResourcesDirectoryPath = "Resources";
-			    });
+	...
 
-			    // ...
-		    }
-	    }
-    }
+##### 1.3.2.1 If we want to use a static cache
+
+	...
+
+	builder.Services.AddPathBasedLocalization(localizationOptions =>
+    {
+		localizationOptions.AlphabeticalSorting = true;
+		localizationOptions.EmbeddedResourceAssemblies.Add("Assembly-name"); // Can be an assembly-name, assembly-name-pattern (MyAssembly*) or an assembly-fullname. 
+		localizationOptions.FileResourcesDirectoryPath = "Resources";
+    }, true);
+
+	...
 
 #### 1.3.3 Default
 
-    using System;
-    using Microsoft.Extensions.DependencyInjection;
-    using RegionOrebroLan.Localization.DependencyInjection.Extensions;
+    ...
 
-    namespace Company.WebApplication
-    {
-	    public class Startup
-	    {
-		    public virtual void ConfigureServices(IServiceCollection services)
-		    {
-			    if(services == null)
-				    throw new ArgumentNullException(nameof(services));
+	builder.Services.AddPathBasedLocalization();
 
-			    // ...
+	...
 
-			    services.AddPathBasedLocalization();
+##### 1.3.3.1 If we want to use a static cache
 
-			    // ...
-		    }
-	    }
-    }
+    ...
+
+	builder.Services.AddPathBasedLocalization(true);
+
+	...
 
 ### 1.4 Examples
 
@@ -230,17 +204,17 @@ A localization-entry can be a lookup to another entry:
 
 #### 1.4.3 Embedded resources
 
-- [Animals](/Source/Embedded-resources/Animals/)
-- [Colors](/Source/Embedded-resources/Colors/)
-- [Numbers](/Source/Embedded-resources/Numbers/)
-- [Prioritized-words](/Source/Embedded-resources/Prioritized-words/)
-- [Root-namespaced-resources](/Source/Embedded-resources/Root-namespaced-resources/)
-- [Words](/Source/Embedded-resources/Words/)
+- [Animals](/Embedded-resources/Animals/)
+- [Colors](/Embedded-resources/Colors/)
+- [Numbers](/Embedded-resources/Numbers/)
+- [Prioritized-words](/Embedded-resources/Prioritized-words/)
+- [Root-namespaced-resources](/Embedded-resources/Root-namespaced-resources/)
+- [Words](/Embedded-resources/Words/)
 
 #### 1.4.4 Sample-applications
 
-- [Path-Based-Localization-Web-Application](/Source/Samples/Path-Based-Localization/): Web-application with path-based localization
-- [Resx-Localization-Web-Application](/Source/Samples/Resx-Localization/): Web-application with RESX-localization
+- [Path-Based-Localization-Web-Application](/Samples/Path-Based-Localization/): Web-application with path-based localization
+- [Resx-Localization-Web-Application](/Samples/Resx-Localization/): Web-application with RESX-localization
 
 ## 2 Development
 

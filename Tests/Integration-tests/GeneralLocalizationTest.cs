@@ -579,6 +579,50 @@ namespace IntegrationTests
 		}
 
 		[TestMethod]
+		public void Configuration_StaticCache_IfConfigurationChanged_ShouldNotClearTheCache()
+		{
+			var serviceProvider = this.BuildServiceProvider("Configuration-Default-StaticCache.json");
+			var stringLocalizer = (StringLocalizer)((StringLocalizer)serviceProvider.GetService<IStringLocalizer>()).Clone(CultureInfo.GetCultureInfo("en"));
+			var testContext = serviceProvider.GetService<ITestContext>();
+
+			Assert.AreEqual(34, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
+
+			var configurationContent = File.ReadAllText(testContext.ConfigurationFilePath);
+			var configuredFileResourcesDirectoryRelativePathValue = testContext.ConfiguredFileResourcesDirectoryRelativePath.Replace(@"\", @"\\", StringComparison.Ordinal);
+			var emptyDirectoryRelativePathValue = testContext.EmptyDirectoryRelativePath.Replace(@"\", @"\\", StringComparison.Ordinal);
+			configurationContent = configurationContent.Replace(configuredFileResourcesDirectoryRelativePathValue, emptyDirectoryRelativePathValue, StringComparison.Ordinal);
+			File.WriteAllText(testContext.ConfigurationFilePath, configurationContent);
+
+			Thread.Sleep(300);
+
+			Assert.AreEqual(34, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
+
+			var configurationContentLines = File.ReadAllLines(testContext.ConfigurationFilePath).Where((value, index) => index is < 2 or > 9).ToArray();
+			configurationContent = string.Join(Environment.NewLine, configurationContentLines);
+			File.WriteAllText(testContext.ConfigurationFilePath, configurationContent);
+
+			Thread.Sleep(300);
+
+			Assert.AreEqual(34, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
+
+			configurationContent = File.ReadAllText(testContext.ConfigurationFilePath);
+			configurationContent = configurationContent.Replace(emptyDirectoryRelativePathValue, configuredFileResourcesDirectoryRelativePathValue, StringComparison.Ordinal);
+			File.WriteAllText(testContext.ConfigurationFilePath, configurationContent);
+
+			Thread.Sleep(300);
+
+			Assert.AreEqual(34, stringLocalizer.GetAllStrings(false).Count(), this.PossibleReasonForFailure);
+		}
+
+		[TestMethod]
+		public void Configuration_StaticCache_ShouldRegisterStaticCacheLocalizationProviderAsLocalizationProvider()
+		{
+			var serviceProvider = this.BuildServiceProvider("Configuration-Default-StaticCache.json");
+			var localizationProvider = serviceProvider.GetService<ILocalizationProvider>();
+			Assert.IsTrue(localizationProvider is StaticCacheLocalizationProvider);
+		}
+
+		[TestMethod]
 		[ExpectedException(typeof(InvalidOperationException))]
 		public void LocalizationSettings_IfAnyInvalidAssemblyNameIsConfiguredForEmbeddedResourceAssemblies_ShouldThrowAnInvalidOperationException()
 		{

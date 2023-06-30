@@ -9,7 +9,7 @@ Path-based localization implemented with JSON- and XML-localization.
 
 Built on ASP.NET Core localization:
 - [Globalization and localization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization/)
-- [GitHub](https://github.com/aspnet/Extensions/tree/master/src/Localization/)
+- [GitHub](https://github.com/dotnet/aspnetcore/tree/main/src/Localization)
 
 The functional idea behind it:
 - [EPiServer: Localizing the user interface](https://world.episerver.com/documentation/developer-guides/CMS/globalization/localizing-the-user-interface/)

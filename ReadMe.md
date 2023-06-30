@@ -75,7 +75,7 @@ Example: [Web-application startup](/Samples/Path-Based-Localization/Program.cs#L
 
 	...
 
-	builder.Services.AddPathBasedLocalization(this.Configuration);
+	builder.Services.AddPathBasedLocalization(builder.Configuration);
 
 	...
 

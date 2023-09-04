@@ -8,7 +8,7 @@
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<LangVersion>10.0</LangVersion>
+		<LangVersion>latest</LangVersion>
 		<NoWarn>CA1014</NoWarn>
 		<SignAssembly>true</SignAssembly>
 		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>

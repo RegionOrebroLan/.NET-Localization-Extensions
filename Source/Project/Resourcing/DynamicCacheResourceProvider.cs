@@ -220,7 +220,7 @@ namespace RegionOrebroLan.Localization.Resourcing
 			else
 				renamedFilePaths.Add(e.FullPath);
 
-			if(!renamedFilePaths.Any(path => this.ResourceLocator.IsValidFileResource(path)))
+			if(!renamedFilePaths.Any(this.ResourceLocator.IsValidFileResource))
 				return;
 
 			this.Logger.LogDebugIfEnabled(() => $"OnFileResourcesDirectoryEntryRenamed: Valid file-resources were renamed and the file-resources cache will be cleared. Files renamed: \"{string.Join("\", \"", renamedFilePaths)}\"");

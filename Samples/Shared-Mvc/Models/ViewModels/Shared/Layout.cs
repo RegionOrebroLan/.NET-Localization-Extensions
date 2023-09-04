@@ -210,7 +210,7 @@ namespace Application.Models.ViewModels.Shared
 		{
 			get
 			{
-				this._requestCultureFeature ??= new Lazy<IRequestCultureFeature>(() => this.HttpContext.Features.Get<IRequestCultureFeature>());
+				this._requestCultureFeature ??= new Lazy<IRequestCultureFeature>(this.HttpContext.Features.Get<IRequestCultureFeature>);
 
 				return this._requestCultureFeature.Value;
 			}

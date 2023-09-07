@@ -75,17 +75,6 @@ namespace IntegrationTests
 
 		#region Methods
 
-		[AssemblyCleanup]
-		public static void Cleanup()
-		{
-			var testRootDirectoryPath = Path.Combine(ProjectDirectoryPath, TestRootDirectoryRelativePath);
-
-			Thread.Sleep(200);
-
-			if(Directory.Exists(testRootDirectoryPath))
-				Directory.Delete(testRootDirectoryPath, true);
-		}
-
 		public static ServiceCollection CreateDefaultServices()
 		{
 			var services = new ServiceCollection();

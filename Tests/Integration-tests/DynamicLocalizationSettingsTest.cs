@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
@@ -206,7 +205,6 @@ namespace IntegrationTests
 		}
 
 		[TestMethod]
-		[SuppressMessage("Design", "CA1031:Do not catch general exception types")]
 		public void FileResourcesDirectory_Set_IfTheParameterIsNull_ShouldNotThrowAnException()
 		{
 			var serviceProvider = this.BuildServiceProvider("Configuration-Empty.json");

@@ -1,15 +1,16 @@
 <Project>
 	<PropertyGroup>
-		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
-		<AnalysisLevel>6.0</AnalysisLevel>
 		<AssemblyOriginatorKeyFile>$(SolutionDir)StrongName.Development.snk</AssemblyOriginatorKeyFile>
 		<CheckEolTargetFramework>false</CheckEolTargetFramework>
 		<DelaySign>false</DelaySign>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<!-- Below is a workaround for https://github.com/dotnet/roslyn/issues/41640 -->
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<!--<ImplicitUsings>enable</ImplicitUsings>-->
 		<LangVersion>latest</LangVersion>
-		<NoWarn>CA1014</NoWarn>
+		<!-- Below is for the same workaround as above. -->
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
+		<!--<Nullable>enable</Nullable>-->
 		<SignAssembly>true</SignAssembly>
 		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>

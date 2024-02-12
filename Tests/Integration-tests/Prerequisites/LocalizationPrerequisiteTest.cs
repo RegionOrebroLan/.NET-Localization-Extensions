@@ -31,7 +31,7 @@ namespace IntegrationTests.Prerequisites
 		[ClassCleanup]
 		public static void Cleanup() { }
 
-		private static IServiceProvider ConfigureServices(string resourcesRelativePath)
+		private static ServiceProvider ConfigureServices(string resourcesRelativePath)
 		{
 			var services = Global.CreateDefaultServices();
 

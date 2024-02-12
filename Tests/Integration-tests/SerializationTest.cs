@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -53,7 +52,6 @@ namespace IntegrationTests
 
 		#region Methods
 
-		[SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Should be disposed by the caller.")]
 		protected internal virtual Stream CreateStream(string value)
 		{
 			var memoryStream = new MemoryStream();

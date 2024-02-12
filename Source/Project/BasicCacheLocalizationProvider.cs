@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using Microsoft.Extensions.Logging;
@@ -106,9 +105,7 @@ namespace RegionOrebroLan.Localization
 			}
 		}
 
-		[SuppressMessage("Usage", "CA2227:Collection properties should be read only")]
 		protected internal virtual IDictionary<IResource, string> ResourceContentCache { get; set; }
-
 		protected internal virtual object ResourceContentLock { get; } = new();
 		protected internal virtual TResourceProvider ResourceProvider { get; }
 		protected internal virtual IEnumerable<IResource> Resources => ((IEnumerable<IResource>)this.ResourceProvider.EmbeddedResources).Concat(this.ResourceProvider.FileResources);
@@ -137,7 +134,6 @@ namespace RegionOrebroLan.Localization
 			return firstLocalization.Priority.Value.CompareTo(secondLocalization.Priority.Value);
 		}
 
-		[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
 		public virtual ILocalizedString Get(IEnumerable<object> arguments, IAssembly assembly, CultureInfo culture, string name, string path)
 		{
 			if(assembly == null)

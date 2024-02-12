@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RegionOrebroLan.Localization.Reflection;
@@ -75,7 +74,6 @@ namespace UnitTests.Validation
 		}
 
 		[TestMethod]
-		[SuppressMessage("Design", "CA1031:Do not catch general exception types")]
 		public void Validate_WithAssemblyCollectionParameter_IfTheParameterIsNull_ShouldNotThrowAnException()
 		{
 			try
@@ -157,7 +155,6 @@ namespace UnitTests.Validation
 		}
 
 		[TestMethod]
-		[SuppressMessage("Design", "CA1031:Do not catch general exception types")]
 		public void Validate_WithPatternCollectionParameter_IfTheParameterIsNull_ShouldNotThrowAnException()
 		{
 			try

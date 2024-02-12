@@ -138,7 +138,6 @@ namespace IntegrationTests
 
 		[TestMethod]
 		[ExpectedException(typeof(DirectoryNotFoundException))]
-		[SuppressMessage("Design", "CA1031:Do not catch general exception types")]
 		public void Configuration_IfTheFileResourcesDirectoryPathDoesNotExist_ShouldThrowADirectoryNotFoundException()
 		{
 			IServiceProvider serviceProvider = null;
@@ -644,7 +643,6 @@ namespace IntegrationTests
 
 		[TestMethod]
 		[ExpectedException(typeof(DirectoryNotFoundException))]
-		[SuppressMessage("Design", "CA1031:Do not catch general exception types")]
 		public void LocalizationSettings_IfTheFileResourcesDirectoryIsChangedToADirectoryThatDoesNotExist_ShouldThrowADirectoryNotFoundException()
 		{
 			IFileSystem fileSystem = null;
@@ -832,7 +830,6 @@ namespace IntegrationTests
 			this.StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(culture, true, 23, stringLocalizer);
 		}
 
-		[SuppressMessage("Design", "CA1062:Validate arguments of public methods")]
 		protected internal virtual void StringLocalizer_GetAllStrings_ShouldReturnACollectionOfLocalizedStringsOrderedByNameByDefault(CultureInfo culture, bool includeParentCultures, int numberOfItems, IStringLocalizer stringLocalizer)
 		{
 			var localizedStrings = ((StringLocalizer)stringLocalizer).Clone(culture).GetAllStrings(includeParentCultures).ToArray();

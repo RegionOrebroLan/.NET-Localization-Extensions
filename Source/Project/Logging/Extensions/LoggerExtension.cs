@@ -107,7 +107,7 @@ namespace RegionOrebroLan.Localization.Logging.Extensions
 
 			var message = messageFunction?.Invoke();
 
-			logger.Log(logLevel, 0, exception, message, Array.Empty<object>());
+			logger.Log(logLevel, 0, exception, message, []);
 		}
 
 		private static void LogIfEnabled(this ILogger logger, EventId eventId, Exception exception, LogLevel logLevel, string message, params object[] arguments)

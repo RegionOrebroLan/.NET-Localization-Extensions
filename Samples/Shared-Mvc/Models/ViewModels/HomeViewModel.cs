@@ -3,17 +3,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace Application.Models.ViewModels
 {
-	public class HomeViewModel : ViewModel, IHomeViewModel
+	public class HomeViewModel(HttpContext httpContext) : ViewModel(httpContext), IHomeViewModel
 	{
 		#region Fields
 
 		private Lazy<DateTime> _now;
-
-		#endregion
-
-		#region Constructors
-
-		public HomeViewModel(HttpContext httpContext) : base(httpContext) { }
 
 		#endregion
 

@@ -3,17 +3,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace Application.Models.ViewModels
 {
-	public class FormViewModel : ViewModel, IFormViewModel
+	public class FormViewModel(HttpContext httpContext) : ViewModel(httpContext), IFormViewModel
 	{
 		#region Fields
 
 		private Form _form;
-
-		#endregion
-
-		#region Constructors
-
-		public FormViewModel(HttpContext httpContext) : base(httpContext) { }
 
 		#endregion
 

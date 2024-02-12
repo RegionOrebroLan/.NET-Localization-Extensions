@@ -10,19 +10,13 @@ using Microsoft.Extensions.Options;
 
 namespace Application.Models.ViewModels
 {
-	public class InformationViewModel : ViewModel, IInformationViewModel
+	public class InformationViewModel(HttpContext httpContext) : ViewModel(httpContext), IInformationViewModel
 	{
 		#region Fields
 
 		private Lazy<IRequestCultureFeature> _requestCultureFeature;
 		private Lazy<RequestLocalizationOptions> _requestLocalizationOptions;
 		private IDictionary<string, object> _routeDictionary;
-
-		#endregion
-
-		#region Constructors
-
-		public InformationViewModel(HttpContext httpContext) : base(httpContext) { }
 
 		#endregion
 

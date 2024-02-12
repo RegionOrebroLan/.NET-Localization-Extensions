@@ -44,8 +44,12 @@ namespace IntegrationTests.Prerequisites
 		public void Constructor_WithOneParameter_IfTheResourceSourceParameterIsTypeofString_ShouldSetTheBaseNameToString()
 		{
 			var resourceManager = new ResourceManager(typeof(string));
-
-			Assert.AreEqual("String", resourceManager.BaseName);
+#if NET8_0
+			const string expected = "System.String";
+#else
+			const string expected = "String";
+#endif
+			Assert.AreEqual(expected, resourceManager.BaseName);
 		}
 
 		[TestMethod]

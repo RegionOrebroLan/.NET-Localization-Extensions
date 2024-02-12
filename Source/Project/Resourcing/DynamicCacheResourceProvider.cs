@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RegionOrebroLan.Localization.Logging.Extensions;

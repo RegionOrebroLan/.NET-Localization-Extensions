@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using System.IO.Abstractions;
 using System.Xml;
 using RegionOrebroLan.Localization.Reflection;

@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RegionOrebroLan.Localization;

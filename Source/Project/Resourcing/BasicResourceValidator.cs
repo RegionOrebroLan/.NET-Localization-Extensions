@@ -1,7 +1,5 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions;
-using System.Linq;
 using RegionOrebroLan.Localization.Reflection;
 
 namespace RegionOrebroLan.Localization.Resourcing

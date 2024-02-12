@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Options;

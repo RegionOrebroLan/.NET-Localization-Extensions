@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Extensions.Localization;
 
 namespace RegionOrebroLan.Localization.Reflection

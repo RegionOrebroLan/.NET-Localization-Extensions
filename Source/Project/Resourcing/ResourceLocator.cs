@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO.Abstractions;
-using System.Linq;
 using Microsoft.Extensions.Logging;
 using RegionOrebroLan.Localization.Reflection;
 using RegionOrebroLan.Localization.Resourcing.Extensions;

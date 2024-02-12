@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.IO.Abstractions;
 using Microsoft.Extensions.Options;
 using RegionOrebroLan.Localization.Configuration;

@@ -1,4 +1,3 @@
-using System;
 using Investigation.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;

@@ -1,11 +1,6 @@
-using System.Collections.Generic;
 using Application.DependencyInjection.Extensions;
 using Application.Localization.Extensions;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using Shared.DependencyInjection.Extensions;
 using Shared.Globalization;

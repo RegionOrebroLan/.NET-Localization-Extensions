@@ -1,5 +1,3 @@
-using System;
-
 namespace Application.Models.ViewModels
 {
 	public interface IHomeViewModel : IViewModel

@@ -1,6 +1,4 @@
-using System;
 using System.Globalization;
-using System.Linq;
 using Investigation.Localization;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;

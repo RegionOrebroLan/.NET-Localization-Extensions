@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using RegionOrebroLan.Localization.Resourcing;
 using RegionOrebroLan.Localization.Serialization;
 

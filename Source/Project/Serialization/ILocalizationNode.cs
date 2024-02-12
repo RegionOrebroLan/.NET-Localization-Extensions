@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RegionOrebroLan.Localization.Serialization
+﻿namespace RegionOrebroLan.Localization.Serialization
 {
 	public interface ILocalizationNode
 	{

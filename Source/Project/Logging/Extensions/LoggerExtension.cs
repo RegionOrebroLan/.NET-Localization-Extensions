@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Extensions.Logging;
 
 namespace RegionOrebroLan.Localization.Logging.Extensions

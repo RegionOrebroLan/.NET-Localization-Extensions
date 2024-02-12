@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RegionOrebroLan.Localization.Configuration
+﻿namespace RegionOrebroLan.Localization.Configuration
 {
 	public class LocalizationOptions
 	{

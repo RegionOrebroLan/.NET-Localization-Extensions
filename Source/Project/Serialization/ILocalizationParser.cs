@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using RegionOrebroLan.Localization.Resourcing;
+﻿using RegionOrebroLan.Localization.Resourcing;
 
 namespace RegionOrebroLan.Localization.Serialization
 {

@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using System.IO.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

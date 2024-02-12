@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using RegionOrebroLan.Localization.Reflection;
+﻿using RegionOrebroLan.Localization.Reflection;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {

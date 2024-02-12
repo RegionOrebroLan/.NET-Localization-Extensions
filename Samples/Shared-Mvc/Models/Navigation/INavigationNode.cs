@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Application.Models.Navigation
 {
 	public interface INavigationNode

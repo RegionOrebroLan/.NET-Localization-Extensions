@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Xml;
 using System.Xml.Serialization;
 using RegionOrebroLan.Localization.Resourcing;

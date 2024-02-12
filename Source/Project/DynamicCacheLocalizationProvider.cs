@@ -1,6 +1,4 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Microsoft.Extensions.Logging;
 using RegionOrebroLan.Localization.Logging.Extensions;
 using RegionOrebroLan.Localization.Resourcing;

@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Globalization;
-using System.IO;
 
 namespace RegionOrebroLan.Localization.Reflection
 {

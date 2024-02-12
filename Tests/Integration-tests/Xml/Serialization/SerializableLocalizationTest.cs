@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RegionOrebroLan.Localization.Xml.Serialization;
 
 namespace IntegrationTests.Xml.Serialization

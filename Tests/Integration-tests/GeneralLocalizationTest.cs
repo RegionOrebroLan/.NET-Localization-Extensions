@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
 using System.Reflection;
-using System.Threading;
 using IntegrationTests.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace RegionOrebroLan.Localization.Reflection.Extensions
+﻿namespace RegionOrebroLan.Localization.Reflection.Extensions
 {
 	public static class AssemblyHelperExtension
 	{

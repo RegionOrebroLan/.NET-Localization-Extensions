@@ -1,4 +1,3 @@
-using System;
 using RegionOrebroLan.Localization.Serialization;
 
 namespace RegionOrebroLan.Localization.Resourcing

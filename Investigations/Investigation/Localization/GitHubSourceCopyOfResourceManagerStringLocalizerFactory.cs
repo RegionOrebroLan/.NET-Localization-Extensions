@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Reflection;
 using System.Resources;
 using Microsoft.Extensions.Localization;

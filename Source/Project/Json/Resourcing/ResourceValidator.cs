@@ -1,4 +1,3 @@
-using System;
 using System.IO.Abstractions;
 using RegionOrebroLan.Localization.Reflection;
 using RegionOrebroLan.Localization.Resourcing;

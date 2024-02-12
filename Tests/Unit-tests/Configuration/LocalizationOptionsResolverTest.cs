@@ -1,4 +1,3 @@
-using System;
 using System.IO.Abstractions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

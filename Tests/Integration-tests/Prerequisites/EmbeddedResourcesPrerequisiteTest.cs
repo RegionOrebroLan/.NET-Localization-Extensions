@@ -1,6 +1,4 @@
 ﻿using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

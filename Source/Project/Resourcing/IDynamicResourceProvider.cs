@@ -1,5 +1,3 @@
-using System;
-
 namespace RegionOrebroLan.Localization.Resourcing
 {
 	public interface IDynamicResourceProvider : IResourceProvider

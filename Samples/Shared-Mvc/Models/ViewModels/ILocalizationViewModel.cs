@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Application.Models.Navigation;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;

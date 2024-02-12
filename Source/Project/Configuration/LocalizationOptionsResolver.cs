@@ -1,6 +1,4 @@
-using System;
 using System.IO.Abstractions;
-using System.Linq;
 using Microsoft.Extensions.Hosting;
 using RegionOrebroLan.Localization.Collections.Extensions;
 using RegionOrebroLan.Localization.Reflection;

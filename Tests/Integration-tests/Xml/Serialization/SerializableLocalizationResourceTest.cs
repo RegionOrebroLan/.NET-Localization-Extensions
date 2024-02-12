@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Xml;
+﻿using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RegionOrebroLan.Localization.Xml.Serialization;
 

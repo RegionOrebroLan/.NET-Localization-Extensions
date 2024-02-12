@@ -1,9 +1,5 @@
-using System;
-using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
 using System.Text;
-using System.Threading;
 using IntegrationTests.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

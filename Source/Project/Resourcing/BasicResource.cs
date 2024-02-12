@@ -1,5 +1,4 @@
-﻿using System;
-using RegionOrebroLan.Localization.Reflection;
+﻿using RegionOrebroLan.Localization.Reflection;
 using RegionOrebroLan.Localization.Serialization;
 
 namespace RegionOrebroLan.Localization.Resourcing

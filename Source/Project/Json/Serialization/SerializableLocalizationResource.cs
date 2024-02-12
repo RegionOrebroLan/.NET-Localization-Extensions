@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RegionOrebroLan.Localization.Json.Serialization
+﻿namespace RegionOrebroLan.Localization.Json.Serialization
 {
 	public class SerializableLocalizationResource : SerializableObject
 	{

@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO.Abstractions;
+﻿using System.IO.Abstractions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RegionOrebroLan.Localization.Xml.Resourcing;

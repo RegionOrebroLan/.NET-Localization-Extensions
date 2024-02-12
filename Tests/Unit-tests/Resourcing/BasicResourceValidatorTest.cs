@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
 using Moq;
 using RegionOrebroLan.Localization.Reflection;
 using UnitTests.Mocks.IO.Abstractions;

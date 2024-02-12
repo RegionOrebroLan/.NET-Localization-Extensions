@@ -1,5 +1,3 @@
-using System;
-
 namespace RegionOrebroLan.Localization.Resourcing
 {
 	public class FileResourceChangedEventArgs(string path) : EventArgs

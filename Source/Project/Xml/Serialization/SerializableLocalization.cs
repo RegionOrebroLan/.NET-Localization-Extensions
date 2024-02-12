@@ -93,7 +93,7 @@ namespace RegionOrebroLan.Localization.Xml.Serialization
 				writer.WriteAttributeString(this.NameAttributeName, this.CultureName);
 
 			if(this.Priority != null)
-				writer.WriteAttributeString(this.PriorityAttributeName, this.Priority.ToString());
+				writer.WriteAttributeString(this.PriorityAttributeName, this.Priority.Value.ToString((IFormatProvider)null));
 
 			base.WriteXml(writer);
 		}

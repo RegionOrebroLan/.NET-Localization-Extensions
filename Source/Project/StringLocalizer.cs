@@ -9,25 +9,12 @@ using RegionOrebroLan.Localization.Reflection;
 namespace RegionOrebroLan.Localization
 {
 	/// <inheritdoc cref="IStringLocalizer" />
-	public class StringLocalizer : ICloneable, IStringLocalizer
+	public class StringLocalizer(IAssembly assembly, CultureInfo culture, ILocalizationProvider localizationProvider, ILogger logger, string path) : ICloneable, IStringLocalizer
 	{
-		#region Constructors
-
-		public StringLocalizer(IAssembly assembly, CultureInfo culture, ILocalizationProvider localizationProvider, ILogger logger, string path)
-		{
-			this.Assembly = assembly ?? throw new ArgumentNullException(nameof(assembly));
-			this.Culture = culture;
-			this.LocalizationProvider = localizationProvider ?? throw new ArgumentNullException(nameof(localizationProvider));
-			this.Logger = logger ?? throw new ArgumentNullException(nameof(logger));
-			this.Path = path;
-		}
-
-		#endregion
-
 		#region Properties
 
-		protected internal virtual IAssembly Assembly { get; }
-		protected internal virtual CultureInfo Culture { get; }
+		protected internal virtual IAssembly Assembly { get; } = assembly ?? throw new ArgumentNullException(nameof(assembly));
+		protected internal virtual CultureInfo Culture { get; } = culture;
 
 		[CLSCompliant(false)]
 		public virtual LocalizedString this[string name] => this.GetLocalizedString(name, null);
@@ -35,9 +22,9 @@ namespace RegionOrebroLan.Localization
 		[CLSCompliant(false)]
 		public virtual LocalizedString this[string name, params object[] arguments] => this.GetLocalizedString(name, arguments);
 
-		protected internal virtual ILocalizationProvider LocalizationProvider { get; }
-		protected internal virtual ILogger Logger { get; }
-		protected internal virtual string Path { get; }
+		protected internal virtual ILocalizationProvider LocalizationProvider { get; } = localizationProvider ?? throw new ArgumentNullException(nameof(localizationProvider));
+		protected internal virtual ILogger Logger { get; } = logger ?? throw new ArgumentNullException(nameof(logger));
+		protected internal virtual string Path { get; } = path;
 
 		#endregion
 

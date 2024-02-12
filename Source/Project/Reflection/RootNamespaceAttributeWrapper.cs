@@ -4,21 +4,12 @@ using Microsoft.Extensions.Localization;
 namespace RegionOrebroLan.Localization.Reflection
 {
 	[CLSCompliant(false)]
-	public class RootNamespaceAttributeWrapper : IRootNamespace
+	public class RootNamespaceAttributeWrapper(RootNamespaceAttribute rootNamespaceAttribute) : IRootNamespace
 	{
-		#region Constructors
-
-		public RootNamespaceAttributeWrapper(RootNamespaceAttribute rootNamespaceAttribute)
-		{
-			this.RootNamespaceAttribute = rootNamespaceAttribute ?? throw new ArgumentNullException(nameof(rootNamespaceAttribute));
-		}
-
-		#endregion
-
 		#region Properties
 
 		public virtual string Name => this.RootNamespaceAttribute.RootNamespace;
-		protected internal virtual RootNamespaceAttribute RootNamespaceAttribute { get; }
+		protected internal virtual RootNamespaceAttribute RootNamespaceAttribute { get; } = rootNamespaceAttribute ?? throw new ArgumentNullException(nameof(rootNamespaceAttribute));
 
 		#endregion
 

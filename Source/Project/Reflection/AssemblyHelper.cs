@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyModel;
 
 namespace RegionOrebroLan.Localization.Reflection
 {
-	public class AssemblyHelper : IAssemblyHelper
+	public class AssemblyHelper(IRootNamespaceResolver rootNamespaceResolver) : IAssemblyHelper
 	{
 		#region Fields
 
@@ -18,19 +18,10 @@ namespace RegionOrebroLan.Localization.Reflection
 
 		#endregion
 
-		#region Constructors
-
-		public AssemblyHelper(IRootNamespaceResolver rootNamespaceResolver)
-		{
-			this.RootNamespaceResolver = rootNamespaceResolver ?? throw new ArgumentNullException(nameof(rootNamespaceResolver));
-		}
-
-		#endregion
-
 		#region Properties
 
 		public virtual IAssembly ApplicationAssembly => this.Wrap(Assembly.GetEntryAssembly());
-		protected internal virtual IRootNamespaceResolver RootNamespaceResolver { get; }
+		protected internal virtual IRootNamespaceResolver RootNamespaceResolver { get; } = rootNamespaceResolver ?? throw new ArgumentNullException(nameof(rootNamespaceResolver));
 
 		public virtual IEnumerable<IAssembly> RuntimeAssemblies
 		{

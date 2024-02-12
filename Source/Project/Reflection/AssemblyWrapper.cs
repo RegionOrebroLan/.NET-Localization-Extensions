@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace RegionOrebroLan.Localization.Reflection
 {
-	public class AssemblyWrapper : IAssembly
+	public class AssemblyWrapper(Assembly assembly, IAssembly mainAssembly, IRootNamespaceResolver rootNamespaceResolver) : IAssembly
 	{
 		#region Fields
 
@@ -21,18 +21,11 @@ namespace RegionOrebroLan.Localization.Reflection
 
 		public AssemblyWrapper(Assembly assembly, IRootNamespaceResolver rootNamespaceResolver) : this(assembly, null, rootNamespaceResolver) { }
 
-		public AssemblyWrapper(Assembly assembly, IAssembly mainAssembly, IRootNamespaceResolver rootNamespaceResolver)
-		{
-			this.Assembly = assembly ?? throw new ArgumentNullException(nameof(assembly));
-			this.MainAssembly = mainAssembly;
-			this.RootNamespaceResolver = rootNamespaceResolver ?? throw new ArgumentNullException(nameof(rootNamespaceResolver));
-		}
-
 		#endregion
 
 		#region Properties
 
-		protected internal virtual Assembly Assembly { get; }
+		protected internal virtual Assembly Assembly { get; } = assembly ?? throw new ArgumentNullException(nameof(assembly));
 
 		public virtual CultureInfo Culture
 		{
@@ -47,7 +40,7 @@ namespace RegionOrebroLan.Localization.Reflection
 		public virtual string FullName => this.Assembly.FullName;
 		public virtual bool IsSatelliteAssembly => this.MainAssembly != null;
 		public virtual string Location => this.Assembly.Location;
-		protected internal virtual IAssembly MainAssembly { get; }
+		protected internal virtual IAssembly MainAssembly { get; } = mainAssembly;
 
 		public virtual string Name
 		{
@@ -74,7 +67,7 @@ namespace RegionOrebroLan.Localization.Reflection
 			}
 		}
 
-		protected internal virtual IRootNamespaceResolver RootNamespaceResolver { get; }
+		protected internal virtual IRootNamespaceResolver RootNamespaceResolver { get; } = rootNamespaceResolver ?? throw new ArgumentNullException(nameof(rootNamespaceResolver));
 
 		#endregion
 

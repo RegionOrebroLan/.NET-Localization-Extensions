@@ -9,28 +9,15 @@ using RegionOrebroLan.Localization.Validation;
 
 namespace RegionOrebroLan.Localization.Configuration
 {
-	public class LocalizationOptionsResolver : ILocalizationOptionsResolver
+	public class LocalizationOptionsResolver(IAssemblyHelper assemblyHelper, IEmbeddedResourceAssembliesValidator embeddedResourceAssembliesValidator, IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, IFileSystem fileSystem, IHostEnvironment hostEnvironment) : ILocalizationOptionsResolver
 	{
-		#region Constructors
-
-		public LocalizationOptionsResolver(IAssemblyHelper assemblyHelper, IEmbeddedResourceAssembliesValidator embeddedResourceAssembliesValidator, IFileResourcesDirectoryValidator fileResourcesDirectoryValidator, IFileSystem fileSystem, IHostEnvironment hostEnvironment)
-		{
-			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
-			this.EmbeddedResourceAssembliesValidator = embeddedResourceAssembliesValidator ?? throw new ArgumentNullException(nameof(embeddedResourceAssembliesValidator));
-			this.FileResourcesDirectoryValidator = fileResourcesDirectoryValidator ?? throw new ArgumentNullException(nameof(fileResourcesDirectoryValidator));
-			this.FileSystem = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
-			this.HostEnvironment = hostEnvironment ?? throw new ArgumentNullException(nameof(hostEnvironment));
-		}
-
-		#endregion
-
 		#region Properties
 
-		protected internal virtual IAssemblyHelper AssemblyHelper { get; }
-		protected internal virtual IEmbeddedResourceAssembliesValidator EmbeddedResourceAssembliesValidator { get; }
-		protected internal virtual IFileResourcesDirectoryValidator FileResourcesDirectoryValidator { get; }
-		protected internal virtual IFileSystem FileSystem { get; }
-		protected internal virtual IHostEnvironment HostEnvironment { get; }
+		protected internal virtual IAssemblyHelper AssemblyHelper { get; } = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
+		protected internal virtual IEmbeddedResourceAssembliesValidator EmbeddedResourceAssembliesValidator { get; } = embeddedResourceAssembliesValidator ?? throw new ArgumentNullException(nameof(embeddedResourceAssembliesValidator));
+		protected internal virtual IFileResourcesDirectoryValidator FileResourcesDirectoryValidator { get; } = fileResourcesDirectoryValidator ?? throw new ArgumentNullException(nameof(fileResourcesDirectoryValidator));
+		protected internal virtual IFileSystem FileSystem { get; } = fileSystem ?? throw new ArgumentNullException(nameof(fileSystem));
+		protected internal virtual IHostEnvironment HostEnvironment { get; } = hostEnvironment ?? throw new ArgumentNullException(nameof(hostEnvironment));
 
 		#endregion
 

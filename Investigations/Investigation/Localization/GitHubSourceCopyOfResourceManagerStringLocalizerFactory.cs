@@ -13,34 +13,13 @@ namespace Investigation.Localization
 	/// <summary>
 	/// https://github.com/aspnet/Localization/blob/master/src/Microsoft.Extensions.Localization/ResourceManagerStringLocalizerFactory.cs
 	/// </summary>
-	public class GitHubSourceCopyOfResourceManagerStringLocalizerFactory : IStringLocalizerFactory
+	public class GitHubSourceCopyOfResourceManagerStringLocalizerFactory(IOptions<LocalizationOptions> localizationOptions, ILoggerFactory loggerFactory) : IStringLocalizerFactory
 	{
-		#region Fields
-
-		private IOptions<LocalizationOptions> _localizationOptions;
-
-		#endregion
-
-		#region Constructors
-
-		public GitHubSourceCopyOfResourceManagerStringLocalizerFactory(IOptions<LocalizationOptions> localizationOptions, ILoggerFactory loggerFactory)
-		{
-			this._localizationOptions = localizationOptions ?? throw new ArgumentNullException(nameof(localizationOptions));
-			this.LoggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
-		}
-
-		#endregion
-
 		#region Properties
 
-		public virtual IOptions<LocalizationOptions> LocalizationOptions
-		{
-			get => this._localizationOptions;
-			set => this._localizationOptions = value;
-		}
-
-		public virtual ConcurrentDictionary<string, ResourceManagerStringLocalizer> LocalizerCache { get; } = new ConcurrentDictionary<string, ResourceManagerStringLocalizer>();
-		public virtual ILoggerFactory LoggerFactory { get; }
+		public virtual IOptions<LocalizationOptions> LocalizationOptions { get; set; } = localizationOptions ?? throw new ArgumentNullException(nameof(localizationOptions));
+		public virtual ConcurrentDictionary<string, ResourceManagerStringLocalizer> LocalizerCache { get; } = new();
+		public virtual ILoggerFactory LoggerFactory { get; } = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
 		public virtual IResourceNamesCache ResourceNamesCache { get; } = new ResourceNamesCache();
 
 		public virtual string ResourcesRelativePath

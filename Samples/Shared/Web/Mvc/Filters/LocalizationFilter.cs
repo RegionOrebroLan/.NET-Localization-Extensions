@@ -10,20 +10,11 @@ using Shared.Web.Routing;
 
 namespace Shared.Web.Mvc.Filters
 {
-	public class LocalizationFilter : IResourceFilter
+	public class LocalizationFilter(IOptions<RequestLocalizationOptions> options) : IResourceFilter
 	{
-		#region Constructors
-
-		public LocalizationFilter(IOptions<RequestLocalizationOptions> options)
-		{
-			this.Options = options ?? throw new ArgumentNullException(nameof(options));
-		}
-
-		#endregion
-
 		#region Properties
 
-		protected internal virtual IOptions<RequestLocalizationOptions> Options { get; }
+		protected internal virtual IOptions<RequestLocalizationOptions> Options { get; } = options ?? throw new ArgumentNullException(nameof(options));
 
 		#endregion
 

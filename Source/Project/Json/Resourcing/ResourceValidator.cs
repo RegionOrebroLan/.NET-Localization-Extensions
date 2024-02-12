@@ -1,21 +1,15 @@
-﻿using System;
+using System;
 using System.IO.Abstractions;
 using RegionOrebroLan.Localization.Reflection;
 using RegionOrebroLan.Localization.Resourcing;
 
 namespace RegionOrebroLan.Localization.Json.Resourcing
 {
-	public class ResourceValidator : BasicResourceValidator
+	public class ResourceValidator(IFileSystem fileSystem) : BasicResourceValidator(fileSystem)
 	{
 		#region Fields
 
 		private const string _validExtension = ".json";
-
-		#endregion
-
-		#region Constructors
-
-		public ResourceValidator(IFileSystem fileSystem) : base(fileSystem) { }
 
 		#endregion
 

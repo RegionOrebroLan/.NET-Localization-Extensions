@@ -3,20 +3,11 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Shared.Security.Cryptography
 {
-	public class X509Certificate2Wrapper : ICertificate
+	public class X509Certificate2Wrapper(X509Certificate2 certificate) : ICertificate
 	{
-		#region Constructors
-
-		public X509Certificate2Wrapper(X509Certificate2 certificate)
-		{
-			this.Certificate = certificate ?? throw new ArgumentNullException(nameof(certificate));
-		}
-
-		#endregion
-
 		#region Properties
 
-		protected internal virtual X509Certificate2 Certificate { get; }
+		protected internal virtual X509Certificate2 Certificate { get; } = certificate ?? throw new ArgumentNullException(nameof(certificate));
 		public virtual string FriendlyName => this.Certificate.FriendlyName;
 		public virtual string Issuer => this.Certificate.Issuer;
 		public virtual string SerialNumber => this.Certificate.SerialNumber;

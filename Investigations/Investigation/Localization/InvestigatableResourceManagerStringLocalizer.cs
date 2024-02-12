@@ -10,14 +10,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Investigation.Localization
 {
-	public class InvestigatableResourceManagerStringLocalizer : ResourceManagerStringLocalizer
+	public class InvestigatableResourceManagerStringLocalizer(ResourceManager resourceManager, Assembly resourceAssembly, string baseName, IResourceNamesCache resourceNamesCache, ILogger logger) : ResourceManagerStringLocalizer(resourceManager, resourceAssembly, baseName, resourceNamesCache, logger)
 	{
-		#region Constructors
-
-		public InvestigatableResourceManagerStringLocalizer(ResourceManager resourceManager, Assembly resourceAssembly, string baseName, IResourceNamesCache resourceNamesCache, ILogger logger) : base(resourceManager, resourceAssembly, baseName, resourceNamesCache, logger) { }
-
-		#endregion
-
 		#region Properties
 
 		public override LocalizedString this[string name, params object[] arguments]

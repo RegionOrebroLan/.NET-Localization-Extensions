@@ -5,14 +5,8 @@ using Microsoft.Extensions.Options;
 
 namespace Shared.Web.Routing
 {
-	public class UiCultureRouteConstraint : LocalizationRouteConstraint
+	public class UiCultureRouteConstraint(IOptions<RequestLocalizationOptions> options) : LocalizationRouteConstraint(options, RouteKeys.UiCulture)
 	{
-		#region Constructors
-
-		public UiCultureRouteConstraint(IOptions<RequestLocalizationOptions> options) : base(options, RouteKeys.UiCulture) { }
-
-		#endregion
-
 		#region Properties
 
 		protected internal override IEnumerable<CultureInfo> SupportedCultures => this.Options.Value.SupportedUICultures;

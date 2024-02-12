@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Abstractions;
@@ -7,20 +7,11 @@ using RegionOrebroLan.Localization.Serialization;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {
-	public class FileResource : BasicResource, IFileResource
+	public class FileResource(IAssembly assembly, IFileInfo file, ILocalizationParser parser) : BasicResource(assembly, parser), IFileResource
 	{
-		#region Constructors
-
-		public FileResource(IAssembly assembly, IFileInfo file, ILocalizationParser parser) : base(assembly, parser)
-		{
-			this.File = file ?? throw new ArgumentNullException(nameof(file));
-		}
-
-		#endregion
-
 		#region Properties
 
-		public virtual IFileInfo File { get; }
+		public virtual IFileInfo File { get; } = file ?? throw new ArgumentNullException(nameof(file));
 		public virtual string Path => this.File.FullName;
 
 		#endregion

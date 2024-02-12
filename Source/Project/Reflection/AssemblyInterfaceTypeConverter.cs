@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace RegionOrebroLan.Localization.Reflection
 {
-	public class AssemblyInterfaceTypeConverter : TypeConverter
+	public class AssemblyInterfaceTypeConverter(IAssemblyHelper assemblyHelper) : TypeConverter
 	{
 		#region Fields
 
@@ -18,16 +18,11 @@ namespace RegionOrebroLan.Localization.Reflection
 
 		public AssemblyInterfaceTypeConverter() : this(_assemblyHelper) { }
 
-		public AssemblyInterfaceTypeConverter(IAssemblyHelper assemblyHelper)
-		{
-			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
-		}
-
 		#endregion
 
 		#region Properties
 
-		protected internal virtual IAssemblyHelper AssemblyHelper { get; }
+		protected internal virtual IAssemblyHelper AssemblyHelper { get; } = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
 
 		#endregion
 

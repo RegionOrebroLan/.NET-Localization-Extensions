@@ -1,21 +1,12 @@
-﻿using System;
+using System;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {
-	public class FileResourceChangedEventArgs : EventArgs
+	public class FileResourceChangedEventArgs(string path) : EventArgs
 	{
-		#region Constructors
-
-		public FileResourceChangedEventArgs(string path)
-		{
-			this.Path = path;
-		}
-
-		#endregion
-
 		#region Properties
 
-		public virtual string Path { get; }
+		public virtual string Path { get; } = path;
 
 		#endregion
 	}

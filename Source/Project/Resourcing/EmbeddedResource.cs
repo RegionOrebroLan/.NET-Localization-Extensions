@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using RegionOrebroLan.Localization.Reflection;
@@ -6,20 +6,11 @@ using RegionOrebroLan.Localization.Serialization;
 
 namespace RegionOrebroLan.Localization.Resourcing
 {
-	public class EmbeddedResource : BasicResource, IEmbeddedResource
+	public class EmbeddedResource(IAssembly assembly, string name, ILocalizationParser parser) : BasicResource(assembly, parser), IEmbeddedResource
 	{
-		#region Constructors
-
-		public EmbeddedResource(IAssembly assembly, string name, ILocalizationParser parser) : base(assembly, parser)
-		{
-			this.Name = name ?? throw new ArgumentNullException(nameof(name));
-		}
-
-		#endregion
-
 		#region Properties
 
-		public virtual string Name { get; }
+		public virtual string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
 
 		#endregion
 

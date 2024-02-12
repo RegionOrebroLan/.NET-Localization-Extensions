@@ -6,7 +6,7 @@ using RegionOrebroLan.Localization.Reflection;
 
 namespace RegionOrebroLan.Localization
 {
-	public class StringLocalizerFactory : IStringLocalizerFactory
+	public class StringLocalizerFactory(IAssemblyHelper assemblyHelper, ILocalizationProvider localizationProvider, ILoggerFactory loggerFactory) : IStringLocalizerFactory
 	{
 		#region Fields
 
@@ -14,23 +14,12 @@ namespace RegionOrebroLan.Localization
 
 		#endregion
 
-		#region Constructors
-
-		public StringLocalizerFactory(IAssemblyHelper assemblyHelper, ILocalizationProvider localizationProvider, ILoggerFactory loggerFactory)
-		{
-			this.AssemblyHelper = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
-			this.LocalizationProvider = localizationProvider ?? throw new ArgumentNullException(nameof(localizationProvider));
-			this.LoggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
-		}
-
-		#endregion
-
 		#region Properties
 
-		protected internal virtual IAssemblyHelper AssemblyHelper { get; }
+		protected internal virtual IAssemblyHelper AssemblyHelper { get; } = assemblyHelper ?? throw new ArgumentNullException(nameof(assemblyHelper));
 		protected internal virtual string CacheKeyNullValue => _cacheKeyNullValue;
-		protected internal virtual ILocalizationProvider LocalizationProvider { get; }
-		protected internal virtual ILoggerFactory LoggerFactory { get; }
+		protected internal virtual ILocalizationProvider LocalizationProvider { get; } = localizationProvider ?? throw new ArgumentNullException(nameof(localizationProvider));
+		protected internal virtual ILoggerFactory LoggerFactory { get; } = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
 
 		[CLSCompliant(false)]
 		protected internal virtual ConcurrentDictionary<string, IStringLocalizer> StringLocalizerInstanceCache { get; } = new ConcurrentDictionary<string, IStringLocalizer>(StringComparer.OrdinalIgnoreCase);

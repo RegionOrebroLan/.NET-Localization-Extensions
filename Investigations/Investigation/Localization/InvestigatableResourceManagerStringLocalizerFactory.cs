@@ -8,14 +8,8 @@ using Microsoft.Extensions.Options;
 
 namespace Investigation.Localization
 {
-	public class InvestigatableResourceManagerStringLocalizerFactory : ResourceManagerStringLocalizerFactory
+	public class InvestigatableResourceManagerStringLocalizerFactory(IOptions<LocalizationOptions> localizationOptions, ILoggerFactory loggerFactory) : ResourceManagerStringLocalizerFactory(localizationOptions, loggerFactory)
 	{
-		#region Constructors
-
-		public InvestigatableResourceManagerStringLocalizerFactory(IOptions<LocalizationOptions> localizationOptions, ILoggerFactory loggerFactory) : base(localizationOptions, loggerFactory) { }
-
-		#endregion
-
 		#region Properties
 
 		public virtual ConcurrentDictionary<string, ResourceManagerStringLocalizer> LocalizerCache

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.IO.Abstractions;
 using System.Xml;
@@ -7,14 +7,8 @@ using RegionOrebroLan.Localization.Resourcing;
 
 namespace RegionOrebroLan.Localization.Xml.Resourcing
 {
-	public class ResourceValidator : BasicResourceValidator
+	public class ResourceValidator(IFileSystem fileSystem) : BasicResourceValidator(fileSystem)
 	{
-		#region Constructors
-
-		public ResourceValidator(IFileSystem fileSystem) : base(fileSystem) { }
-
-		#endregion
-
 		#region Methods
 
 		protected internal override bool IsValidEmbeddedResourceInternal(IAssembly assembly, string name)

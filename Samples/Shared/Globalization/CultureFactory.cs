@@ -7,20 +7,11 @@ using Shared.Globalization.Configuration;
 
 namespace Shared.Globalization
 {
-	public class CultureFactory : ICultureFactory
+	public class CultureFactory(IDictionary<string, CustomCultureOptions> customCultures) : ICultureFactory
 	{
-		#region Constructors
-
-		public CultureFactory(IDictionary<string, CustomCultureOptions> customCultures)
-		{
-			this.CustomCultures = customCultures ?? throw new ArgumentNullException(nameof(customCultures));
-		}
-
-		#endregion
-
 		#region Properties
 
-		protected internal virtual IDictionary<string, CustomCultureOptions> CustomCultures { get; }
+		protected internal virtual IDictionary<string, CustomCultureOptions> CustomCultures { get; } = customCultures ?? throw new ArgumentNullException(nameof(customCultures));
 
 		#endregion
 
